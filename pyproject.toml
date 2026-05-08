@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "critcom-promptopinion"
+version = "0.2.0"
+description = "CritCom — FHIR-only critical results communication agent for Prompt Opinion"
+requires-python = ">=3.11"
+dependencies = []   # see requirements.txt
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
