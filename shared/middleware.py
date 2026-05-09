@@ -133,7 +133,7 @@ class AgentCardPatchMiddleware(BaseHTTPMiddleware):
             if not any(e.get("uri") == self.fhir_extension_uri for e in existing):
                 existing.append({
                     "uri": self.fhir_extension_uri,
-                    "required": False,
+                    "required": True,
                     "description": "Prompt Opinion FHIR context: receives patient FHIR base URL + bearer token at runtime.",
                 })
                 card["extensions"] = existing
