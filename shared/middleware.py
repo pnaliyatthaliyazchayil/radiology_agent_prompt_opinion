@@ -17,6 +17,32 @@ from starlette.responses import JSONResponse, Response
 
 AGENT_CARD_PATH = "/.well-known/agent-card.json"
 
+
+class RootGetServesCardMiddleware:
+    """Pure-ASGI middleware: rewrite GET / to GET /.well-known/agent-card.json.
+
+    Why: A2A's transport is JSON-RPC (POST) at the root URL, so the agent's
+    root has no GET handler and returns 405. Some clients (Prompt Opinion
+    included) probe the URL with GET first. Rewriting the path makes the
+    agent card serve as the response, satisfying both probes and discovery.
+    """
+
+    def __init__(self, app) -> None:
+        self.app = app
+
+    async def __call__(self, scope, receive, send):
+        if (
+            scope.get("type") == "http"
+            and scope.get("method") == "GET"
+            and scope.get("path") in ("/", "")
+        ):
+            scope = {
+                **scope,
+                "path": AGENT_CARD_PATH,
+                "raw_path": AGENT_CARD_PATH.encode(),
+            }
+        await self.app(scope, receive, send)
+
 logger = logging.getLogger(__name__)
 
 # Override in production via env vars or a secrets manager

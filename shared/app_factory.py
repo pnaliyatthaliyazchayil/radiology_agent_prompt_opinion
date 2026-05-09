@@ -11,7 +11,11 @@ import logging
 from typing import Any
 from urllib.parse import urlparse
 
-from shared.middleware import AgentCardPatchMiddleware, ApiKeyMiddleware
+from shared.middleware import (
+    AgentCardPatchMiddleware,
+    ApiKeyMiddleware,
+    RootGetServesCardMiddleware,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -63,6 +67,7 @@ def create_a2a_app(
     app = to_a2a(agent, host=host, port=port, agent_card=agent_card)
     app.add_middleware(AgentCardPatchMiddleware, fhir_extension_uri=fhir_extension_uri)
     app.add_middleware(ApiKeyMiddleware, require_api_key=require_api_key)
+    app.add_middleware(RootGetServesCardMiddleware)
     return app
 
 
