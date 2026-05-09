@@ -15,6 +15,8 @@ from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.requests import Request
 from starlette.responses import JSONResponse, Response
 
+AGENT_CARD_PATH = "/.well-known/agent-card.json"
+
 logger = logging.getLogger(__name__)
 
 # Override in production via env vars or a secrets manager
@@ -34,7 +36,7 @@ class ApiKeyMiddleware(BaseHTTPMiddleware):
 
     async def dispatch(self, request: Request, call_next):  # type: ignore[override]
         # Always allow agent-card.json
-        if request.url.path.endswith("/.well-known/agent-card.json"):
+        if request.url.path.endswith(AGENT_CARD_PATH):
             return await call_next(request)
 
         if request.method != "POST":
@@ -70,3 +72,50 @@ class ApiKeyMiddleware(BaseHTTPMiddleware):
             logger.debug("middleware_metadata_bridge_skipped error=%s", e)
 
         return await call_next(request)
+
+
+class AgentCardPatchMiddleware(BaseHTTPMiddleware):
+    """Inject `supportedInterfaces` into the agent card.
+
+    Why: Prompt Opinion's A2A parser requires this field. The version of
+    google-adk we use only emits `url` + `preferredTransport`, so we synthesize
+    the array here from those + any `additionalInterfaces` the card already has.
+    """
+
+    async def dispatch(self, request: Request, call_next):  # type: ignore[override]
+        if not (request.method == "GET" and request.url.path.endswith(AGENT_CARD_PATH)):
+            return await call_next(request)
+
+        response = await call_next(request)
+        if response.status_code != 200:
+            return response
+
+        body = b"".join([chunk async for chunk in response.body_iterator])
+        try:
+            card = json.loads(body)
+        except json.JSONDecodeError:
+            return Response(
+                content=body,
+                status_code=response.status_code,
+                headers={k: v for k, v in response.headers.items() if k.lower() != "content-length"},
+                media_type=response.media_type,
+            )
+
+        if "supportedInterfaces" not in card:
+            interfaces: list[dict[str, str]] = []
+            primary_url = card.get("url")
+            primary_transport = card.get("preferredTransport") or "JSONRPC"
+            if primary_url:
+                interfaces.append({"url": primary_url, "transport": primary_transport})
+            for extra in card.get("additionalInterfaces") or []:
+                interfaces.append(extra)
+            card["supportedInterfaces"] = interfaces
+
+        new_body = json.dumps(card).encode()
+        headers = {k: v for k, v in response.headers.items() if k.lower() != "content-length"}
+        return Response(
+            content=new_body,
+            status_code=response.status_code,
+            headers=headers,
+            media_type="application/json",
+        )
