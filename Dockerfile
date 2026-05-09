@@ -7,6 +7,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Install the critcom package from src/
+COPY pyproject.toml .
 COPY src/ src/
 RUN pip install --no-cache-dir -e .
 
