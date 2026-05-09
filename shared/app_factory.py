@@ -88,7 +88,9 @@ def _stub_app(name, description, url, version, fhir_extension_uri, require_api_k
             }
             card["security"] = [{"ApiKeyAuth": []}]
         if fhir_extension_uri:
-            card["extensions"] = [{"uri": fhir_extension_uri, "required": False}]
+            card["capabilities"]["extensions"] = [
+                {"uri": fhir_extension_uri, "required": True}
+            ]
         return JSONResponse(card)
 
     async def post_handler(request):

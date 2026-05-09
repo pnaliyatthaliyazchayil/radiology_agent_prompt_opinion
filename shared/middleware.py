@@ -129,14 +129,18 @@ class AgentCardPatchMiddleware(BaseHTTPMiddleware):
             card["supportedInterfaces"] = [_enrich(i) for i in card["supportedInterfaces"]]
 
         if self.fhir_extension_uri:
-            existing = card.get("extensions") or []
+            capabilities = card.get("capabilities") or {}
+            existing = capabilities.get("extensions") or []
             if not any(e.get("uri") == self.fhir_extension_uri for e in existing):
                 existing.append({
                     "uri": self.fhir_extension_uri,
                     "required": True,
                     "description": "Prompt Opinion FHIR context: receives patient FHIR base URL + bearer token at runtime.",
                 })
-                card["extensions"] = existing
+                capabilities["extensions"] = existing
+                card["capabilities"] = capabilities
+            # Drop the (incorrect) top-level extensions array if any prior version wrote one
+            card.pop("extensions", None)
 
         new_body = json.dumps(card).encode()
         headers = {k: v for k, v in response.headers.items() if k.lower() != "content-length"}
