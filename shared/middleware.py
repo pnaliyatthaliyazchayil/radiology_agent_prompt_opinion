@@ -101,6 +101,17 @@ class AgentCardPatchMiddleware(BaseHTTPMiddleware):
                 media_type=response.media_type,
             )
 
+        protocol_version = card.get("protocolVersion") or "0.3.0"
+
+        def _enrich(iface: dict[str, str]) -> dict[str, str]:
+            transport = iface.get("transport") or "JSONRPC"
+            return {
+                "url": iface["url"],
+                "transport": transport,
+                "protocolBinding": iface.get("protocolBinding") or transport,
+                "protocolVersion": iface.get("protocolVersion") or protocol_version,
+            }
+
         if "supportedInterfaces" not in card:
             interfaces: list[dict[str, str]] = []
             primary_url = card.get("url")
@@ -109,7 +120,9 @@ class AgentCardPatchMiddleware(BaseHTTPMiddleware):
                 interfaces.append({"url": primary_url, "transport": primary_transport})
             for extra in card.get("additionalInterfaces") or []:
                 interfaces.append(extra)
-            card["supportedInterfaces"] = interfaces
+            card["supportedInterfaces"] = [_enrich(i) for i in interfaces]
+        else:
+            card["supportedInterfaces"] = [_enrich(i) for i in card["supportedInterfaces"]]
 
         new_body = json.dumps(card).encode()
         headers = {k: v for k, v in response.headers.items() if k.lower() != "content-length"}
