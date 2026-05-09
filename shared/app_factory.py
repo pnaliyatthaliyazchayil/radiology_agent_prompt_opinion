@@ -61,7 +61,7 @@ def create_a2a_app(
     agent_card = AgentCard(**card_data)
 
     app = to_a2a(agent, host=host, port=port, agent_card=agent_card)
-    app.add_middleware(AgentCardPatchMiddleware)
+    app.add_middleware(AgentCardPatchMiddleware, fhir_extension_uri=fhir_extension_uri)
     app.add_middleware(ApiKeyMiddleware, require_api_key=require_api_key)
     return app
 

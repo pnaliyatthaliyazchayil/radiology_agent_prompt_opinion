@@ -75,12 +75,16 @@ class ApiKeyMiddleware(BaseHTTPMiddleware):
 
 
 class AgentCardPatchMiddleware(BaseHTTPMiddleware):
-    """Inject `supportedInterfaces` into the agent card.
+    """Inject `supportedInterfaces` and `extensions` into the agent card.
 
-    Why: Prompt Opinion's A2A parser requires this field. The version of
-    google-adk we use only emits `url` + `preferredTransport`, so we synthesize
-    the array here from those + any `additionalInterfaces` the card already has.
+    Why: Prompt Opinion's A2A parser requires `supportedInterfaces`, and PO
+    only injects FHIR context for agents that declare the FHIR extension URI.
+    google-adk's AgentCard builder doesn't emit either, so we patch them in.
     """
+
+    def __init__(self, app, fhir_extension_uri: str | None = None) -> None:
+        super().__init__(app)
+        self.fhir_extension_uri = fhir_extension_uri
 
     async def dispatch(self, request: Request, call_next):  # type: ignore[override]
         if not (request.method == "GET" and request.url.path.endswith(AGENT_CARD_PATH)):
@@ -123,6 +127,16 @@ class AgentCardPatchMiddleware(BaseHTTPMiddleware):
             card["supportedInterfaces"] = [_enrich(i) for i in interfaces]
         else:
             card["supportedInterfaces"] = [_enrich(i) for i in card["supportedInterfaces"]]
+
+        if self.fhir_extension_uri:
+            existing = card.get("extensions") or []
+            if not any(e.get("uri") == self.fhir_extension_uri for e in existing):
+                existing.append({
+                    "uri": self.fhir_extension_uri,
+                    "required": False,
+                    "description": "Prompt Opinion FHIR context: receives patient FHIR base URL + bearer token at runtime.",
+                })
+                card["extensions"] = existing
 
         new_body = json.dumps(card).encode()
         headers = {k: v for k, v in response.headers.items() if k.lower() != "content-length"}
