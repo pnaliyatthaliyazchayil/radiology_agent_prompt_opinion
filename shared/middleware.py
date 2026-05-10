@@ -22,7 +22,11 @@ AGENT_CARD_PATH = "/.well-known/agent-card.json"
 # only knows the slash-style names, so we translate at the edge.
 METHOD_ALIASES: dict[str, str] = {
     "SendMessage": "message/send",
-    "SendStreamingMessage": "message/stream",
+    # Map streaming → sync internally. google-adk's SSE pipeline emits only the
+    # initial "submitted" status-update and never reaches "completed", which PO
+    # reads as "no task". We translate to sync, get the full Task, then wrap the
+    # JSON response in a single SSE event below so PO still sees text/event-stream.
+    "SendStreamingMessage": "message/send",
     "GetTask": "tasks/get",
     "CancelTask": "tasks/cancel",
     "SetTaskPushNotificationConfig": "tasks/pushNotificationConfig/set",
@@ -153,11 +157,13 @@ class ApiKeyMiddleware:
 
         # Parse, log, translate method, bridge metadata
         new_body = body_bytes
+        original_method: str | None = None
         try:
             if body_bytes:
                 data = json.loads(body_bytes)
                 if isinstance(data, dict):
                     rpc_method = data.get("method")
+                    original_method = rpc_method
                     params = data.get("params") or {}
                     rpc_msg = params.get("message") or {}
                     logger.info(
@@ -184,6 +190,11 @@ class ApiKeyMiddleware:
         except Exception as e:
             logger.warning("middleware_body_parse_skipped error=%s", e)
 
+        # If the client called a streaming method but we translated to sync,
+        # capture the JSON response and re-emit as a single SSE event so the
+        # client still sees text/event-stream framing.
+        wrap_as_sse = original_method == "SendStreamingMessage"
+
         # Replay body downstream
         sent = False
 
@@ -194,7 +205,44 @@ class ApiKeyMiddleware:
             sent = True
             return {"type": "http.request", "body": new_body, "more_body": False}
 
-        await self.app(scope, new_receive, send)
+        if not wrap_as_sse:
+            await self.app(scope, new_receive, send)
+            return
+
+        # SSE-wrap path: capture sync JSON response, re-emit as one SSE event.
+        captured_status = 200
+        captured_body = bytearray()
+        start_done = False
+
+        async def wrapping_send(message):
+            nonlocal captured_status, start_done
+            mtype = message.get("type")
+            if mtype == "http.response.start":
+                captured_status = message.get("status", 200)
+                # Swallow the original headers; we'll send our own SSE headers.
+            elif mtype == "http.response.body":
+                captured_body.extend(message.get("body") or b"")
+                if not message.get("more_body", False):
+                    if not start_done:
+                        sse_headers = [
+                            (b"content-type", b"text/event-stream; charset=utf-8"),
+                            (b"cache-control", b"no-store"),
+                            (b"x-original-method", b"SendStreamingMessage"),
+                        ]
+                        await send({
+                            "type": "http.response.start",
+                            "status": captured_status,
+                            "headers": sse_headers,
+                        })
+                        start_done = True
+                    sse_payload = b"data: " + bytes(captured_body) + b"\n\n"
+                    await send({
+                        "type": "http.response.body",
+                        "body": sse_payload,
+                        "more_body": False,
+                    })
+
+        await self.app(scope, new_receive, wrapping_send)
 
 
 async def _send_json(send, status: int, payload: dict) -> None:
