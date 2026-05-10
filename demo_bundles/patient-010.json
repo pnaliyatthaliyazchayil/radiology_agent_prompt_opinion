@@ -1,0 +1,312 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:bfcede46-fb4c-44b8-9bc5-9ee271225071",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-patient-010"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Richardson",
+            "given": [
+              "Amelia"
+            ]
+          }
+        ],
+        "birthDate": "1995-01-25",
+        "gender": "female",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-4010",
+            "use": "home"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-patient-010"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9e2df52c-582f-4d78-8452-168b30949180",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-010"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Khalid",
+            "given": [
+              "Omar"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-1110",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-2110",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "okhalid@campus-health.edu",
+            "use": "work"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-010"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dda91544-d7d1-451d-ba4f-2c3595309108",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:9e2df52c-582f-4d78-8452-168b30949180",
+          "display": "Dr. Omar Khalid"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "11911009",
+                "display": "Internist"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-2110",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-1110",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:daf496c8-05fd-46c6-abd7-31dbac2ef0d7",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-oncall"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Okafor",
+            "given": [
+              "James"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "jokafor@radiology-oncall.org",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-oncall"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3975505c-2515-46d1-92b6-7df59aee27ea",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:daf496c8-05fd-46c6-abd7-31dbac2ef0d7",
+          "display": "Dr. James Okafor"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
+                "code": "on-call",
+                "display": "On Call"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4e9926e9-e470-44c5-97da-c59eb500fa8b",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-sr-010"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24558-9",
+              "display": "US Abdomen"
+            }
+          ],
+          "text": "Ultrasound Right Upper Quadrant"
+        },
+        "subject": {
+          "reference": "urn:uuid:bfcede46-fb4c-44b8-9bc5-9ee271225071"
+        },
+        "requester": {
+          "reference": "urn:uuid:9e2df52c-582f-4d78-8452-168b30949180",
+          "display": "Dr. Omar Khalid"
+        },
+        "reasonCode": [
+          {
+            "text": "Intermittent right upper quadrant discomfort"
+          }
+        ],
+        "priority": "routine"
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-sr-010"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fb53f4e1-36de-4616-880a-f19ac397b89e",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-dr-010"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24558-9",
+              "display": "US Abdomen"
+            }
+          ],
+          "text": "Ultrasound Right Upper Quadrant"
+        },
+        "subject": {
+          "reference": "urn:uuid:bfcede46-fb4c-44b8-9bc5-9ee271225071"
+        },
+        "basedOn": [
+          {
+            "reference": "urn:uuid:4e9926e9-e470-44c5-97da-c59eb500fa8b"
+          }
+        ],
+        "performer": [
+          {
+            "reference": "urn:uuid:9e2df52c-582f-4d78-8452-168b30949180"
+          }
+        ],
+        "issued": "2026-05-08T10:00:00+00:00",
+        "effectiveDateTime": "2026-05-08T10:00:00+00:00",
+        "conclusion": "CLINICAL INDICATION: 30-year-old female with several months of intermittent right upper quadrant discomfort, worse after fatty meals.\n\nTECHNIQUE: Real-time ultrasound of the right upper quadrant.\n\nFINDINGS:\nGALLBLADDER: The gallbladder is well-visualized and contains multiple echogenic foci with posterior acoustic shadowing consistent with cholelithiasis. The largest calculus measures 8 mm. The gallbladder wall measures 2 mm in thickness. No pericholecystic fluid. Murphy sign negative on imaging.\n\nBILIARY: Common bile duct measures 3 mm in diameter, within normal limits. No intra- or extrahepatic biliary dilatation.\n\nLIVER: Normal size, echogenicity, and contour. No focal lesion.\n\nIMPRESSION:\n1. Cholelithiasis without sonographic evidence of acute cholecystitis.\n2. Symptoms are consistent with biliary colic. Surgery referral for elective cholecystectomy may be considered.\n3. No emergent intervention required."
+      },
+      "request": {
+        "method": "POST",
+        "url": "DiagnosticReport",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-010"
+      }
+    }
+  ]
+}

@@ -4,59 +4,30 @@ Generate 10 synthetic patient FHIR R4 bundles for CritCom demo.
 - No ACR category tag on any DiagnosticReport (LLM classifier does the work)
 - 5 Cat1 patients (immediate critical), 3 Cat2 (urgent), 2 Cat3 (routine)
 - Each bundle is self-contained: Patient, Practitioner, PractitionerRole,
-  ServiceRequest, DiagnosticReport
-- One shared on-call PractitionerRole included in every bundle for escalation
+  ServiceRequest, DiagnosticReport, plus an on-call Practitioner/Role
+- POST + urn:uuid transaction style (Synthea-compatible). The FHIR server
+  assigns IDs at import and rewrites cross-references automatically — required
+  for Prompt Opinion to import the bundle and link CritCom to the right patient.
 - Run: python generate_demo_bundles.py
   Output: demo_bundles/patient-001.json ... patient-010.json
 """
 
 import json
 import os
-from datetime import datetime, timezone
+import uuid
 
 OUT_DIR = "demo_bundles"
 os.makedirs(OUT_DIR, exist_ok=True)
 
 NOW = "2026-05-08T10:00:00+00:00"
 
-# ---------------------------------------------------------------------------
-# Shared on-call provider (same across all bundles — escalation target)
-# ---------------------------------------------------------------------------
-ONCALL_PRACTITIONER = {
-    "resourceType": "Practitioner",
-    "id": "practitioner-oncall",
-    "name": [{"use": "official", "family": "Okafor", "given": ["James"]}],
-    "telecom": [
-        {"system": "phone", "value": "317-555-9000", "use": "work"},
-        {"system": "pager", "value": "317-555-9001", "use": "work"},
-        {"system": "email", "value": "jokafor@radiology-oncall.org", "use": "work"},
-    ],
-}
+# Stable identifier system so re-imports are idempotent (HAPI ifNoneExist match).
+ID_SYS = "https://promptopinion.ai/critcom/demo"
 
-ONCALL_ROLE = {
-    "resourceType": "PractitionerRole",
-    "id": "role-oncall",
-    "active": True,
-    "practitioner": {
-        "reference": "Practitioner/practitioner-oncall",
-        "display": "Dr. James Okafor",
-    },
-    "code": [
-        {
-            "coding": [
-                {
-                    "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
-                    "code": "on-call",
-                    "display": "On Call",
-                }
-            ]
-        }
-    ],
-    "telecom": [
-        {"system": "pager", "value": "317-555-9001", "use": "work"},
-        {"system": "phone", "value": "317-555-9000", "use": "work"},
-    ],
-}
+
+def _u() -> str:
+    """Fresh urn:uuid: id."""
+    return f"urn:uuid:{uuid.uuid4()}"
 
 # ---------------------------------------------------------------------------
 # Patient data — (first, last, dob, gender)
@@ -337,15 +308,25 @@ PATIENTS = [
 
 def make_bundle(p: dict) -> dict:
     n = p["n"]
-    pid = f"patient-{n:03d}"
-    prac_id = f"practitioner-{n:03d}"
-    role_id = f"role-{n:03d}"
-    sr_id = f"sr-{n:03d}"
-    dr_id = f"dr-{n:03d}"
+
+    # Per-bundle urn:uuid: refs — server assigns real IDs and rewrites these.
+    pat_u = _u()
+    prac_u = _u()
+    role_u = _u()
+    sr_u = _u()
+    dr_u = _u()
+    oncall_prac_u = _u()
+    oncall_role_u = _u()
+
+    # Stable demo identifiers so re-import upserts instead of duplicating.
+    pat_ident = f"critcom-patient-{n:03d}"
+    prac_ident = f"critcom-practitioner-{n:03d}"
+    sr_ident = f"critcom-sr-{n:03d}"
+    dr_ident = f"critcom-dr-{n:03d}"
 
     patient = {
         "resourceType": "Patient",
-        "id": pid,
+        "identifier": [{"system": ID_SYS, "value": pat_ident}],
         "name": [{"use": "official", "family": p["last"], "given": [p["first"]]}],
         "birthDate": p["dob"],
         "gender": p["gender"],
@@ -354,7 +335,7 @@ def make_bundle(p: dict) -> dict:
 
     practitioner = {
         "resourceType": "Practitioner",
-        "id": prac_id,
+        "identifier": [{"system": ID_SYS, "value": prac_ident}],
         "name": [{"use": "official", "family": p["doc_last"], "given": [p["doc_first"]]}],
         "telecom": [
             {"system": "phone", "value": p["doc_phone"], "use": "work"},
@@ -368,10 +349,9 @@ def make_bundle(p: dict) -> dict:
 
     role = {
         "resourceType": "PractitionerRole",
-        "id": role_id,
         "active": True,
         "practitioner": {
-            "reference": f"Practitioner/{prac_id}",
+            "reference": prac_u,
             "display": f"Dr. {p['doc_first']} {p['doc_last']}",
         },
         "code": [
@@ -393,7 +373,7 @@ def make_bundle(p: dict) -> dict:
 
     service_request = {
         "resourceType": "ServiceRequest",
-        "id": sr_id,
+        "identifier": [{"system": ID_SYS, "value": sr_ident}],
         "status": "active",
         "intent": "order",
         "code": {
@@ -406,9 +386,9 @@ def make_bundle(p: dict) -> dict:
             ],
             "text": p["study"],
         },
-        "subject": {"reference": f"Patient/{pid}"},
+        "subject": {"reference": pat_u},
         "requester": {
-            "reference": f"Practitioner/{prac_id}",
+            "reference": prac_u,
             "display": f"Dr. {p['doc_first']} {p['doc_last']}",
         },
         "reasonCode": [{"text": p["reason"]}],
@@ -417,8 +397,19 @@ def make_bundle(p: dict) -> dict:
 
     diagnostic_report = {
         "resourceType": "DiagnosticReport",
-        "id": dr_id,
+        "identifier": [{"system": ID_SYS, "value": dr_ident}],
         "status": "final",
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                        "code": "RAD",
+                        "display": "Radiology",
+                    }
+                ]
+            }
+        ],
         "code": {
             "coding": [
                 {
@@ -429,41 +420,72 @@ def make_bundle(p: dict) -> dict:
             ],
             "text": p["study"],
         },
-        "subject": {"reference": f"Patient/{pid}"},
-        "basedOn": [{"reference": f"ServiceRequest/{sr_id}"}],
-        "performer": [{"reference": f"Practitioner/{prac_id}"}],
+        "subject": {"reference": pat_u},
+        "basedOn": [{"reference": sr_u}],
+        "performer": [{"reference": prac_u}],
         "issued": NOW,
+        "effectiveDateTime": NOW,
         "conclusion": p["report"],
         # NOTE: No ACR extension — LLM classifier will infer the category
     }
 
-    entries = [
-        patient,
-        practitioner,
-        role,
-        ONCALL_PRACTITIONER,
-        ONCALL_ROLE,
-        service_request,
-        diagnostic_report,
-    ]
-
-    bundle = {
-        "resourceType": "Bundle",
-        "id": f"bundle-patient-{n:03d}",
-        "type": "transaction",
-        "entry": [
-            {
-                "fullUrl": f"urn:uuid:{r['id']}",
-                "resource": r,
-                "request": {
-                    "method": "PUT",
-                    "url": f"{r['resourceType']}/{r['id']}",
-                },
-            }
-            for r in entries
+    oncall_practitioner = {
+        "resourceType": "Practitioner",
+        "identifier": [{"system": ID_SYS, "value": "critcom-practitioner-oncall"}],
+        "name": [{"use": "official", "family": "Okafor", "given": ["James"]}],
+        "telecom": [
+            {"system": "phone", "value": "317-555-9000", "use": "work"},
+            {"system": "pager", "value": "317-555-9001", "use": "work"},
+            {"system": "email", "value": "jokafor@radiology-oncall.org", "use": "work"},
         ],
     }
-    return bundle
+    oncall_role = {
+        "resourceType": "PractitionerRole",
+        "active": True,
+        "practitioner": {
+            "reference": oncall_prac_u,
+            "display": "Dr. James Okafor",
+        },
+        "code": [
+            {
+                "coding": [
+                    {
+                        "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
+                        "code": "on-call",
+                        "display": "On Call",
+                    }
+                ]
+            }
+        ],
+        "telecom": [
+            {"system": "pager", "value": "317-555-9001", "use": "work"},
+            {"system": "phone", "value": "317-555-9000", "use": "work"},
+        ],
+    }
+
+    # (urn, resource, ifNoneExist-query-or-None)
+    items = [
+        (pat_u, patient, f"identifier={ID_SYS}|{pat_ident}"),
+        (prac_u, practitioner, f"identifier={ID_SYS}|{prac_ident}"),
+        (role_u, role, None),
+        (oncall_prac_u, oncall_practitioner, f"identifier={ID_SYS}|critcom-practitioner-oncall"),
+        (oncall_role_u, oncall_role, None),
+        (sr_u, service_request, f"identifier={ID_SYS}|{sr_ident}"),
+        (dr_u, diagnostic_report, f"identifier={ID_SYS}|{dr_ident}"),
+    ]
+
+    entries = []
+    for urn, resource, ine in items:
+        request = {"method": "POST", "url": resource["resourceType"]}
+        if ine:
+            request["ifNoneExist"] = ine
+        entries.append({"fullUrl": urn, "resource": resource, "request": request})
+
+    return {
+        "resourceType": "Bundle",
+        "type": "transaction",
+        "entry": entries,
+    }
 
 
 # ---------------------------------------------------------------------------

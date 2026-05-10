@@ -1,0 +1,19 @@
+# IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Local debug / scratch
+sample jsons/
+*.png
+*.jpg
+*.jpeg
+
+# Env
+.env

@@ -1,0 +1,312 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:0560735e-7e3e-40d0-8640-75e453ed8568",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-patient-001"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Simmons",
+            "given": [
+              "Harold"
+            ]
+          }
+        ],
+        "birthDate": "1958-03-14",
+        "gender": "male",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-4001",
+            "use": "home"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-patient-001"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:607ebaca-5b43-4a52-9edf-15ec1bca3047",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-001"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Patel",
+            "given": [
+              "Sarah"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-1101",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-2101",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "spatel@metro-hospital.org",
+            "use": "work"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-001"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e313bf08-5f71-4672-b7ca-c9ff6f2df50e",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:607ebaca-5b43-4a52-9edf-15ec1bca3047",
+          "display": "Dr. Sarah Patel"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "11911009",
+                "display": "Internist"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-2101",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-1101",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a5608bec-8640-4f45-9c09-f151262f9faa",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-oncall"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Okafor",
+            "given": [
+              "James"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "jokafor@radiology-oncall.org",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-oncall"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9b87f822-5488-46c4-a70d-302312549086",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:a5608bec-8640-4f45-9c09-f151262f9faa",
+          "display": "Dr. James Okafor"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
+                "code": "on-call",
+                "display": "On Call"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:05a9f024-b3c7-41d3-ab66-35cffcdbeffc",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-sr-001"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24627-2",
+              "display": "CT Chest"
+            }
+          ],
+          "text": "CT Chest without contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:0560735e-7e3e-40d0-8640-75e453ed8568"
+        },
+        "requester": {
+          "reference": "urn:uuid:607ebaca-5b43-4a52-9edf-15ec1bca3047",
+          "display": "Dr. Sarah Patel"
+        },
+        "reasonCode": [
+          {
+            "text": "Sudden onset dyspnea and hypoxia"
+          }
+        ],
+        "priority": "stat"
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-sr-001"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ced2e881-c20b-4edd-9102-23f8a3f67540",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-dr-001"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24627-2",
+              "display": "CT Chest"
+            }
+          ],
+          "text": "CT Chest without contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:0560735e-7e3e-40d0-8640-75e453ed8568"
+        },
+        "basedOn": [
+          {
+            "reference": "urn:uuid:05a9f024-b3c7-41d3-ab66-35cffcdbeffc"
+          }
+        ],
+        "performer": [
+          {
+            "reference": "urn:uuid:607ebaca-5b43-4a52-9edf-15ec1bca3047"
+          }
+        ],
+        "issued": "2026-05-08T10:00:00+00:00",
+        "effectiveDateTime": "2026-05-08T10:00:00+00:00",
+        "conclusion": "CLINICAL INDICATION: 67-year-old male with sudden onset severe dyspnea, oxygen saturation 82% on room air, tracheal deviation noted on exam.\n\nTECHNIQUE: CT of the chest without intravenous contrast.\n\nFINDINGS:\nPLEURAL SPACE: There is a large right-sided pneumothorax occupying approximately 65% of the right hemithorax. The right lung is collapsed to the hilum. The mediastinum is shifted significantly to the left. The trachea deviates leftward at the level of the carina. The right hemidiaphragm is depressed. There is no left-sided pleural effusion or pneumothorax.\n\nHEART: The cardiac silhouette appears compressed. The superior vena cava is narrow, consistent with decreased venous return.\n\nLUNGS: Left lung is hyperinflated and clear. No consolidation.\n\nIMPRESSION:\n1. Large right-sided tension pneumothorax with mediastinal shift and tracheal deviation. Immediate chest tube decompression is required.\n2. Left lung clear."
+      },
+      "request": {
+        "method": "POST",
+        "url": "DiagnosticReport",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-001"
+      }
+    }
+  ]
+}

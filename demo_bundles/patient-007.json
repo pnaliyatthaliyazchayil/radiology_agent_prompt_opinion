@@ -1,0 +1,312 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:b4cff32d-c802-4414-ada3-1474f9075eb1",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-patient-007"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Okonkwo",
+            "given": [
+              "James"
+            ]
+          }
+        ],
+        "birthDate": "1968-04-03",
+        "gender": "male",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-4007",
+            "use": "home"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-patient-007"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f989966f-f943-495c-81bb-bc4d1999008d",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-007"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Huang",
+            "given": [
+              "Rebecca"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-1107",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-2107",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "rhuang@eastside-clinic.org",
+            "use": "work"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-007"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:57d5effe-700c-434c-885c-3112f60db416",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:f989966f-f943-495c-81bb-bc4d1999008d",
+          "display": "Dr. Rebecca Huang"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "11911009",
+                "display": "Internist"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-2107",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-1107",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:153ecd2b-f8b4-432b-ae29-22f0adcaddfa",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-oncall"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Okafor",
+            "given": [
+              "James"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "jokafor@radiology-oncall.org",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-oncall"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3291b389-1af4-4ce5-92eb-5a38e729c3ca",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:153ecd2b-f8b4-432b-ae29-22f0adcaddfa",
+          "display": "Dr. James Okafor"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
+                "code": "on-call",
+                "display": "On Call"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:aa1ec40d-fb51-487d-8b95-821ed41cc8c6",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-sr-007"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24627-2",
+              "display": "CT Chest"
+            }
+          ],
+          "text": "CT Chest with contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:b4cff32d-c802-4414-ada3-1474f9075eb1"
+        },
+        "requester": {
+          "reference": "urn:uuid:f989966f-f943-495c-81bb-bc4d1999008d",
+          "display": "Dr. Rebecca Huang"
+        },
+        "reasonCode": [
+          {
+            "text": "Incidental finding on routine chest CT"
+          }
+        ],
+        "priority": "routine"
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-sr-007"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:55455ca4-16ac-41fe-a24b-ef53aa51fdda",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-dr-007"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24627-2",
+              "display": "CT Chest"
+            }
+          ],
+          "text": "CT Chest with contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:b4cff32d-c802-4414-ada3-1474f9075eb1"
+        },
+        "basedOn": [
+          {
+            "reference": "urn:uuid:aa1ec40d-fb51-487d-8b95-821ed41cc8c6"
+          }
+        ],
+        "performer": [
+          {
+            "reference": "urn:uuid:f989966f-f943-495c-81bb-bc4d1999008d"
+          }
+        ],
+        "issued": "2026-05-08T10:00:00+00:00",
+        "effectiveDateTime": "2026-05-08T10:00:00+00:00",
+        "conclusion": "CLINICAL INDICATION: 57-year-old male, smoker, routine follow-up chest CT.\n\nTECHNIQUE: CT of the chest with intravenous contrast.\n\nFINDINGS:\nLUNGS: A spiculated right upper lobe nodule measuring 2.3 x 1.9 cm is identified in the right upper lobe, anterior segment. The nodule demonstrates irregular margins and pleural tethering. There is ipsilateral mediastinal lymphadenopathy with a right paratracheal node measuring 1.8 x 1.4 cm (short axis). No contralateral adenopathy. No pleural effusion.\n\nPRIOR IMAGING: No prior chest CT available for comparison.\n\nIMPRESSION:\n1. 2.3 cm spiculated right upper lobe nodule with ipsilateral mediastinal adenopathy \u2014 highly suspicious for primary lung malignancy. PET-CT and tissue sampling recommended within 24-48 hours.\n2. Findings represent at minimum stage IIA disease pending further workup."
+      },
+      "request": {
+        "method": "POST",
+        "url": "DiagnosticReport",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-007"
+      }
+    }
+  ]
+}

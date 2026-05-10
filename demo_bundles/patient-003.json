@@ -1,0 +1,312 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:5403787e-2f71-41a3-80c8-cecfa6728005",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-patient-003"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Nakamura",
+            "given": [
+              "David"
+            ]
+          }
+        ],
+        "birthDate": "1945-11-05",
+        "gender": "male",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-4003",
+            "use": "home"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-patient-003"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a7ed6e1c-c3cb-46ea-a074-5cdac77d4e6d",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-003"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Morrison",
+            "given": [
+              "Linda"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-1103",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-2103",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "lmorrison@regionalmc.org",
+            "use": "work"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-003"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5fee8d08-d2e3-4cd2-828c-7c408921cb11",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:a7ed6e1c-c3cb-46ea-a074-5cdac77d4e6d",
+          "display": "Dr. Linda Morrison"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "11911009",
+                "display": "Internist"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-2103",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-1103",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d8792e63-a61f-4e51-bc50-660dbc4784bd",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-oncall"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Okafor",
+            "given": [
+              "James"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "jokafor@radiology-oncall.org",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-oncall"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0f0623e1-72eb-4754-8845-99106806fc9f",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:d8792e63-a61f-4e51-bc50-660dbc4784bd",
+          "display": "Dr. James Okafor"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
+                "code": "on-call",
+                "display": "On Call"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bc963486-4a23-4920-ba4f-8d77dda87906",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-sr-003"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24627-2",
+              "display": "CT Chest"
+            }
+          ],
+          "text": "CT Chest/Abdomen/Pelvis with contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:5403787e-2f71-41a3-80c8-cecfa6728005"
+        },
+        "requester": {
+          "reference": "urn:uuid:a7ed6e1c-c3cb-46ea-a074-5cdac77d4e6d",
+          "display": "Dr. Linda Morrison"
+        },
+        "reasonCode": [
+          {
+            "text": "Tearing chest pain radiating to back"
+          }
+        ],
+        "priority": "stat"
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-sr-003"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:941abfe9-fe9e-44eb-850b-e5bd231044d2",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-dr-003"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24627-2",
+              "display": "CT Chest"
+            }
+          ],
+          "text": "CT Chest/Abdomen/Pelvis with contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:5403787e-2f71-41a3-80c8-cecfa6728005"
+        },
+        "basedOn": [
+          {
+            "reference": "urn:uuid:bc963486-4a23-4920-ba4f-8d77dda87906"
+          }
+        ],
+        "performer": [
+          {
+            "reference": "urn:uuid:a7ed6e1c-c3cb-46ea-a074-5cdac77d4e6d"
+          }
+        ],
+        "issued": "2026-05-08T10:00:00+00:00",
+        "effectiveDateTime": "2026-05-08T10:00:00+00:00",
+        "conclusion": "CLINICAL INDICATION: 80-year-old male with acute onset tearing chest pain radiating to the back, blood pressure differential between arms of 30 mmHg.\n\nTECHNIQUE: CT angiography of the chest, abdomen, and pelvis with IV contrast.\n\nFINDINGS:\nAORTA: An intimal flap is identified originating 1.2 cm above the sinotubular junction, extending inferiorly through the descending thoracic aorta to the level of the renal arteries. The true lumen is compressed. The false lumen demonstrates delayed enhancement. Maximum aortic diameter at the level of the arch is 5.4 cm. The coronary ostia arise from the true lumen. The celiac and superior mesenteric arteries arise from the true lumen.\n\nPERICARDIUM: Small pericardial effusion measuring up to 6 mm. No CT signs of tamponade.\n\nIMPRESSION:\n1. Type A aortic dissection involving the ascending aorta and extending to the renal arteries. This is a surgical emergency requiring emergent cardiothoracic surgical consultation.\n2. Small pericardial effusion \u2014 monitor for evolution to tamponade."
+      },
+      "request": {
+        "method": "POST",
+        "url": "DiagnosticReport",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-003"
+      }
+    }
+  ]
+}

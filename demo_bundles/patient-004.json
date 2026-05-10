@@ -1,0 +1,312 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:bbdc7726-c514-498d-9e8e-270c0c58ed15",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-patient-004"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Sharma",
+            "given": [
+              "Priya"
+            ]
+          }
+        ],
+        "birthDate": "1989-06-18",
+        "gender": "female",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-4004",
+            "use": "home"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-patient-004"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f0c7168d-2022-4f15-a7a2-455fb1f81be4",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-004"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Walsh",
+            "given": [
+              "Kevin"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-1104",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-2104",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "kwalsh@universityhospital.edu",
+            "use": "work"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-004"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:07aec0bf-e5f6-4cad-9e8d-990eb8ecfb0f",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:f0c7168d-2022-4f15-a7a2-455fb1f81be4",
+          "display": "Dr. Kevin Walsh"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "11911009",
+                "display": "Internist"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-2104",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-1104",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9368144c-1f44-441c-a8c9-8142fffb1f88",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-oncall"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Okafor",
+            "given": [
+              "James"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "jokafor@radiology-oncall.org",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-oncall"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:59367e5e-a35d-46f9-89f1-e6c21e900fd6",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:9368144c-1f44-441c-a8c9-8142fffb1f88",
+          "display": "Dr. James Okafor"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
+                "code": "on-call",
+                "display": "On Call"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dea94ff3-61e9-4f78-9037-2bd5033b35ee",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-sr-004"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24590-2",
+              "display": "MRI Brain"
+            }
+          ],
+          "text": "MRI Brain with and without contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:bbdc7726-c514-498d-9e8e-270c0c58ed15"
+        },
+        "requester": {
+          "reference": "urn:uuid:f0c7168d-2022-4f15-a7a2-455fb1f81be4",
+          "display": "Dr. Kevin Walsh"
+        },
+        "reasonCode": [
+          {
+            "text": "Acute onset left sided weakness and aphasia"
+          }
+        ],
+        "priority": "stat"
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-sr-004"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:280ec3e9-b29f-4f4f-81d9-cf62ae61355c",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-dr-004"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24590-2",
+              "display": "MRI Brain"
+            }
+          ],
+          "text": "MRI Brain with and without contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:bbdc7726-c514-498d-9e8e-270c0c58ed15"
+        },
+        "basedOn": [
+          {
+            "reference": "urn:uuid:dea94ff3-61e9-4f78-9037-2bd5033b35ee"
+          }
+        ],
+        "performer": [
+          {
+            "reference": "urn:uuid:f0c7168d-2022-4f15-a7a2-455fb1f81be4"
+          }
+        ],
+        "issued": "2026-05-08T10:00:00+00:00",
+        "effectiveDateTime": "2026-05-08T10:00:00+00:00",
+        "conclusion": "CLINICAL INDICATION: 36-year-old female with sudden onset left-sided hemiplegia and expressive aphasia. Last known well 45 minutes ago.\n\nTECHNIQUE: MRI of the brain with diffusion weighted imaging, FLAIR, T1, T2, and post-contrast T1 sequences.\n\nFINDINGS:\nDIFFUSION: Restricted diffusion is identified in the right MCA territory involving the right frontal and parietal lobes, right basal ganglia, and right insula. The involved area measures approximately 85 mL by ASPECTS scoring (ASPECTS 4). No hemorrhagic transformation.\n\nMRA: Occlusion of the right middle cerebral artery at the M1 segment. No flow-related enhancement distal to the occlusion.\n\nIMPRESSION:\n1. Large right MCA territory acute ischemic stroke with M1 occlusion. Patient is within thrombectomy window \u2014 emergent neurovascular intervention team activation required immediately.\n2. No hemorrhagic transformation currently."
+      },
+      "request": {
+        "method": "POST",
+        "url": "DiagnosticReport",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-004"
+      }
+    }
+  ]
+}

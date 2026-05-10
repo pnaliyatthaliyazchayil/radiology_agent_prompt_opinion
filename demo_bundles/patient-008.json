@@ -1,0 +1,312 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:679231ef-408d-4961-9bfa-12305d1f1d55",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-patient-008"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Blackwood",
+            "given": [
+              "Susan"
+            ]
+          }
+        ],
+        "birthDate": "1980-12-30",
+        "gender": "female",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-4008",
+            "use": "home"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-patient-008"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:80430b40-594f-46f5-be3d-aae568928b09",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-008"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Reeves",
+            "given": [
+              "Daniel"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-1108",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-2108",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "dreeves@women-health.org",
+            "use": "work"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-008"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:42b65fd9-2340-4d77-b6a0-ba4ee35cda81",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:80430b40-594f-46f5-be3d-aae568928b09",
+          "display": "Dr. Daniel Reeves"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "11911009",
+                "display": "Internist"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-2108",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-1108",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:31faec55-6bfb-470d-b6fc-6e80e6449098",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-oncall"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Okafor",
+            "given": [
+              "James"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "jokafor@radiology-oncall.org",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-oncall"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:44a1d76d-8dd0-440d-88e8-456814a59305",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:31faec55-6bfb-470d-b6fc-6e80e6449098",
+          "display": "Dr. James Okafor"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
+                "code": "on-call",
+                "display": "On Call"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:9bf3cca7-626c-4534-85ac-d51b9375fd1f",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-sr-008"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24550-6",
+              "display": "CT Abdomen"
+            }
+          ],
+          "text": "CT Abdomen/Pelvis with contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:679231ef-408d-4961-9bfa-12305d1f1d55"
+        },
+        "requester": {
+          "reference": "urn:uuid:80430b40-594f-46f5-be3d-aae568928b09",
+          "display": "Dr. Daniel Reeves"
+        },
+        "reasonCode": [
+          {
+            "text": "Acute right lower quadrant pain"
+          }
+        ],
+        "priority": "urgent"
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-sr-008"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:00c81155-b340-418b-9a83-044bcd48599f",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-dr-008"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24550-6",
+              "display": "CT Abdomen"
+            }
+          ],
+          "text": "CT Abdomen/Pelvis with contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:679231ef-408d-4961-9bfa-12305d1f1d55"
+        },
+        "basedOn": [
+          {
+            "reference": "urn:uuid:9bf3cca7-626c-4534-85ac-d51b9375fd1f"
+          }
+        ],
+        "performer": [
+          {
+            "reference": "urn:uuid:80430b40-594f-46f5-be3d-aae568928b09"
+          }
+        ],
+        "issued": "2026-05-08T10:00:00+00:00",
+        "effectiveDateTime": "2026-05-08T10:00:00+00:00",
+        "conclusion": "CLINICAL INDICATION: 45-year-old female with 18 hours of right lower quadrant pain, nausea, and fever of 38.4\u00b0C. Elevated WBC 14.2.\n\nTECHNIQUE: CT of the abdomen and pelvis with oral and intravenous contrast.\n\nFINDINGS:\nAPPENDIX: The appendix is identified measuring 11 mm in maximal diameter with periappendiceal fat stranding and a small amount of free fluid in the right iliac fossa. An appendicolith is present at the base. Wall enhancement is increased. No perforation identified on this examination, however there is adjacent fat stranding extending to the right lateral abdominal wall.\n\nIMPRESSION:\n1. Acute appendicitis with appendicolith. No perforation at this time.\n2. Surgical consultation recommended urgently to prevent perforation.\n3. IV antibiotics recommended pending surgical evaluation."
+      },
+      "request": {
+        "method": "POST",
+        "url": "DiagnosticReport",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-008"
+      }
+    }
+  ]
+}
