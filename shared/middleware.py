@@ -140,6 +140,9 @@ class ApiKeyMiddleware:
                         canonical = METHOD_ALIASES[rpc_method]
                         logger.info("translated_method legacy=%s canonical=%s", rpc_method, canonical)
                         data["method"] = canonical
+                        # Temporary: dump full incoming body so we can diff
+                        # against the validator's expectations.
+                        logger.info("incoming_body_full=%s", body_bytes[:2000].decode("utf-8", errors="replace"))
                     meta = rpc_msg.get("metadata") if isinstance(rpc_msg, dict) else None
                     if meta and isinstance(params, dict) and "metadata" not in params:
                         params["metadata"] = meta
