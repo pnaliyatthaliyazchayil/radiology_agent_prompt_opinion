@@ -3,7 +3,7 @@
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:1906172d-c4d9-48b3-94e4-a92a3eda0ff8",
+      "fullUrl": "urn:uuid:f98eceff-26a0-43f5-9d14-cf59beb09a4a",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:e8f81930-f230-45c7-9513-cec3824dff97",
+      "fullUrl": "urn:uuid:b398137d-147b-4893-a55c-7b3bf681f61c",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -93,12 +93,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:4555448f-13e5-408e-8ed5-c6a6f2bea55a",
+      "fullUrl": "urn:uuid:9385869d-8da8-4ad6-b05d-4f11946ffb73",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:e8f81930-f230-45c7-9513-cec3824dff97",
+          "reference": "urn:uuid:b398137d-147b-4893-a55c-7b3bf681f61c",
           "display": "Dr. Nina Johansson"
         },
         "code": [
@@ -131,7 +131,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:c3795d48-8c83-4d4d-a5ce-a636340fd302",
+      "fullUrl": "urn:uuid:7b432031-8fe6-4c2c-9318-c7bb6e8a9446",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -174,12 +174,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:6f29e39a-90f7-422c-aad3-aeb49afb0dbd",
+      "fullUrl": "urn:uuid:ddc04c26-dca1-4f3f-89c6-9de0b6f63c85",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:c3795d48-8c83-4d4d-a5ce-a636340fd302",
+          "reference": "urn:uuid:7b432031-8fe6-4c2c-9318-c7bb6e8a9446",
           "display": "Dr. James Okafor"
         },
         "code": [
@@ -212,7 +212,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:a339924c-a0d1-43d8-bba7-b2dd6d1b7e6f",
+      "fullUrl": "urn:uuid:aa59e224-d864-40f0-a3dd-9259531aec30",
       "resource": {
         "resourceType": "ServiceRequest",
         "identifier": [
@@ -234,10 +234,10 @@
           "text": "X-Ray Lumbar Spine"
         },
         "subject": {
-          "reference": "urn:uuid:1906172d-c4d9-48b3-94e4-a92a3eda0ff8"
+          "reference": "urn:uuid:f98eceff-26a0-43f5-9d14-cf59beb09a4a"
         },
         "requester": {
-          "reference": "urn:uuid:e8f81930-f230-45c7-9513-cec3824dff97",
+          "reference": "urn:uuid:b398137d-147b-4893-a55c-7b3bf681f61c",
           "display": "Dr. Nina Johansson"
         },
         "reasonCode": [
@@ -254,7 +254,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:68c8fd72-e1b6-4c75-a5ec-e72a6bd5f7fb",
+      "fullUrl": "urn:uuid:cb0da93a-5f6c-4bb8-b6da-f4e51a13a954",
       "resource": {
         "resourceType": "DiagnosticReport",
         "identifier": [
@@ -263,6 +263,10 @@
             "value": "critcom-dr-009"
           }
         ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre>CLINICAL INDICATION: 73-year-old male with longstanding low back pain, no radicular symptoms, no bowel or bladder dysfunction.\n\nTECHNIQUE: AP and lateral radiographs of the lumbar spine.\n\nFINDINGS:\nALIGNMENT: Mild lumbar spondylosis. Preservation of normal lumbar lordosis. No spondylolisthesis.\n\nVERTEBRAL BODIES: Mild anterior osteophyte formation at L2-L3, L3-L4, and L4-L5. Disc space heights are mildly reduced at L4-L5 and L5-S1 consistent with degenerative disc disease. No acute fracture or compression deformity.\n\nSOFT TISSUES: No paravertebral soft tissue abnormality.\n\nIMPRESSION:\n1. Multilevel lumbar spondylosis and degenerative disc disease, most pronounced at L4-L5 and L5-S1. Findings are consistent with chronic degenerative changes.\n2. No acute osseous abnormality.\n3. Clinical correlation and conservative management recommended. MRI may be considered if symptoms worsen or fail to respond to therapy.</pre></div>"
+        },
         "status": "final",
         "category": [
           {
@@ -286,16 +290,16 @@
           "text": "X-Ray Lumbar Spine"
         },
         "subject": {
-          "reference": "urn:uuid:1906172d-c4d9-48b3-94e4-a92a3eda0ff8"
+          "reference": "urn:uuid:f98eceff-26a0-43f5-9d14-cf59beb09a4a"
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:a339924c-a0d1-43d8-bba7-b2dd6d1b7e6f"
+            "reference": "urn:uuid:aa59e224-d864-40f0-a3dd-9259531aec30"
           }
         ],
         "performer": [
           {
-            "reference": "urn:uuid:e8f81930-f230-45c7-9513-cec3824dff97"
+            "reference": "urn:uuid:b398137d-147b-4893-a55c-7b3bf681f61c"
           }
         ],
         "issued": "2026-05-08T10:00:00+00:00",
@@ -313,6 +317,74 @@
         "method": "POST",
         "url": "DiagnosticReport",
         "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-009"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:805d0e85-61bc-4071-a476-55b9a8379c3e",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-docref-009"
+          }
+        ],
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18748-4",
+              "display": "Diagnostic imaging study"
+            }
+          ],
+          "text": "X-Ray Lumbar Spine \u2014 Radiology Report"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:f98eceff-26a0-43f5-9d14-cf59beb09a4a"
+        },
+        "date": "2026-05-08T10:00:00+00:00",
+        "author": [
+          {
+            "reference": "urn:uuid:b398137d-147b-4893-a55c-7b3bf681f61c"
+          }
+        ],
+        "description": "X-Ray Lumbar Spine \u2014 finalized radiology report",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain; charset=utf-8",
+              "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogNzMteWVhci1vbGQgbWFsZSB3aXRoIGxvbmdzdGFuZGluZyBsb3cgYmFjayBwYWluLCBubyByYWRpY3VsYXIgc3ltcHRvbXMsIG5vIGJvd2VsIG9yIGJsYWRkZXIgZHlzZnVuY3Rpb24uCgpURUNITklRVUU6IEFQIGFuZCBsYXRlcmFsIHJhZGlvZ3JhcGhzIG9mIHRoZSBsdW1iYXIgc3BpbmUuCgpGSU5ESU5HUzoKQUxJR05NRU5UOiBNaWxkIGx1bWJhciBzcG9uZHlsb3Npcy4gUHJlc2VydmF0aW9uIG9mIG5vcm1hbCBsdW1iYXIgbG9yZG9zaXMuIE5vIHNwb25keWxvbGlzdGhlc2lzLgoKVkVSVEVCUkFMIEJPRElFUzogTWlsZCBhbnRlcmlvciBvc3Rlb3BoeXRlIGZvcm1hdGlvbiBhdCBMMi1MMywgTDMtTDQsIGFuZCBMNC1MNS4gRGlzYyBzcGFjZSBoZWlnaHRzIGFyZSBtaWxkbHkgcmVkdWNlZCBhdCBMNC1MNSBhbmQgTDUtUzEgY29uc2lzdGVudCB3aXRoIGRlZ2VuZXJhdGl2ZSBkaXNjIGRpc2Vhc2UuIE5vIGFjdXRlIGZyYWN0dXJlIG9yIGNvbXByZXNzaW9uIGRlZm9ybWl0eS4KClNPRlQgVElTU1VFUzogTm8gcGFyYXZlcnRlYnJhbCBzb2Z0IHRpc3N1ZSBhYm5vcm1hbGl0eS4KCklNUFJFU1NJT046CjEuIE11bHRpbGV2ZWwgbHVtYmFyIHNwb25keWxvc2lzIGFuZCBkZWdlbmVyYXRpdmUgZGlzYyBkaXNlYXNlLCBtb3N0IHByb25vdW5jZWQgYXQgTDQtTDUgYW5kIEw1LVMxLiBGaW5kaW5ncyBhcmUgY29uc2lzdGVudCB3aXRoIGNocm9uaWMgZGVnZW5lcmF0aXZlIGNoYW5nZXMuCjIuIE5vIGFjdXRlIG9zc2VvdXMgYWJub3JtYWxpdHkuCjMuIENsaW5pY2FsIGNvcnJlbGF0aW9uIGFuZCBjb25zZXJ2YXRpdmUgbWFuYWdlbWVudCByZWNvbW1lbmRlZC4gTVJJIG1heSBiZSBjb25zaWRlcmVkIGlmIHN5bXB0b21zIHdvcnNlbiBvciBmYWlsIHRvIHJlc3BvbmQgdG8gdGhlcmFweS4=",
+              "title": "X-Ray Lumbar Spine \u2014 Radiology Report",
+              "creation": "2026-05-08T10:00:00+00:00"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "urn:uuid:cb0da93a-5f6c-4bb8-b6da-f4e51a13a954",
+              "display": "Source DiagnosticReport"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "DocumentReference",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-docref-009"
       }
     }
   ]

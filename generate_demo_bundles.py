@@ -316,6 +316,7 @@ def make_bundle(p: dict) -> dict:
     role_u = _u()
     sr_u = _u()
     dr_u = _u()
+    docref_u = _u()
     oncall_prac_u = _u()
     oncall_role_u = _u()
 
@@ -324,6 +325,7 @@ def make_bundle(p: dict) -> dict:
     prac_ident = f"critcom-practitioner-{n:03d}"
     sr_ident = f"critcom-sr-{n:03d}"
     dr_ident = f"critcom-dr-{n:03d}"
+    docref_ident = f"critcom-docref-{n:03d}"
 
     patient = {
         "resourceType": "Patient",
@@ -396,9 +398,19 @@ def make_bundle(p: dict) -> dict:
         "priority": p["priority"],
     }
 
+    # text.div — FHIR Narrative. PO's GetPatientData strips conclusion and
+    # presentedForm but typically preserves text. xhtml is the canonical
+    # human-readable representation.
+    narrative_xhtml = (
+        '<div xmlns="http://www.w3.org/1999/xhtml"><pre>'
+        + p["report"].replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        + "</pre></div>"
+    )
+
     diagnostic_report = {
         "resourceType": "DiagnosticReport",
         "identifier": [{"system": ID_SYS, "value": dr_ident}],
+        "text": {"status": "generated", "div": narrative_xhtml},
         "status": "final",
         "category": [
             {
@@ -439,6 +451,55 @@ def make_bundle(p: dict) -> dict:
             }
         ],
         # NOTE: No ACR extension — LLM classifier will infer the category
+    }
+
+    # DocumentReference — surfaces the report narrative through PO's
+    # GetPatientDocuments tool. PO appears to use this as the canonical
+    # source for free-text clinical content, so the radiology narrative
+    # has to live here for PO to pass it along to CritCom.
+    document_reference = {
+        "resourceType": "DocumentReference",
+        "identifier": [{"system": ID_SYS, "value": docref_ident}],
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+            "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "18748-4",
+                    "display": "Diagnostic imaging study",
+                }
+            ],
+            "text": p["study"] + " — Radiology Report",
+        },
+        "category": [
+            {
+                "coding": [
+                    {
+                        "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                        "code": "clinical-note",
+                        "display": "Clinical Note",
+                    }
+                ]
+            }
+        ],
+        "subject": {"reference": pat_u},
+        "date": NOW,
+        "author": [{"reference": prac_u}],
+        "description": p["study"] + " — finalized radiology report",
+        "content": [
+            {
+                "attachment": {
+                    "contentType": "text/plain; charset=utf-8",
+                    "data": base64.b64encode(p["report"].encode("utf-8")).decode("ascii"),
+                    "title": p["study"] + " — Radiology Report",
+                    "creation": NOW,
+                }
+            }
+        ],
+        "context": {
+            "related": [{"reference": dr_u, "display": "Source DiagnosticReport"}],
+        },
     }
 
     oncall_practitioner = {
@@ -484,6 +545,7 @@ def make_bundle(p: dict) -> dict:
         (oncall_role_u, oncall_role, None),
         (sr_u, service_request, f"identifier={ID_SYS}|{sr_ident}"),
         (dr_u, diagnostic_report, f"identifier={ID_SYS}|{dr_ident}"),
+        (docref_u, document_reference, f"identifier={ID_SYS}|{docref_ident}"),
     ]
 
     entries = []

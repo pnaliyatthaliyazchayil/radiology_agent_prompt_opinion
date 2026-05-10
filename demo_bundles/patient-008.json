@@ -3,7 +3,7 @@
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:c7fea526-2768-4cd7-b291-05f19794cc43",
+      "fullUrl": "urn:uuid:323cdba8-59af-4754-b786-2f3b86c997ee",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:f4eb558a-e980-48e9-8c77-a87fa3de4a0e",
+      "fullUrl": "urn:uuid:f508a100-601b-45c9-940c-b20053323072",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -93,12 +93,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:1e591e03-e674-4bf1-887c-27eeaafc3e48",
+      "fullUrl": "urn:uuid:1b63f8b5-8fc9-40fb-aabd-ae8074379a82",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:f4eb558a-e980-48e9-8c77-a87fa3de4a0e",
+          "reference": "urn:uuid:f508a100-601b-45c9-940c-b20053323072",
           "display": "Dr. Daniel Reeves"
         },
         "code": [
@@ -131,7 +131,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:56259a61-bde2-4a46-86f9-58876daf71ee",
+      "fullUrl": "urn:uuid:9caaec6b-fd76-4ed5-b033-a1b06d0d1963",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -174,12 +174,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:c2fe3143-2fb5-461f-a33a-327d59e7b4b5",
+      "fullUrl": "urn:uuid:92e9787e-4093-4680-8261-60e7b8588a4b",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:56259a61-bde2-4a46-86f9-58876daf71ee",
+          "reference": "urn:uuid:9caaec6b-fd76-4ed5-b033-a1b06d0d1963",
           "display": "Dr. James Okafor"
         },
         "code": [
@@ -212,7 +212,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ff376792-7281-494a-b90f-8e4b76de73ad",
+      "fullUrl": "urn:uuid:102d29da-e2bc-484e-8da3-bb81d62aace3",
       "resource": {
         "resourceType": "ServiceRequest",
         "identifier": [
@@ -234,10 +234,10 @@
           "text": "CT Abdomen/Pelvis with contrast"
         },
         "subject": {
-          "reference": "urn:uuid:c7fea526-2768-4cd7-b291-05f19794cc43"
+          "reference": "urn:uuid:323cdba8-59af-4754-b786-2f3b86c997ee"
         },
         "requester": {
-          "reference": "urn:uuid:f4eb558a-e980-48e9-8c77-a87fa3de4a0e",
+          "reference": "urn:uuid:f508a100-601b-45c9-940c-b20053323072",
           "display": "Dr. Daniel Reeves"
         },
         "reasonCode": [
@@ -254,7 +254,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:2ee7bba1-0bd3-43f0-aee0-673a8882bc68",
+      "fullUrl": "urn:uuid:52f7ae5a-cc0d-42ff-8f34-1d60616ac434",
       "resource": {
         "resourceType": "DiagnosticReport",
         "identifier": [
@@ -263,6 +263,10 @@
             "value": "critcom-dr-008"
           }
         ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre>CLINICAL INDICATION: 45-year-old female with 18 hours of right lower quadrant pain, nausea, and fever of 38.4\u00b0C. Elevated WBC 14.2.\n\nTECHNIQUE: CT of the abdomen and pelvis with oral and intravenous contrast.\n\nFINDINGS:\nAPPENDIX: The appendix is identified measuring 11 mm in maximal diameter with periappendiceal fat stranding and a small amount of free fluid in the right iliac fossa. An appendicolith is present at the base. Wall enhancement is increased. No perforation identified on this examination, however there is adjacent fat stranding extending to the right lateral abdominal wall.\n\nIMPRESSION:\n1. Acute appendicitis with appendicolith. No perforation at this time.\n2. Surgical consultation recommended urgently to prevent perforation.\n3. IV antibiotics recommended pending surgical evaluation.</pre></div>"
+        },
         "status": "final",
         "category": [
           {
@@ -286,16 +290,16 @@
           "text": "CT Abdomen/Pelvis with contrast"
         },
         "subject": {
-          "reference": "urn:uuid:c7fea526-2768-4cd7-b291-05f19794cc43"
+          "reference": "urn:uuid:323cdba8-59af-4754-b786-2f3b86c997ee"
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:ff376792-7281-494a-b90f-8e4b76de73ad"
+            "reference": "urn:uuid:102d29da-e2bc-484e-8da3-bb81d62aace3"
           }
         ],
         "performer": [
           {
-            "reference": "urn:uuid:f4eb558a-e980-48e9-8c77-a87fa3de4a0e"
+            "reference": "urn:uuid:f508a100-601b-45c9-940c-b20053323072"
           }
         ],
         "issued": "2026-05-08T10:00:00+00:00",
@@ -313,6 +317,74 @@
         "method": "POST",
         "url": "DiagnosticReport",
         "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-008"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:dd680429-fa5b-4071-bc64-96373b9be394",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-docref-008"
+          }
+        ],
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18748-4",
+              "display": "Diagnostic imaging study"
+            }
+          ],
+          "text": "CT Abdomen/Pelvis with contrast \u2014 Radiology Report"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:323cdba8-59af-4754-b786-2f3b86c997ee"
+        },
+        "date": "2026-05-08T10:00:00+00:00",
+        "author": [
+          {
+            "reference": "urn:uuid:f508a100-601b-45c9-940c-b20053323072"
+          }
+        ],
+        "description": "CT Abdomen/Pelvis with contrast \u2014 finalized radiology report",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain; charset=utf-8",
+              "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogNDUteWVhci1vbGQgZmVtYWxlIHdpdGggMTggaG91cnMgb2YgcmlnaHQgbG93ZXIgcXVhZHJhbnQgcGFpbiwgbmF1c2VhLCBhbmQgZmV2ZXIgb2YgMzguNMKwQy4gRWxldmF0ZWQgV0JDIDE0LjIuCgpURUNITklRVUU6IENUIG9mIHRoZSBhYmRvbWVuIGFuZCBwZWx2aXMgd2l0aCBvcmFsIGFuZCBpbnRyYXZlbm91cyBjb250cmFzdC4KCkZJTkRJTkdTOgpBUFBFTkRJWDogVGhlIGFwcGVuZGl4IGlzIGlkZW50aWZpZWQgbWVhc3VyaW5nIDExIG1tIGluIG1heGltYWwgZGlhbWV0ZXIgd2l0aCBwZXJpYXBwZW5kaWNlYWwgZmF0IHN0cmFuZGluZyBhbmQgYSBzbWFsbCBhbW91bnQgb2YgZnJlZSBmbHVpZCBpbiB0aGUgcmlnaHQgaWxpYWMgZm9zc2EuIEFuIGFwcGVuZGljb2xpdGggaXMgcHJlc2VudCBhdCB0aGUgYmFzZS4gV2FsbCBlbmhhbmNlbWVudCBpcyBpbmNyZWFzZWQuIE5vIHBlcmZvcmF0aW9uIGlkZW50aWZpZWQgb24gdGhpcyBleGFtaW5hdGlvbiwgaG93ZXZlciB0aGVyZSBpcyBhZGphY2VudCBmYXQgc3RyYW5kaW5nIGV4dGVuZGluZyB0byB0aGUgcmlnaHQgbGF0ZXJhbCBhYmRvbWluYWwgd2FsbC4KCklNUFJFU1NJT046CjEuIEFjdXRlIGFwcGVuZGljaXRpcyB3aXRoIGFwcGVuZGljb2xpdGguIE5vIHBlcmZvcmF0aW9uIGF0IHRoaXMgdGltZS4KMi4gU3VyZ2ljYWwgY29uc3VsdGF0aW9uIHJlY29tbWVuZGVkIHVyZ2VudGx5IHRvIHByZXZlbnQgcGVyZm9yYXRpb24uCjMuIElWIGFudGliaW90aWNzIHJlY29tbWVuZGVkIHBlbmRpbmcgc3VyZ2ljYWwgZXZhbHVhdGlvbi4=",
+              "title": "CT Abdomen/Pelvis with contrast \u2014 Radiology Report",
+              "creation": "2026-05-08T10:00:00+00:00"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "urn:uuid:52f7ae5a-cc0d-42ff-8f34-1d60616ac434",
+              "display": "Source DiagnosticReport"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "DocumentReference",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-docref-008"
       }
     }
   ]
