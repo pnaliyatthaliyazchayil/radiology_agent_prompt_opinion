@@ -22,7 +22,10 @@ AGENT_CARD_PATH = "/.well-known/agent-card.json"
 # only knows the slash-style names, so we translate at the edge.
 METHOD_ALIASES: dict[str, str] = {
     "SendMessage": "message/send",
-    "SendStreamingMessage": "message/stream",
+    # Map streaming → synchronous: PO's chat sends SendStreamingMessage but its
+    # client struggles to parse SSE responses. message/send returns the full
+    # Task in a single JSON-RPC response, which PO handles reliably.
+    "SendStreamingMessage": "message/send",
     "GetTask": "tasks/get",
     "CancelTask": "tasks/cancel",
     "SetTaskPushNotificationConfig": "tasks/pushNotificationConfig/set",
