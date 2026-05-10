@@ -249,43 +249,35 @@ class ApiKeyMiddleware:
 def _build_streaming_events(sync_body: bytes) -> bytes:
     """Decompose a sync JSON-RPC Task response into A2A streaming events.
 
-    Emits one artifact-update event per artifact (final: false), then a
-    final status-update with final: true so the consumer sees the canonical
-    streaming protocol.
+    Emits the full Task object (kind: "task") as the first event so a parser
+    that scans for "the task" finds it immediately, then a closing
+    status-update with final: true to terminate the stream cleanly.
     """
     try:
         envelope = json.loads(sync_body)
     except Exception:
-        # If we can't parse, fall back to single SSE event with raw body.
         return b"data: " + sync_body + b"\n\n"
 
     rpc_id = envelope.get("id")
     result = envelope.get("result") or {}
     if not isinstance(result, dict) or result.get("kind") != "task":
-        # Error response or non-task result — emit as one event.
         return b"data: " + sync_body + b"\n\n"
 
     task_id = result.get("id")
     context_id = result.get("contextId")
     status = result.get("status") or {"state": "completed"}
-    artifacts = result.get("artifacts") or []
 
     events: list[bytes] = []
 
-    for artifact in artifacts:
-        event = {
-            "jsonrpc": "2.0",
-            "id": rpc_id,
-            "result": {
-                "kind": "artifact-update",
-                "taskId": task_id,
-                "contextId": context_id,
-                "artifact": artifact,
-                "final": False,
-            },
-        }
-        events.append(b"data: " + json.dumps(event).encode() + b"\n\n")
+    # Event 1: full Task object — what PO's "did not respond with a task" check looks for.
+    task_event = {
+        "jsonrpc": "2.0",
+        "id": rpc_id,
+        "result": result,
+    }
+    events.append(b"data: " + json.dumps(task_event).encode() + b"\n\n")
 
+    # Event 2: terminating status-update with final: true so the stream closes cleanly.
     final_event = {
         "jsonrpc": "2.0",
         "id": rpc_id,
