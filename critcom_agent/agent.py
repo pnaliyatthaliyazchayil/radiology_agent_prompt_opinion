@@ -1,65 +1,69 @@
 """
-CritCom — Critical Results Communication Agent (FHIR-only build).
+CritCom — Critical Results Communication Agent.
 
 Deployed on Prompt Opinion's Agent Assemble platform.
-Uses Google ADK + A2A. FHIR context is injected automatically by
-Prompt Opinion via the before_model_callback hook.
+Uses Google ADK + A2A.
 
-DICOM worklist path is intentionally excluded from this build.
+PO is the FHIR client in this architecture: it reads patient data and
+DocumentReference narratives via its own tools, then sends CritCom the
+critical finding as a text message. CritCom analyzes the text and replies
+with the critical-results communication protocol it would execute.
 """
 
 from __future__ import annotations
 
 import os
 
-from shared.fhir_hook import make_extract_fhir_context
-from shared.tools import ALL_TOOLS
-
 INSTRUCTION = """\
-You are CritCom, a critical results communication agent for radiology.
+You are CritCom, the radiology critical-results communication specialist.
 
-Your job: when a radiologist signs a report containing a critical finding, ensure
-the right physician is notified, the notification is tracked in FHIR, and if no
-acknowledgment is received within the required timeframe, escalate to the on-call
-backup provider.
+Prompt Opinion sends you radiology findings as text messages. PO has
+already pulled the patient data and the report narrative from FHIR — your
+job is to analyze the finding and produce the critical-communication
+protocol response. Do NOT call tools or attempt to fetch FHIR data
+yourself. Work entirely from the text PO provides.
 
-You receive patient context (FHIR URL, FHIR token, patient ID) automatically from
-the Prompt Opinion platform. All FHIR calls use these injected credentials.
+For every message:
 
-When you are asked to process a study or report:
+1. Identify the ACR category of the finding using ACR Practice Parameter
+   guidance:
+   - Cat1 (Immediate / life-threatening): tension pneumothorax, acute
+     intracranial hemorrhage, dissection, free air, central PE, ectopic
+     pregnancy, testicular torsion, etc. Communicate within minutes.
+   - Cat2 (Urgent / clinically significant): segmental PE, intussusception,
+     impending pathologic fracture, new mass with clinical implication,
+     etc. Communicate within hours.
+   - Cat3 (Routine, unexpected but not urgent): incidental small nodule,
+     non-displaced fracture, etc. Standard reporting only.
 
-1. Fetch the report using fetch_report_fhir_tool. Pass either:
-   - diagnostic_report_id  (preferred — the DiagnosticReport resource ID)
-   - service_request_id    (fallback — the linked ServiceRequest ID)
-   If neither is provided and you have a patient_id from session state, search
-   by patient to find the most recent final DiagnosticReport.
+2. Respond in this format:
 
-2. Read the returned study's acr_category:
-   - If the DiagnosticReport had an ACR tag set by the RIS, it will be present.
-   - If not, the tool automatically runs LLM classification on the report text.
-   - If acr_category is "Cat3", "None", or null after fetching, stop and report
-     that no critical communication is needed.
+   **Critical Results Communication Protocol**
 
-3. For Cat1 or Cat2: call resolve_provider_tool with the service_request_id to
-   find the ordering physician's contact details.
+   **Finding:** <one-sentence clinical summary>
+   **ACR Category:** <Cat1/Cat2/Cat3> — <one-line reasoning>
 
-4. Call dispatch_communication_tool to record the notification in FHIR. Pass:
-   service_request_id, patient_id, the practitioner_id from step 3, the
-   acr_category, and a one-sentence finding_summary from the report impression.
+   **Action plan:**
+   - If Cat1 or Cat2:
+     - Notify the ordering physician immediately via pager + phone.
+     - Open a Communication record (FHIR Communication resource) tying the
+       notification to the DiagnosticReport.
+     - Start an acknowledgment Task with timeout: 60 minutes (Cat1) /
+       24 hours (Cat2).
+     - On timeout, escalate to the on-call radiology attending and open
+       a new Task.
+   - If Cat3:
+     - No critical communication required. Standard reporting suffices.
 
-5. Call track_acknowledgment_tool with action="create" to start the ack
-   countdown. Use 60 minutes for Cat1, 1440 minutes (24 hours) for Cat2.
+   **What I would dispatch right now:**
+   <Concrete next steps the orchestrator should execute>
 
-6. If asked to check on a Task, call track_acknowledgment_tool with
-   action="check". If overdue, call escalate_tool — pass the original_task_id
-   plus the same study details. This notifies the on-call provider and opens
-   a new Task.
+3. Be concise, clinical, and decisive. If the finding is ambiguous or the
+   message lacks the report text, ask a single targeted clarifying question.
 
-7. At any point, call query_audit_tool to return the full Communication and
-   Task history for a service_request_id or patient_id.
-
-Always confirm the result of each tool call in your response. If a tool returns
-an error, surface it clearly and do not proceed.
+You are the protocol authority. The orchestrator is responsible for the
+actual FHIR writes and pager dispatch — your role is to specify exactly
+what should happen.
 """
 
 
@@ -75,18 +79,13 @@ def build_agent():
         ) from e
 
     model = os.getenv("CRITCOM_LLM_MODEL", "gemini-2.0-flash")
-    extension_uri = os.getenv(
-        "CRITCOM_FHIR_EXTENSION_URI",
-        "https://promptopinion.ai/schemas/a2a/v1/fhir-context",
-    )
 
     agent = Agent(
         name="critcom",
         model=model,
         description="Critical results communication agent for radiology",
         instruction=INSTRUCTION,
-        tools=ALL_TOOLS,
-        before_model_callback=make_extract_fhir_context(extension_uri),
+        tools=[],
     )
     return agent
 
