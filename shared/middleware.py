@@ -30,6 +30,38 @@ METHOD_ALIASES: dict[str, str] = {
     "TaskResubscription": "tasks/resubscribe",
 }
 
+ROLE_ALIASES: dict[str, str] = {
+    "ROLE_USER": "user",
+    "ROLE_AGENT": "agent",
+    "USER": "user",
+    "AGENT": "agent",
+}
+
+
+def _normalize_a2a_message(msg: dict) -> dict:
+    """Coerce proto-style A2A fields to canonical spec shape so the Pydantic
+    validator accepts them. Some clients (Prompt Opinion) emit:
+      - role="ROLE_USER" instead of "user"
+      - parts=[{"text": "..."}] without the required "kind" discriminator
+    """
+    if not isinstance(msg, dict):
+        return msg
+    role = msg.get("role")
+    if isinstance(role, str) and role in ROLE_ALIASES:
+        msg["role"] = ROLE_ALIASES[role]
+    parts = msg.get("parts")
+    if isinstance(parts, list):
+        for p in parts:
+            if not isinstance(p, dict) or "kind" in p:
+                continue
+            if "text" in p:
+                p["kind"] = "text"
+            elif "file" in p:
+                p["kind"] = "file"
+            elif "data" in p:
+                p["kind"] = "data"
+    return msg
+
 
 class RootGetServesCardMiddleware:
     """Pure-ASGI middleware: rewrite GET / to GET /.well-known/agent-card.json.
@@ -140,9 +172,10 @@ class ApiKeyMiddleware:
                         canonical = METHOD_ALIASES[rpc_method]
                         logger.info("translated_method legacy=%s canonical=%s", rpc_method, canonical)
                         data["method"] = canonical
-                        # Temporary: dump full incoming body so we can diff
-                        # against the validator's expectations.
-                        logger.info("incoming_body_full=%s", body_bytes[:2000].decode("utf-8", errors="replace"))
+                    if isinstance(rpc_msg, dict):
+                        _normalize_a2a_message(rpc_msg)
+                        params["message"] = rpc_msg
+                        data["params"] = params
                     meta = rpc_msg.get("metadata") if isinstance(rpc_msg, dict) else None
                     if meta and isinstance(params, dict) and "metadata" not in params:
                         params["metadata"] = meta
