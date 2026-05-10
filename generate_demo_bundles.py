@@ -12,6 +12,7 @@ Generate 10 synthetic patient FHIR R4 bundles for CritCom demo.
   Output: demo_bundles/patient-001.json ... patient-010.json
 """
 
+import base64
 import json
 import os
 import uuid
@@ -426,6 +427,17 @@ def make_bundle(p: dict) -> dict:
         "issued": NOW,
         "effectiveDateTime": NOW,
         "conclusion": p["report"],
+        # presentedForm carries the same text base64-encoded. Some FHIR servers
+        # (incl. some PO-managed sandboxes) drop `conclusion` if it isn't on
+        # the resource's profile. fetch_report_fhir falls back to presentedForm
+        # automatically, so duplicating here makes the bundle portable.
+        "presentedForm": [
+            {
+                "contentType": "text/plain; charset=utf-8",
+                "data": base64.b64encode(p["report"].encode("utf-8")).decode("ascii"),
+                "title": p["study"] + " — Radiology Report",
+            }
+        ],
         # NOTE: No ACR extension — LLM classifier will infer the category
     }
 

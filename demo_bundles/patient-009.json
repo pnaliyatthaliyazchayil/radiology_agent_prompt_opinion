@@ -3,7 +3,7 @@
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:c1ded2c6-5265-4982-884f-5810ab1fd0d5",
+      "fullUrl": "urn:uuid:1906172d-c4d9-48b3-94e4-a92a3eda0ff8",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:075860d6-db25-4c3a-8a40-5fff9a58f583",
+      "fullUrl": "urn:uuid:e8f81930-f230-45c7-9513-cec3824dff97",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -93,12 +93,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0398b682-b95e-40e4-9a2a-b0805790af82",
+      "fullUrl": "urn:uuid:4555448f-13e5-408e-8ed5-c6a6f2bea55a",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:075860d6-db25-4c3a-8a40-5fff9a58f583",
+          "reference": "urn:uuid:e8f81930-f230-45c7-9513-cec3824dff97",
           "display": "Dr. Nina Johansson"
         },
         "code": [
@@ -131,7 +131,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:330aec74-50de-4df2-bffb-8e412207599e",
+      "fullUrl": "urn:uuid:c3795d48-8c83-4d4d-a5ce-a636340fd302",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -174,12 +174,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:da10dbd1-1921-459f-86b1-92e0aa0583f3",
+      "fullUrl": "urn:uuid:6f29e39a-90f7-422c-aad3-aeb49afb0dbd",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:330aec74-50de-4df2-bffb-8e412207599e",
+          "reference": "urn:uuid:c3795d48-8c83-4d4d-a5ce-a636340fd302",
           "display": "Dr. James Okafor"
         },
         "code": [
@@ -212,7 +212,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0c5c1196-0651-43d4-8c09-ec92d441be4c",
+      "fullUrl": "urn:uuid:a339924c-a0d1-43d8-bba7-b2dd6d1b7e6f",
       "resource": {
         "resourceType": "ServiceRequest",
         "identifier": [
@@ -234,10 +234,10 @@
           "text": "X-Ray Lumbar Spine"
         },
         "subject": {
-          "reference": "urn:uuid:c1ded2c6-5265-4982-884f-5810ab1fd0d5"
+          "reference": "urn:uuid:1906172d-c4d9-48b3-94e4-a92a3eda0ff8"
         },
         "requester": {
-          "reference": "urn:uuid:075860d6-db25-4c3a-8a40-5fff9a58f583",
+          "reference": "urn:uuid:e8f81930-f230-45c7-9513-cec3824dff97",
           "display": "Dr. Nina Johansson"
         },
         "reasonCode": [
@@ -254,7 +254,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:d68a3f2d-1726-400a-925e-f1d676462bc7",
+      "fullUrl": "urn:uuid:68c8fd72-e1b6-4c75-a5ec-e72a6bd5f7fb",
       "resource": {
         "resourceType": "DiagnosticReport",
         "identifier": [
@@ -286,21 +286,28 @@
           "text": "X-Ray Lumbar Spine"
         },
         "subject": {
-          "reference": "urn:uuid:c1ded2c6-5265-4982-884f-5810ab1fd0d5"
+          "reference": "urn:uuid:1906172d-c4d9-48b3-94e4-a92a3eda0ff8"
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:0c5c1196-0651-43d4-8c09-ec92d441be4c"
+            "reference": "urn:uuid:a339924c-a0d1-43d8-bba7-b2dd6d1b7e6f"
           }
         ],
         "performer": [
           {
-            "reference": "urn:uuid:075860d6-db25-4c3a-8a40-5fff9a58f583"
+            "reference": "urn:uuid:e8f81930-f230-45c7-9513-cec3824dff97"
           }
         ],
         "issued": "2026-05-08T10:00:00+00:00",
         "effectiveDateTime": "2026-05-08T10:00:00+00:00",
-        "conclusion": "CLINICAL INDICATION: 73-year-old male with longstanding low back pain, no radicular symptoms, no bowel or bladder dysfunction.\n\nTECHNIQUE: AP and lateral radiographs of the lumbar spine.\n\nFINDINGS:\nALIGNMENT: Mild lumbar spondylosis. Preservation of normal lumbar lordosis. No spondylolisthesis.\n\nVERTEBRAL BODIES: Mild anterior osteophyte formation at L2-L3, L3-L4, and L4-L5. Disc space heights are mildly reduced at L4-L5 and L5-S1 consistent with degenerative disc disease. No acute fracture or compression deformity.\n\nSOFT TISSUES: No paravertebral soft tissue abnormality.\n\nIMPRESSION:\n1. Multilevel lumbar spondylosis and degenerative disc disease, most pronounced at L4-L5 and L5-S1. Findings are consistent with chronic degenerative changes.\n2. No acute osseous abnormality.\n3. Clinical correlation and conservative management recommended. MRI may be considered if symptoms worsen or fail to respond to therapy."
+        "conclusion": "CLINICAL INDICATION: 73-year-old male with longstanding low back pain, no radicular symptoms, no bowel or bladder dysfunction.\n\nTECHNIQUE: AP and lateral radiographs of the lumbar spine.\n\nFINDINGS:\nALIGNMENT: Mild lumbar spondylosis. Preservation of normal lumbar lordosis. No spondylolisthesis.\n\nVERTEBRAL BODIES: Mild anterior osteophyte formation at L2-L3, L3-L4, and L4-L5. Disc space heights are mildly reduced at L4-L5 and L5-S1 consistent with degenerative disc disease. No acute fracture or compression deformity.\n\nSOFT TISSUES: No paravertebral soft tissue abnormality.\n\nIMPRESSION:\n1. Multilevel lumbar spondylosis and degenerative disc disease, most pronounced at L4-L5 and L5-S1. Findings are consistent with chronic degenerative changes.\n2. No acute osseous abnormality.\n3. Clinical correlation and conservative management recommended. MRI may be considered if symptoms worsen or fail to respond to therapy.",
+        "presentedForm": [
+          {
+            "contentType": "text/plain; charset=utf-8",
+            "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogNzMteWVhci1vbGQgbWFsZSB3aXRoIGxvbmdzdGFuZGluZyBsb3cgYmFjayBwYWluLCBubyByYWRpY3VsYXIgc3ltcHRvbXMsIG5vIGJvd2VsIG9yIGJsYWRkZXIgZHlzZnVuY3Rpb24uCgpURUNITklRVUU6IEFQIGFuZCBsYXRlcmFsIHJhZGlvZ3JhcGhzIG9mIHRoZSBsdW1iYXIgc3BpbmUuCgpGSU5ESU5HUzoKQUxJR05NRU5UOiBNaWxkIGx1bWJhciBzcG9uZHlsb3Npcy4gUHJlc2VydmF0aW9uIG9mIG5vcm1hbCBsdW1iYXIgbG9yZG9zaXMuIE5vIHNwb25keWxvbGlzdGhlc2lzLgoKVkVSVEVCUkFMIEJPRElFUzogTWlsZCBhbnRlcmlvciBvc3Rlb3BoeXRlIGZvcm1hdGlvbiBhdCBMMi1MMywgTDMtTDQsIGFuZCBMNC1MNS4gRGlzYyBzcGFjZSBoZWlnaHRzIGFyZSBtaWxkbHkgcmVkdWNlZCBhdCBMNC1MNSBhbmQgTDUtUzEgY29uc2lzdGVudCB3aXRoIGRlZ2VuZXJhdGl2ZSBkaXNjIGRpc2Vhc2UuIE5vIGFjdXRlIGZyYWN0dXJlIG9yIGNvbXByZXNzaW9uIGRlZm9ybWl0eS4KClNPRlQgVElTU1VFUzogTm8gcGFyYXZlcnRlYnJhbCBzb2Z0IHRpc3N1ZSBhYm5vcm1hbGl0eS4KCklNUFJFU1NJT046CjEuIE11bHRpbGV2ZWwgbHVtYmFyIHNwb25keWxvc2lzIGFuZCBkZWdlbmVyYXRpdmUgZGlzYyBkaXNlYXNlLCBtb3N0IHByb25vdW5jZWQgYXQgTDQtTDUgYW5kIEw1LVMxLiBGaW5kaW5ncyBhcmUgY29uc2lzdGVudCB3aXRoIGNocm9uaWMgZGVnZW5lcmF0aXZlIGNoYW5nZXMuCjIuIE5vIGFjdXRlIG9zc2VvdXMgYWJub3JtYWxpdHkuCjMuIENsaW5pY2FsIGNvcnJlbGF0aW9uIGFuZCBjb25zZXJ2YXRpdmUgbWFuYWdlbWVudCByZWNvbW1lbmRlZC4gTVJJIG1heSBiZSBjb25zaWRlcmVkIGlmIHN5bXB0b21zIHdvcnNlbiBvciBmYWlsIHRvIHJlc3BvbmQgdG8gdGhlcmFweS4=",
+            "title": "X-Ray Lumbar Spine \u2014 Radiology Report"
+          }
+        ]
       },
       "request": {
         "method": "POST",
