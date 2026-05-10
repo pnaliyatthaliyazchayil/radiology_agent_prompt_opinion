@@ -79,23 +79,36 @@ class ApiKeyMiddleware(BaseHTTPMiddleware):
 
         # Bridge metadata: copy params.message.metadata → params.metadata so the
         # ADK before_model_callback can find it via session/invocation context.
+        # Also log the incoming JSON-RPC method + top-level shape so we can
+        # diagnose what an orchestrator (e.g. Prompt Opinion) actually sends.
         try:
             body_bytes = await request.body()
             if body_bytes:
                 body = json.loads(body_bytes)
+                method = body.get("method")
                 params = body.get("params") or {}
                 msg = params.get("message") or {}
+                logger.info(
+                    "incoming_a2a method=%s id=%s msg_keys=%s param_keys=%s metadata_keys=%s",
+                    method,
+                    body.get("id"),
+                    sorted(msg.keys()) if isinstance(msg, dict) else None,
+                    sorted(params.keys()) if isinstance(params, dict) else None,
+                    sorted((msg.get("metadata") or {}).keys()) if isinstance(msg.get("metadata"), dict) else None,
+                )
                 meta = msg.get("metadata")
                 if meta and "metadata" not in params:
                     params["metadata"] = meta
                     body["params"] = params
-                    new_bytes = json.dumps(body).encode()
-                    # Replace the body in the receive callable
-                    async def receive():
-                        return {"type": "http.request", "body": new_bytes, "more_body": False}
-                    request._receive = receive  # type: ignore[attr-defined]
+                # Always replay the body so downstream sees identical bytes
+                new_bytes = json.dumps(body).encode()
+
+                async def receive():
+                    return {"type": "http.request", "body": new_bytes, "more_body": False}
+
+                request._receive = receive  # type: ignore[attr-defined]
         except Exception as e:
-            logger.debug("middleware_metadata_bridge_skipped error=%s", e)
+            logger.warning("middleware_metadata_bridge_skipped error=%s", e)
 
         return await call_next(request)
 
