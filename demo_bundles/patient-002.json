@@ -1,0 +1,312 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:d7c51480-70e1-41d1-90da-f5add6755210",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-patient-002"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Gonzalez",
+            "given": [
+              "Maria"
+            ]
+          }
+        ],
+        "birthDate": "1971-09-22",
+        "gender": "female",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-4002",
+            "use": "home"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-patient-002"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b3777192-b212-4a67-b67a-a4f567d29ef7",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-002"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Brennan",
+            "given": [
+              "Thomas"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-1102",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-2102",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "tbrennan@citymed.org",
+            "use": "work"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-002"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:138e46b1-d2aa-445e-9d6c-8c73df284d18",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:b3777192-b212-4a67-b67a-a4f567d29ef7",
+          "display": "Dr. Thomas Brennan"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "11911009",
+                "display": "Internist"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-2102",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-1102",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f538016e-753a-418d-b7f5-6bc3fcc4845f",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-oncall"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Okafor",
+            "given": [
+              "James"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "jokafor@radiology-oncall.org",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-oncall"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:03384b7e-344b-48fc-ab58-28795bbc3b6c",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:f538016e-753a-418d-b7f5-6bc3fcc4845f",
+          "display": "Dr. James Okafor"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
+                "code": "on-call",
+                "display": "On Call"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a2bf6b45-b212-4487-8969-f1fec277875f",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-sr-002"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24725-4",
+              "display": "CT Head"
+            }
+          ],
+          "text": "CT Head without contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:d7c51480-70e1-41d1-90da-f5add6755210"
+        },
+        "requester": {
+          "reference": "urn:uuid:b3777192-b212-4a67-b67a-a4f567d29ef7",
+          "display": "Dr. Thomas Brennan"
+        },
+        "reasonCode": [
+          {
+            "text": "Sudden onset worst headache of life"
+          }
+        ],
+        "priority": "stat"
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-sr-002"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:00e98511-8f11-4756-b111-a6408cdf9cfe",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-dr-002"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24725-4",
+              "display": "CT Head"
+            }
+          ],
+          "text": "CT Head without contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:d7c51480-70e1-41d1-90da-f5add6755210"
+        },
+        "basedOn": [
+          {
+            "reference": "urn:uuid:a2bf6b45-b212-4487-8969-f1fec277875f"
+          }
+        ],
+        "performer": [
+          {
+            "reference": "urn:uuid:b3777192-b212-4a67-b67a-a4f567d29ef7"
+          }
+        ],
+        "issued": "2026-05-08T10:00:00+00:00",
+        "effectiveDateTime": "2026-05-08T10:00:00+00:00",
+        "conclusion": "CLINICAL INDICATION: 54-year-old female presenting with thunderclap headache, neck stiffness, and photophobia. GCS 14.\n\nTECHNIQUE: Non-contrast CT of the brain.\n\nFINDINGS:\nSUBARACHNOID SPACE: Diffuse hyperdensity is identified within the basal cisterns, Sylvian fissures bilaterally, and along the tentorium cerebelli, consistent with acute subarachnoid hemorrhage. The pattern is most prominent in the suprasellar cistern and right Sylvian fissure.\n\nVENTRICLES: Mild hydrocephalus with temporal horn rounding bilaterally. The third ventricle measures 7mm (upper limit of normal).\n\nBRAIN PARENCHYMA: No intraparenchymal hematoma. No midline shift. Gray-white differentiation is preserved.\n\nIMPRESSION:\n1. Acute subarachnoid hemorrhage with diffuse basal cistern involvement. Neurosurgical consultation required immediately.\n2. Early communicating hydrocephalus \u2014 monitor closely.\n3. CTA of the head recommended urgently to evaluate for ruptured aneurysm."
+      },
+      "request": {
+        "method": "POST",
+        "url": "DiagnosticReport",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-002"
+      }
+    }
+  ]
+}

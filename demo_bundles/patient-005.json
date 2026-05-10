@@ -1,0 +1,312 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:e5c03f87-3230-4b24-a306-a9a8d371b53c",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-patient-005"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Fleming",
+            "given": [
+              "Robert"
+            ]
+          }
+        ],
+        "birthDate": "1963-02-28",
+        "gender": "male",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-4005",
+            "use": "home"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-patient-005"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a8d04a31-9e08-46c6-8f23-25d647ed947f",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-005"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Torres",
+            "given": [
+              "Angela"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-1105",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-2105",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "atorres@northside-health.org",
+            "use": "work"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-005"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c4088daf-906d-4f59-ba1d-9c8113817445",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:a8d04a31-9e08-46c6-8f23-25d647ed947f",
+          "display": "Dr. Angela Torres"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "11911009",
+                "display": "Internist"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-2105",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-1105",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:5dd8b545-d27e-4011-bc31-92d136482e53",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-oncall"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Okafor",
+            "given": [
+              "James"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "jokafor@radiology-oncall.org",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-oncall"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:846bd49e-ea56-4963-9116-570919bf90ee",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:5dd8b545-d27e-4011-bc31-92d136482e53",
+          "display": "Dr. James Okafor"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
+                "code": "on-call",
+                "display": "On Call"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0ca6afbb-cb1d-4dda-b3ed-1e4b5825f832",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-sr-005"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24550-6",
+              "display": "CT Abdomen"
+            }
+          ],
+          "text": "CT Abdomen/Pelvis with contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:e5c03f87-3230-4b24-a306-a9a8d371b53c"
+        },
+        "requester": {
+          "reference": "urn:uuid:a8d04a31-9e08-46c6-8f23-25d647ed947f",
+          "display": "Dr. Angela Torres"
+        },
+        "reasonCode": [
+          {
+            "text": "Acute severe abdominal pain and rigidity"
+          }
+        ],
+        "priority": "stat"
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-sr-005"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f07d4e75-db1c-404a-8097-96dcb201d261",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-dr-005"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24550-6",
+              "display": "CT Abdomen"
+            }
+          ],
+          "text": "CT Abdomen/Pelvis with contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:e5c03f87-3230-4b24-a306-a9a8d371b53c"
+        },
+        "basedOn": [
+          {
+            "reference": "urn:uuid:0ca6afbb-cb1d-4dda-b3ed-1e4b5825f832"
+          }
+        ],
+        "performer": [
+          {
+            "reference": "urn:uuid:a8d04a31-9e08-46c6-8f23-25d647ed947f"
+          }
+        ],
+        "issued": "2026-05-08T10:00:00+00:00",
+        "effectiveDateTime": "2026-05-08T10:00:00+00:00",
+        "conclusion": "CLINICAL INDICATION: 62-year-old male with sudden onset severe generalized abdominal pain, board-like rigidity on exam, and fever of 38.9\u00b0C.\n\nTECHNIQUE: CT of the abdomen and pelvis with intravenous contrast.\n\nFINDINGS:\nPERITONEUM: Pneumoperitoneum is identified with free air beneath the right hemidiaphragm measuring up to 3.2 cm in craniocaudal extent. Free air is also noted in the perihepatic space and along the anterior peritoneal surface. Moderate free fluid is present throughout the peritoneal cavity.\n\nBOWEL: The stomach and proximal duodenum demonstrate wall thickening. No discrete perforation site identified, however the region of the first portion of the duodenum is suspicious.\n\nIMPRESSION:\n1. Large pneumoperitoneum consistent with hollow viscus perforation. Emergent surgical consultation required.\n2. Peritoneal free fluid consistent with peritonitis.\n3. Duodenal perforation suspected \u2014 correlate clinically."
+      },
+      "request": {
+        "method": "POST",
+        "url": "DiagnosticReport",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-005"
+      }
+    }
+  ]
+}

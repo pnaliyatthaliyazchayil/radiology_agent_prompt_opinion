@@ -1,0 +1,312 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:c1ded2c6-5265-4982-884f-5810ab1fd0d5",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-patient-009"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Petrov",
+            "given": [
+              "George"
+            ]
+          }
+        ],
+        "birthDate": "1952-08-17",
+        "gender": "male",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-4009",
+            "use": "home"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-patient-009"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:075860d6-db25-4c3a-8a40-5fff9a58f583",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-009"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Johansson",
+            "given": [
+              "Nina"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-1109",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-2109",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "njohansson@generalpractice.org",
+            "use": "work"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-009"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0398b682-b95e-40e4-9a2a-b0805790af82",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:075860d6-db25-4c3a-8a40-5fff9a58f583",
+          "display": "Dr. Nina Johansson"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "11911009",
+                "display": "Internist"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-2109",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-1109",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:330aec74-50de-4df2-bffb-8e412207599e",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-oncall"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Okafor",
+            "given": [
+              "James"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "jokafor@radiology-oncall.org",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-oncall"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:da10dbd1-1921-459f-86b1-92e0aa0583f3",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:330aec74-50de-4df2-bffb-8e412207599e",
+          "display": "Dr. James Okafor"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
+                "code": "on-call",
+                "display": "On Call"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:0c5c1196-0651-43d4-8c09-ec92d441be4c",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-sr-009"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24969-0",
+              "display": "XR Lumbar spine"
+            }
+          ],
+          "text": "X-Ray Lumbar Spine"
+        },
+        "subject": {
+          "reference": "urn:uuid:c1ded2c6-5265-4982-884f-5810ab1fd0d5"
+        },
+        "requester": {
+          "reference": "urn:uuid:075860d6-db25-4c3a-8a40-5fff9a58f583",
+          "display": "Dr. Nina Johansson"
+        },
+        "reasonCode": [
+          {
+            "text": "Chronic low back pain"
+          }
+        ],
+        "priority": "routine"
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-sr-009"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d68a3f2d-1726-400a-925e-f1d676462bc7",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-dr-009"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24969-0",
+              "display": "XR Lumbar spine"
+            }
+          ],
+          "text": "X-Ray Lumbar Spine"
+        },
+        "subject": {
+          "reference": "urn:uuid:c1ded2c6-5265-4982-884f-5810ab1fd0d5"
+        },
+        "basedOn": [
+          {
+            "reference": "urn:uuid:0c5c1196-0651-43d4-8c09-ec92d441be4c"
+          }
+        ],
+        "performer": [
+          {
+            "reference": "urn:uuid:075860d6-db25-4c3a-8a40-5fff9a58f583"
+          }
+        ],
+        "issued": "2026-05-08T10:00:00+00:00",
+        "effectiveDateTime": "2026-05-08T10:00:00+00:00",
+        "conclusion": "CLINICAL INDICATION: 73-year-old male with longstanding low back pain, no radicular symptoms, no bowel or bladder dysfunction.\n\nTECHNIQUE: AP and lateral radiographs of the lumbar spine.\n\nFINDINGS:\nALIGNMENT: Mild lumbar spondylosis. Preservation of normal lumbar lordosis. No spondylolisthesis.\n\nVERTEBRAL BODIES: Mild anterior osteophyte formation at L2-L3, L3-L4, and L4-L5. Disc space heights are mildly reduced at L4-L5 and L5-S1 consistent with degenerative disc disease. No acute fracture or compression deformity.\n\nSOFT TISSUES: No paravertebral soft tissue abnormality.\n\nIMPRESSION:\n1. Multilevel lumbar spondylosis and degenerative disc disease, most pronounced at L4-L5 and L5-S1. Findings are consistent with chronic degenerative changes.\n2. No acute osseous abnormality.\n3. Clinical correlation and conservative management recommended. MRI may be considered if symptoms worsen or fail to respond to therapy."
+      },
+      "request": {
+        "method": "POST",
+        "url": "DiagnosticReport",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-009"
+      }
+    }
+  ]
+}

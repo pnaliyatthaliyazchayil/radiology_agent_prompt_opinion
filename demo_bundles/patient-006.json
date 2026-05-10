@@ -1,0 +1,312 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:d672715b-116c-4bfe-b154-6f581123258d",
+      "resource": {
+        "resourceType": "Patient",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-patient-006"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Dubois",
+            "given": [
+              "Catherine"
+            ]
+          }
+        ],
+        "birthDate": "1955-07-11",
+        "gender": "female",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-4006",
+            "use": "home"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-patient-006"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8d8f4aa3-6a59-4c59-a6de-a6f2f75db37a",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-006"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Hill",
+            "given": [
+              "Marcus"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-1106",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-2106",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "mhill@lakesidemedical.org",
+            "use": "work"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+                  "code": "MD"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-006"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:539c15f2-cd52-4a8a-bb54-206f2bbcd64b",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:8d8f4aa3-6a59-4c59-a6de-a6f2f75db37a",
+          "display": "Dr. Marcus Hill"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "11911009",
+                "display": "Internist"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-2106",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-1106",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:16b05db2-afe2-4cbb-98f7-74eaee139b99",
+      "resource": {
+        "resourceType": "Practitioner",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-practitioner-oncall"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Okafor",
+            "given": [
+              "James"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          },
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "jokafor@radiology-oncall.org",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-practitioner-oncall"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ecebf650-c9c2-40ac-8b11-5a1dc6abb098",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:16b05db2-afe2-4cbb-98f7-74eaee139b99",
+          "display": "Dr. James Okafor"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0286",
+                "code": "on-call",
+                "display": "On Call"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "pager",
+            "value": "317-555-9001",
+            "use": "work"
+          },
+          {
+            "system": "phone",
+            "value": "317-555-9000",
+            "use": "work"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "PractitionerRole"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:240e5c00-393b-4400-b5b5-f104d5581db8",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-sr-006"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24627-2",
+              "display": "CT Chest"
+            }
+          ],
+          "text": "CT Chest with contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:d672715b-116c-4bfe-b154-6f581123258d"
+        },
+        "requester": {
+          "reference": "urn:uuid:8d8f4aa3-6a59-4c59-a6de-a6f2f75db37a",
+          "display": "Dr. Marcus Hill"
+        },
+        "reasonCode": [
+          {
+            "text": "Progressive dyspnea and pleuritic chest pain"
+          }
+        ],
+        "priority": "urgent"
+      },
+      "request": {
+        "method": "POST",
+        "url": "ServiceRequest",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-sr-006"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b7b5e899-2d25-4564-b826-bab0e079c4b0",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-dr-006"
+          }
+        ],
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "24627-2",
+              "display": "CT Chest"
+            }
+          ],
+          "text": "CT Chest with contrast"
+        },
+        "subject": {
+          "reference": "urn:uuid:d672715b-116c-4bfe-b154-6f581123258d"
+        },
+        "basedOn": [
+          {
+            "reference": "urn:uuid:240e5c00-393b-4400-b5b5-f104d5581db8"
+          }
+        ],
+        "performer": [
+          {
+            "reference": "urn:uuid:8d8f4aa3-6a59-4c59-a6de-a6f2f75db37a"
+          }
+        ],
+        "issued": "2026-05-08T10:00:00+00:00",
+        "effectiveDateTime": "2026-05-08T10:00:00+00:00",
+        "conclusion": "CLINICAL INDICATION: 70-year-old female with two weeks of progressive exertional dyspnea and right-sided pleuritic chest pain. Recent long-haul flight.\n\nTECHNIQUE: CT pulmonary angiography.\n\nFINDINGS:\nPULMONARY ARTERIES: Filling defects are identified in the right main pulmonary artery extending into the right upper, middle, and lower lobe segmental arteries. Additional filling defects are present in the left lower lobe segmental arteries. No evidence of right heart strain on CT \u2014 the RV/LV ratio is 0.9.\n\nLUNGS: Small right pleural effusion. A wedge-shaped peripheral opacity in the right lower lobe is consistent with pulmonary infarction.\n\nIMPRESSION:\n1. Bilateral pulmonary emboli \u2014 right main pulmonary artery and bilateral segmental branches. Non-massive by RV/LV ratio criteria.\n2. Right lower lobe pulmonary infarction.\n3. Anticoagulation and hematology/pulmonology consultation recommended within 24 hours."
+      },
+      "request": {
+        "method": "POST",
+        "url": "DiagnosticReport",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-006"
+      }
+    }
+  ]
+}
