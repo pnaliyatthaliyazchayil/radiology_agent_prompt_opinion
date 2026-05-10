@@ -68,66 +68,110 @@ VALID_API_KEYS: set[str] = {
 }
 
 
-class ApiKeyMiddleware(BaseHTTPMiddleware):
+class ApiKeyMiddleware:
+    """Pure-ASGI middleware. Validates X-API-Key, translates legacy A2A method
+    names to canonical slash form, bridges message.metadata into params.metadata,
+    and replays the (possibly modified) body downstream.
+
+    Pure ASGI is required because Starlette's BaseHTTPMiddleware does not
+    propagate body modifications through call_next — the downstream handler
+    reads the original ASGI receive stream, not a patched request object.
+    """
+
     def __init__(self, app, require_api_key: bool = True) -> None:
-        super().__init__(app)
+        self.app = app
         self.require_api_key = require_api_key
 
-    async def dispatch(self, request: Request, call_next):  # type: ignore[override]
-        # Always allow agent-card.json
-        if request.url.path.endswith(AGENT_CARD_PATH):
-            return await call_next(request)
+    async def __call__(self, scope, receive, send):
+        if scope.get("type") != "http":
+            await self.app(scope, receive, send)
+            return
 
-        if request.method != "POST":
-            return await call_next(request)
+        path = scope.get("path") or ""
+        method = scope.get("method")
+
+        if path.endswith(AGENT_CARD_PATH) or method != "POST":
+            await self.app(scope, receive, send)
+            return
 
         if self.require_api_key:
-            provided = request.headers.get("x-api-key") or request.headers.get("X-API-Key")
+            headers = {k.lower(): v for k, v in (scope.get("headers") or [])}
+            provided = headers.get(b"x-api-key", b"").decode("latin-1") or None
             if not provided:
-                logger.warning("security_rejected_missing_api_key path=%s", request.url.path)
-                return JSONResponse({"error": "X-API-Key header required"}, status_code=401)
+                logger.warning("security_rejected_missing_api_key path=%s", path)
+                await _send_json(send, 401, {"error": "X-API-Key header required"})
+                return
             if provided not in VALID_API_KEYS:
-                logger.warning("security_rejected_invalid_api_key path=%s", request.url.path)
-                return JSONResponse({"error": "Invalid API key"}, status_code=403)
+                logger.warning("security_rejected_invalid_api_key path=%s", path)
+                await _send_json(send, 403, {"error": "Invalid API key"})
+                return
 
-        # Bridge metadata: copy params.message.metadata → params.metadata so the
-        # ADK before_model_callback can find it via session/invocation context.
-        # Also log the incoming JSON-RPC method + top-level shape so we can
-        # diagnose what an orchestrator (e.g. Prompt Opinion) actually sends.
+        # Buffer body
+        body_chunks: list[bytes] = []
+        more_body = True
+        while more_body:
+            msg = await receive()
+            if msg["type"] != "http.request":
+                # disconnect or other — pass through with empty body
+                more_body = False
+                break
+            body_chunks.append(msg.get("body") or b"")
+            more_body = msg.get("more_body", False)
+        body_bytes = b"".join(body_chunks)
+
+        # Parse, log, translate method, bridge metadata
+        new_body = body_bytes
         try:
-            body_bytes = await request.body()
             if body_bytes:
-                body = json.loads(body_bytes)
-                method = body.get("method")
-                params = body.get("params") or {}
-                msg = params.get("message") or {}
-                logger.info(
-                    "incoming_a2a method=%s id=%s msg_keys=%s param_keys=%s metadata_keys=%s",
-                    method,
-                    body.get("id"),
-                    sorted(msg.keys()) if isinstance(msg, dict) else None,
-                    sorted(params.keys()) if isinstance(params, dict) else None,
-                    sorted((msg.get("metadata") or {}).keys()) if isinstance(msg.get("metadata"), dict) else None,
-                )
-                if method in METHOD_ALIASES:
-                    canonical = METHOD_ALIASES[method]
-                    logger.info("translated_method legacy=%s canonical=%s", method, canonical)
-                    body["method"] = canonical
-                meta = msg.get("metadata")
-                if meta and "metadata" not in params:
-                    params["metadata"] = meta
-                    body["params"] = params
-                # Always replay the body so downstream sees identical bytes
-                new_bytes = json.dumps(body).encode()
-
-                async def receive():
-                    return {"type": "http.request", "body": new_bytes, "more_body": False}
-
-                request._receive = receive  # type: ignore[attr-defined]
+                data = json.loads(body_bytes)
+                if isinstance(data, dict):
+                    rpc_method = data.get("method")
+                    params = data.get("params") or {}
+                    rpc_msg = params.get("message") or {}
+                    logger.info(
+                        "incoming_a2a method=%s id=%s msg_keys=%s param_keys=%s metadata_keys=%s",
+                        rpc_method,
+                        data.get("id"),
+                        sorted(rpc_msg.keys()) if isinstance(rpc_msg, dict) else None,
+                        sorted(params.keys()) if isinstance(params, dict) else None,
+                        sorted((rpc_msg.get("metadata") or {}).keys()) if isinstance(rpc_msg.get("metadata"), dict) else None,
+                    )
+                    if rpc_method in METHOD_ALIASES:
+                        canonical = METHOD_ALIASES[rpc_method]
+                        logger.info("translated_method legacy=%s canonical=%s", rpc_method, canonical)
+                        data["method"] = canonical
+                    meta = rpc_msg.get("metadata") if isinstance(rpc_msg, dict) else None
+                    if meta and isinstance(params, dict) and "metadata" not in params:
+                        params["metadata"] = meta
+                        data["params"] = params
+                    new_body = json.dumps(data).encode()
         except Exception as e:
-            logger.warning("middleware_metadata_bridge_skipped error=%s", e)
+            logger.warning("middleware_body_parse_skipped error=%s", e)
 
-        return await call_next(request)
+        # Replay body downstream
+        sent = False
+
+        async def new_receive():
+            nonlocal sent
+            if sent:
+                return {"type": "http.disconnect"}
+            sent = True
+            return {"type": "http.request", "body": new_body, "more_body": False}
+
+        await self.app(scope, new_receive, send)
+
+
+async def _send_json(send, status: int, payload: dict) -> None:
+    body = json.dumps(payload).encode()
+    await send({
+        "type": "http.response.start",
+        "status": status,
+        "headers": [
+            (b"content-type", b"application/json"),
+            (b"content-length", str(len(body)).encode()),
+        ],
+    })
+    await send({"type": "http.response.body", "body": body, "more_body": False})
 
 
 class AgentCardPatchMiddleware(BaseHTTPMiddleware):
