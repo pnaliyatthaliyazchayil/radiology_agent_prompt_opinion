@@ -17,6 +17,19 @@ from starlette.responses import JSONResponse, Response
 
 AGENT_CARD_PATH = "/.well-known/agent-card.json"
 
+# Some clients (Prompt Opinion included) still send the legacy camelCase
+# A2A method names. The current spec — and google-adk's JSON-RPC dispatcher —
+# only knows the slash-style names, so we translate at the edge.
+METHOD_ALIASES: dict[str, str] = {
+    "SendMessage": "message/send",
+    "SendStreamingMessage": "message/stream",
+    "GetTask": "tasks/get",
+    "CancelTask": "tasks/cancel",
+    "SetTaskPushNotificationConfig": "tasks/pushNotificationConfig/set",
+    "GetTaskPushNotificationConfig": "tasks/pushNotificationConfig/get",
+    "TaskResubscription": "tasks/resubscribe",
+}
+
 
 class RootGetServesCardMiddleware:
     """Pure-ASGI middleware: rewrite GET / to GET /.well-known/agent-card.json.
@@ -96,6 +109,10 @@ class ApiKeyMiddleware(BaseHTTPMiddleware):
                     sorted(params.keys()) if isinstance(params, dict) else None,
                     sorted((msg.get("metadata") or {}).keys()) if isinstance(msg.get("metadata"), dict) else None,
                 )
+                if method in METHOD_ALIASES:
+                    canonical = METHOD_ALIASES[method]
+                    logger.info("translated_method legacy=%s canonical=%s", method, canonical)
+                    body["method"] = canonical
                 meta = msg.get("metadata")
                 if meta and "metadata" not in params:
                     params["metadata"] = meta
