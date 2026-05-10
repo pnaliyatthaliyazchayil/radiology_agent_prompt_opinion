@@ -209,7 +209,9 @@ class ApiKeyMiddleware:
             await self.app(scope, new_receive, send)
             return
 
-        # SSE-wrap path: capture sync JSON response, re-emit as one SSE event.
+        # SSE-wrap path: capture sync JSON-RPC Task, decompose into the A2A
+        # streaming event sequence (artifact-update + final status-update) so
+        # PO's streaming parser sees the protocol it expects.
         captured_status = 200
         captured_body = bytearray()
         start_done = False
@@ -219,10 +221,10 @@ class ApiKeyMiddleware:
             mtype = message.get("type")
             if mtype == "http.response.start":
                 captured_status = message.get("status", 200)
-                # Swallow the original headers; we'll send our own SSE headers.
             elif mtype == "http.response.body":
                 captured_body.extend(message.get("body") or b"")
                 if not message.get("more_body", False):
+                    sse_payload = _build_streaming_events(bytes(captured_body))
                     if not start_done:
                         sse_headers = [
                             (b"content-type", b"text/event-stream; charset=utf-8"),
@@ -235,7 +237,6 @@ class ApiKeyMiddleware:
                             "headers": sse_headers,
                         })
                         start_done = True
-                    sse_payload = b"data: " + bytes(captured_body) + b"\n\n"
                     await send({
                         "type": "http.response.body",
                         "body": sse_payload,
@@ -243,6 +244,61 @@ class ApiKeyMiddleware:
                     })
 
         await self.app(scope, new_receive, wrapping_send)
+
+
+def _build_streaming_events(sync_body: bytes) -> bytes:
+    """Decompose a sync JSON-RPC Task response into A2A streaming events.
+
+    Emits one artifact-update event per artifact (final: false), then a
+    final status-update with final: true so the consumer sees the canonical
+    streaming protocol.
+    """
+    try:
+        envelope = json.loads(sync_body)
+    except Exception:
+        # If we can't parse, fall back to single SSE event with raw body.
+        return b"data: " + sync_body + b"\n\n"
+
+    rpc_id = envelope.get("id")
+    result = envelope.get("result") or {}
+    if not isinstance(result, dict) or result.get("kind") != "task":
+        # Error response or non-task result — emit as one event.
+        return b"data: " + sync_body + b"\n\n"
+
+    task_id = result.get("id")
+    context_id = result.get("contextId")
+    status = result.get("status") or {"state": "completed"}
+    artifacts = result.get("artifacts") or []
+
+    events: list[bytes] = []
+
+    for artifact in artifacts:
+        event = {
+            "jsonrpc": "2.0",
+            "id": rpc_id,
+            "result": {
+                "kind": "artifact-update",
+                "taskId": task_id,
+                "contextId": context_id,
+                "artifact": artifact,
+                "final": False,
+            },
+        }
+        events.append(b"data: " + json.dumps(event).encode() + b"\n\n")
+
+    final_event = {
+        "jsonrpc": "2.0",
+        "id": rpc_id,
+        "result": {
+            "kind": "status-update",
+            "taskId": task_id,
+            "contextId": context_id,
+            "status": status,
+            "final": True,
+        },
+    }
+    events.append(b"data: " + json.dumps(final_event).encode() + b"\n\n")
+    return b"".join(events)
 
 
 async def _send_json(send, status: int, payload: dict) -> None:
