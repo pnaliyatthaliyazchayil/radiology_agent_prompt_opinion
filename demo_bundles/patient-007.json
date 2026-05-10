@@ -3,7 +3,7 @@
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:b4cff32d-c802-4414-ada3-1474f9075eb1",
+      "fullUrl": "urn:uuid:3e1f83d8-2054-4f3b-ab6b-ae4ec5da7bcc",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:f989966f-f943-495c-81bb-bc4d1999008d",
+      "fullUrl": "urn:uuid:afd2e3f3-6f34-4657-a584-b5c0b49e920d",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -93,12 +93,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:57d5effe-700c-434c-885c-3112f60db416",
+      "fullUrl": "urn:uuid:457c092e-7d2f-4ccb-bbcb-a54fa5248c43",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:f989966f-f943-495c-81bb-bc4d1999008d",
+          "reference": "urn:uuid:afd2e3f3-6f34-4657-a584-b5c0b49e920d",
           "display": "Dr. Rebecca Huang"
         },
         "code": [
@@ -131,7 +131,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:153ecd2b-f8b4-432b-ae29-22f0adcaddfa",
+      "fullUrl": "urn:uuid:ef208430-fe66-4335-ade8-b55a62597003",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -174,12 +174,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:3291b389-1af4-4ce5-92eb-5a38e729c3ca",
+      "fullUrl": "urn:uuid:7816b019-f86b-4100-b39d-1ede1158a48d",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:153ecd2b-f8b4-432b-ae29-22f0adcaddfa",
+          "reference": "urn:uuid:ef208430-fe66-4335-ade8-b55a62597003",
           "display": "Dr. James Okafor"
         },
         "code": [
@@ -212,7 +212,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:aa1ec40d-fb51-487d-8b95-821ed41cc8c6",
+      "fullUrl": "urn:uuid:523b7476-9484-461b-a393-9afab9f0efff",
       "resource": {
         "resourceType": "ServiceRequest",
         "identifier": [
@@ -234,10 +234,10 @@
           "text": "CT Chest with contrast"
         },
         "subject": {
-          "reference": "urn:uuid:b4cff32d-c802-4414-ada3-1474f9075eb1"
+          "reference": "urn:uuid:3e1f83d8-2054-4f3b-ab6b-ae4ec5da7bcc"
         },
         "requester": {
-          "reference": "urn:uuid:f989966f-f943-495c-81bb-bc4d1999008d",
+          "reference": "urn:uuid:afd2e3f3-6f34-4657-a584-b5c0b49e920d",
           "display": "Dr. Rebecca Huang"
         },
         "reasonCode": [
@@ -254,7 +254,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:55455ca4-16ac-41fe-a24b-ef53aa51fdda",
+      "fullUrl": "urn:uuid:a551e193-1c09-46d3-874b-9f3dbd0781b1",
       "resource": {
         "resourceType": "DiagnosticReport",
         "identifier": [
@@ -263,6 +263,10 @@
             "value": "critcom-dr-007"
           }
         ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre>CLINICAL INDICATION: 57-year-old male, smoker, routine follow-up chest CT.\n\nTECHNIQUE: CT of the chest with intravenous contrast.\n\nFINDINGS:\nLUNGS: A spiculated right upper lobe nodule measuring 2.3 x 1.9 cm is identified in the right upper lobe, anterior segment. The nodule demonstrates irregular margins and pleural tethering. There is ipsilateral mediastinal lymphadenopathy with a right paratracheal node measuring 1.8 x 1.4 cm (short axis). No contralateral adenopathy. No pleural effusion.\n\nPRIOR IMAGING: No prior chest CT available for comparison.\n\nIMPRESSION:\n1. 2.3 cm spiculated right upper lobe nodule with ipsilateral mediastinal adenopathy \u2014 highly suspicious for primary lung malignancy. PET-CT and tissue sampling recommended within 24-48 hours.\n2. Findings represent at minimum stage IIA disease pending further workup.</pre></div>"
+        },
         "status": "final",
         "category": [
           {
@@ -286,26 +290,101 @@
           "text": "CT Chest with contrast"
         },
         "subject": {
-          "reference": "urn:uuid:b4cff32d-c802-4414-ada3-1474f9075eb1"
+          "reference": "urn:uuid:3e1f83d8-2054-4f3b-ab6b-ae4ec5da7bcc"
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:aa1ec40d-fb51-487d-8b95-821ed41cc8c6"
+            "reference": "urn:uuid:523b7476-9484-461b-a393-9afab9f0efff"
           }
         ],
         "performer": [
           {
-            "reference": "urn:uuid:f989966f-f943-495c-81bb-bc4d1999008d"
+            "reference": "urn:uuid:afd2e3f3-6f34-4657-a584-b5c0b49e920d"
           }
         ],
         "issued": "2026-05-08T10:00:00+00:00",
         "effectiveDateTime": "2026-05-08T10:00:00+00:00",
-        "conclusion": "CLINICAL INDICATION: 57-year-old male, smoker, routine follow-up chest CT.\n\nTECHNIQUE: CT of the chest with intravenous contrast.\n\nFINDINGS:\nLUNGS: A spiculated right upper lobe nodule measuring 2.3 x 1.9 cm is identified in the right upper lobe, anterior segment. The nodule demonstrates irregular margins and pleural tethering. There is ipsilateral mediastinal lymphadenopathy with a right paratracheal node measuring 1.8 x 1.4 cm (short axis). No contralateral adenopathy. No pleural effusion.\n\nPRIOR IMAGING: No prior chest CT available for comparison.\n\nIMPRESSION:\n1. 2.3 cm spiculated right upper lobe nodule with ipsilateral mediastinal adenopathy \u2014 highly suspicious for primary lung malignancy. PET-CT and tissue sampling recommended within 24-48 hours.\n2. Findings represent at minimum stage IIA disease pending further workup."
+        "conclusion": "CLINICAL INDICATION: 57-year-old male, smoker, routine follow-up chest CT.\n\nTECHNIQUE: CT of the chest with intravenous contrast.\n\nFINDINGS:\nLUNGS: A spiculated right upper lobe nodule measuring 2.3 x 1.9 cm is identified in the right upper lobe, anterior segment. The nodule demonstrates irregular margins and pleural tethering. There is ipsilateral mediastinal lymphadenopathy with a right paratracheal node measuring 1.8 x 1.4 cm (short axis). No contralateral adenopathy. No pleural effusion.\n\nPRIOR IMAGING: No prior chest CT available for comparison.\n\nIMPRESSION:\n1. 2.3 cm spiculated right upper lobe nodule with ipsilateral mediastinal adenopathy \u2014 highly suspicious for primary lung malignancy. PET-CT and tissue sampling recommended within 24-48 hours.\n2. Findings represent at minimum stage IIA disease pending further workup.",
+        "presentedForm": [
+          {
+            "contentType": "text/plain; charset=utf-8",
+            "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogNTcteWVhci1vbGQgbWFsZSwgc21va2VyLCByb3V0aW5lIGZvbGxvdy11cCBjaGVzdCBDVC4KClRFQ0hOSVFVRTogQ1Qgb2YgdGhlIGNoZXN0IHdpdGggaW50cmF2ZW5vdXMgY29udHJhc3QuCgpGSU5ESU5HUzoKTFVOR1M6IEEgc3BpY3VsYXRlZCByaWdodCB1cHBlciBsb2JlIG5vZHVsZSBtZWFzdXJpbmcgMi4zIHggMS45IGNtIGlzIGlkZW50aWZpZWQgaW4gdGhlIHJpZ2h0IHVwcGVyIGxvYmUsIGFudGVyaW9yIHNlZ21lbnQuIFRoZSBub2R1bGUgZGVtb25zdHJhdGVzIGlycmVndWxhciBtYXJnaW5zIGFuZCBwbGV1cmFsIHRldGhlcmluZy4gVGhlcmUgaXMgaXBzaWxhdGVyYWwgbWVkaWFzdGluYWwgbHltcGhhZGVub3BhdGh5IHdpdGggYSByaWdodCBwYXJhdHJhY2hlYWwgbm9kZSBtZWFzdXJpbmcgMS44IHggMS40IGNtIChzaG9ydCBheGlzKS4gTm8gY29udHJhbGF0ZXJhbCBhZGVub3BhdGh5LiBObyBwbGV1cmFsIGVmZnVzaW9uLgoKUFJJT1IgSU1BR0lORzogTm8gcHJpb3IgY2hlc3QgQ1QgYXZhaWxhYmxlIGZvciBjb21wYXJpc29uLgoKSU1QUkVTU0lPTjoKMS4gMi4zIGNtIHNwaWN1bGF0ZWQgcmlnaHQgdXBwZXIgbG9iZSBub2R1bGUgd2l0aCBpcHNpbGF0ZXJhbCBtZWRpYXN0aW5hbCBhZGVub3BhdGh5IOKAlCBoaWdobHkgc3VzcGljaW91cyBmb3IgcHJpbWFyeSBsdW5nIG1hbGlnbmFuY3kuIFBFVC1DVCBhbmQgdGlzc3VlIHNhbXBsaW5nIHJlY29tbWVuZGVkIHdpdGhpbiAyNC00OCBob3Vycy4KMi4gRmluZGluZ3MgcmVwcmVzZW50IGF0IG1pbmltdW0gc3RhZ2UgSUlBIGRpc2Vhc2UgcGVuZGluZyBmdXJ0aGVyIHdvcmt1cC4=",
+            "title": "CT Chest with contrast \u2014 Radiology Report"
+          }
+        ]
       },
       "request": {
         "method": "POST",
         "url": "DiagnosticReport",
         "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-007"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b29f412a-c1f5-4140-8a1d-aaed57157c1a",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-docref-007"
+          }
+        ],
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18748-4",
+              "display": "Diagnostic imaging study"
+            }
+          ],
+          "text": "CT Chest with contrast \u2014 Radiology Report"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:3e1f83d8-2054-4f3b-ab6b-ae4ec5da7bcc"
+        },
+        "date": "2026-05-08T10:00:00+00:00",
+        "author": [
+          {
+            "reference": "urn:uuid:afd2e3f3-6f34-4657-a584-b5c0b49e920d"
+          }
+        ],
+        "description": "CT Chest with contrast \u2014 finalized radiology report",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain; charset=utf-8",
+              "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogNTcteWVhci1vbGQgbWFsZSwgc21va2VyLCByb3V0aW5lIGZvbGxvdy11cCBjaGVzdCBDVC4KClRFQ0hOSVFVRTogQ1Qgb2YgdGhlIGNoZXN0IHdpdGggaW50cmF2ZW5vdXMgY29udHJhc3QuCgpGSU5ESU5HUzoKTFVOR1M6IEEgc3BpY3VsYXRlZCByaWdodCB1cHBlciBsb2JlIG5vZHVsZSBtZWFzdXJpbmcgMi4zIHggMS45IGNtIGlzIGlkZW50aWZpZWQgaW4gdGhlIHJpZ2h0IHVwcGVyIGxvYmUsIGFudGVyaW9yIHNlZ21lbnQuIFRoZSBub2R1bGUgZGVtb25zdHJhdGVzIGlycmVndWxhciBtYXJnaW5zIGFuZCBwbGV1cmFsIHRldGhlcmluZy4gVGhlcmUgaXMgaXBzaWxhdGVyYWwgbWVkaWFzdGluYWwgbHltcGhhZGVub3BhdGh5IHdpdGggYSByaWdodCBwYXJhdHJhY2hlYWwgbm9kZSBtZWFzdXJpbmcgMS44IHggMS40IGNtIChzaG9ydCBheGlzKS4gTm8gY29udHJhbGF0ZXJhbCBhZGVub3BhdGh5LiBObyBwbGV1cmFsIGVmZnVzaW9uLgoKUFJJT1IgSU1BR0lORzogTm8gcHJpb3IgY2hlc3QgQ1QgYXZhaWxhYmxlIGZvciBjb21wYXJpc29uLgoKSU1QUkVTU0lPTjoKMS4gMi4zIGNtIHNwaWN1bGF0ZWQgcmlnaHQgdXBwZXIgbG9iZSBub2R1bGUgd2l0aCBpcHNpbGF0ZXJhbCBtZWRpYXN0aW5hbCBhZGVub3BhdGh5IOKAlCBoaWdobHkgc3VzcGljaW91cyBmb3IgcHJpbWFyeSBsdW5nIG1hbGlnbmFuY3kuIFBFVC1DVCBhbmQgdGlzc3VlIHNhbXBsaW5nIHJlY29tbWVuZGVkIHdpdGhpbiAyNC00OCBob3Vycy4KMi4gRmluZGluZ3MgcmVwcmVzZW50IGF0IG1pbmltdW0gc3RhZ2UgSUlBIGRpc2Vhc2UgcGVuZGluZyBmdXJ0aGVyIHdvcmt1cC4=",
+              "title": "CT Chest with contrast \u2014 Radiology Report",
+              "creation": "2026-05-08T10:00:00+00:00"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "urn:uuid:a551e193-1c09-46d3-874b-9f3dbd0781b1",
+              "display": "Source DiagnosticReport"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "DocumentReference",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-docref-007"
       }
     }
   ]

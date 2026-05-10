@@ -3,7 +3,7 @@
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:bbdc7726-c514-498d-9e8e-270c0c58ed15",
+      "fullUrl": "urn:uuid:069bf4c1-20b5-47d9-8af9-c048882f74f4",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:f0c7168d-2022-4f15-a7a2-455fb1f81be4",
+      "fullUrl": "urn:uuid:99e2318b-95d8-49c2-ac88-89d55bda177f",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -93,12 +93,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:07aec0bf-e5f6-4cad-9e8d-990eb8ecfb0f",
+      "fullUrl": "urn:uuid:c10d2ce0-65f8-45f0-b38e-9e3dc93e9c3d",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:f0c7168d-2022-4f15-a7a2-455fb1f81be4",
+          "reference": "urn:uuid:99e2318b-95d8-49c2-ac88-89d55bda177f",
           "display": "Dr. Kevin Walsh"
         },
         "code": [
@@ -131,7 +131,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:9368144c-1f44-441c-a8c9-8142fffb1f88",
+      "fullUrl": "urn:uuid:a7922204-30f5-4c78-b981-75602f0d7288",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -174,12 +174,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:59367e5e-a35d-46f9-89f1-e6c21e900fd6",
+      "fullUrl": "urn:uuid:1b8b5468-30a5-4577-8d85-ab459d1663e8",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:9368144c-1f44-441c-a8c9-8142fffb1f88",
+          "reference": "urn:uuid:a7922204-30f5-4c78-b981-75602f0d7288",
           "display": "Dr. James Okafor"
         },
         "code": [
@@ -212,7 +212,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:dea94ff3-61e9-4f78-9037-2bd5033b35ee",
+      "fullUrl": "urn:uuid:3cb3c81c-e337-482a-b5a7-860bd186c766",
       "resource": {
         "resourceType": "ServiceRequest",
         "identifier": [
@@ -234,10 +234,10 @@
           "text": "MRI Brain with and without contrast"
         },
         "subject": {
-          "reference": "urn:uuid:bbdc7726-c514-498d-9e8e-270c0c58ed15"
+          "reference": "urn:uuid:069bf4c1-20b5-47d9-8af9-c048882f74f4"
         },
         "requester": {
-          "reference": "urn:uuid:f0c7168d-2022-4f15-a7a2-455fb1f81be4",
+          "reference": "urn:uuid:99e2318b-95d8-49c2-ac88-89d55bda177f",
           "display": "Dr. Kevin Walsh"
         },
         "reasonCode": [
@@ -254,7 +254,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:280ec3e9-b29f-4f4f-81d9-cf62ae61355c",
+      "fullUrl": "urn:uuid:8e75c89e-e039-4575-9c84-5c45a3fc2a67",
       "resource": {
         "resourceType": "DiagnosticReport",
         "identifier": [
@@ -263,6 +263,10 @@
             "value": "critcom-dr-004"
           }
         ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre>CLINICAL INDICATION: 36-year-old female with sudden onset left-sided hemiplegia and expressive aphasia. Last known well 45 minutes ago.\n\nTECHNIQUE: MRI of the brain with diffusion weighted imaging, FLAIR, T1, T2, and post-contrast T1 sequences.\n\nFINDINGS:\nDIFFUSION: Restricted diffusion is identified in the right MCA territory involving the right frontal and parietal lobes, right basal ganglia, and right insula. The involved area measures approximately 85 mL by ASPECTS scoring (ASPECTS 4). No hemorrhagic transformation.\n\nMRA: Occlusion of the right middle cerebral artery at the M1 segment. No flow-related enhancement distal to the occlusion.\n\nIMPRESSION:\n1. Large right MCA territory acute ischemic stroke with M1 occlusion. Patient is within thrombectomy window \u2014 emergent neurovascular intervention team activation required immediately.\n2. No hemorrhagic transformation currently.</pre></div>"
+        },
         "status": "final",
         "category": [
           {
@@ -286,26 +290,101 @@
           "text": "MRI Brain with and without contrast"
         },
         "subject": {
-          "reference": "urn:uuid:bbdc7726-c514-498d-9e8e-270c0c58ed15"
+          "reference": "urn:uuid:069bf4c1-20b5-47d9-8af9-c048882f74f4"
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:dea94ff3-61e9-4f78-9037-2bd5033b35ee"
+            "reference": "urn:uuid:3cb3c81c-e337-482a-b5a7-860bd186c766"
           }
         ],
         "performer": [
           {
-            "reference": "urn:uuid:f0c7168d-2022-4f15-a7a2-455fb1f81be4"
+            "reference": "urn:uuid:99e2318b-95d8-49c2-ac88-89d55bda177f"
           }
         ],
         "issued": "2026-05-08T10:00:00+00:00",
         "effectiveDateTime": "2026-05-08T10:00:00+00:00",
-        "conclusion": "CLINICAL INDICATION: 36-year-old female with sudden onset left-sided hemiplegia and expressive aphasia. Last known well 45 minutes ago.\n\nTECHNIQUE: MRI of the brain with diffusion weighted imaging, FLAIR, T1, T2, and post-contrast T1 sequences.\n\nFINDINGS:\nDIFFUSION: Restricted diffusion is identified in the right MCA territory involving the right frontal and parietal lobes, right basal ganglia, and right insula. The involved area measures approximately 85 mL by ASPECTS scoring (ASPECTS 4). No hemorrhagic transformation.\n\nMRA: Occlusion of the right middle cerebral artery at the M1 segment. No flow-related enhancement distal to the occlusion.\n\nIMPRESSION:\n1. Large right MCA territory acute ischemic stroke with M1 occlusion. Patient is within thrombectomy window \u2014 emergent neurovascular intervention team activation required immediately.\n2. No hemorrhagic transformation currently."
+        "conclusion": "CLINICAL INDICATION: 36-year-old female with sudden onset left-sided hemiplegia and expressive aphasia. Last known well 45 minutes ago.\n\nTECHNIQUE: MRI of the brain with diffusion weighted imaging, FLAIR, T1, T2, and post-contrast T1 sequences.\n\nFINDINGS:\nDIFFUSION: Restricted diffusion is identified in the right MCA territory involving the right frontal and parietal lobes, right basal ganglia, and right insula. The involved area measures approximately 85 mL by ASPECTS scoring (ASPECTS 4). No hemorrhagic transformation.\n\nMRA: Occlusion of the right middle cerebral artery at the M1 segment. No flow-related enhancement distal to the occlusion.\n\nIMPRESSION:\n1. Large right MCA territory acute ischemic stroke with M1 occlusion. Patient is within thrombectomy window \u2014 emergent neurovascular intervention team activation required immediately.\n2. No hemorrhagic transformation currently.",
+        "presentedForm": [
+          {
+            "contentType": "text/plain; charset=utf-8",
+            "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogMzYteWVhci1vbGQgZmVtYWxlIHdpdGggc3VkZGVuIG9uc2V0IGxlZnQtc2lkZWQgaGVtaXBsZWdpYSBhbmQgZXhwcmVzc2l2ZSBhcGhhc2lhLiBMYXN0IGtub3duIHdlbGwgNDUgbWludXRlcyBhZ28uCgpURUNITklRVUU6IE1SSSBvZiB0aGUgYnJhaW4gd2l0aCBkaWZmdXNpb24gd2VpZ2h0ZWQgaW1hZ2luZywgRkxBSVIsIFQxLCBUMiwgYW5kIHBvc3QtY29udHJhc3QgVDEgc2VxdWVuY2VzLgoKRklORElOR1M6CkRJRkZVU0lPTjogUmVzdHJpY3RlZCBkaWZmdXNpb24gaXMgaWRlbnRpZmllZCBpbiB0aGUgcmlnaHQgTUNBIHRlcnJpdG9yeSBpbnZvbHZpbmcgdGhlIHJpZ2h0IGZyb250YWwgYW5kIHBhcmlldGFsIGxvYmVzLCByaWdodCBiYXNhbCBnYW5nbGlhLCBhbmQgcmlnaHQgaW5zdWxhLiBUaGUgaW52b2x2ZWQgYXJlYSBtZWFzdXJlcyBhcHByb3hpbWF0ZWx5IDg1IG1MIGJ5IEFTUEVDVFMgc2NvcmluZyAoQVNQRUNUUyA0KS4gTm8gaGVtb3JyaGFnaWMgdHJhbnNmb3JtYXRpb24uCgpNUkE6IE9jY2x1c2lvbiBvZiB0aGUgcmlnaHQgbWlkZGxlIGNlcmVicmFsIGFydGVyeSBhdCB0aGUgTTEgc2VnbWVudC4gTm8gZmxvdy1yZWxhdGVkIGVuaGFuY2VtZW50IGRpc3RhbCB0byB0aGUgb2NjbHVzaW9uLgoKSU1QUkVTU0lPTjoKMS4gTGFyZ2UgcmlnaHQgTUNBIHRlcnJpdG9yeSBhY3V0ZSBpc2NoZW1pYyBzdHJva2Ugd2l0aCBNMSBvY2NsdXNpb24uIFBhdGllbnQgaXMgd2l0aGluIHRocm9tYmVjdG9teSB3aW5kb3cg4oCUIGVtZXJnZW50IG5ldXJvdmFzY3VsYXIgaW50ZXJ2ZW50aW9uIHRlYW0gYWN0aXZhdGlvbiByZXF1aXJlZCBpbW1lZGlhdGVseS4KMi4gTm8gaGVtb3JyaGFnaWMgdHJhbnNmb3JtYXRpb24gY3VycmVudGx5Lg==",
+            "title": "MRI Brain with and without contrast \u2014 Radiology Report"
+          }
+        ]
       },
       "request": {
         "method": "POST",
         "url": "DiagnosticReport",
         "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-004"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2ba0d6fa-c731-4b13-ab66-31b0e4c7960d",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-docref-004"
+          }
+        ],
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18748-4",
+              "display": "Diagnostic imaging study"
+            }
+          ],
+          "text": "MRI Brain with and without contrast \u2014 Radiology Report"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:069bf4c1-20b5-47d9-8af9-c048882f74f4"
+        },
+        "date": "2026-05-08T10:00:00+00:00",
+        "author": [
+          {
+            "reference": "urn:uuid:99e2318b-95d8-49c2-ac88-89d55bda177f"
+          }
+        ],
+        "description": "MRI Brain with and without contrast \u2014 finalized radiology report",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain; charset=utf-8",
+              "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogMzYteWVhci1vbGQgZmVtYWxlIHdpdGggc3VkZGVuIG9uc2V0IGxlZnQtc2lkZWQgaGVtaXBsZWdpYSBhbmQgZXhwcmVzc2l2ZSBhcGhhc2lhLiBMYXN0IGtub3duIHdlbGwgNDUgbWludXRlcyBhZ28uCgpURUNITklRVUU6IE1SSSBvZiB0aGUgYnJhaW4gd2l0aCBkaWZmdXNpb24gd2VpZ2h0ZWQgaW1hZ2luZywgRkxBSVIsIFQxLCBUMiwgYW5kIHBvc3QtY29udHJhc3QgVDEgc2VxdWVuY2VzLgoKRklORElOR1M6CkRJRkZVU0lPTjogUmVzdHJpY3RlZCBkaWZmdXNpb24gaXMgaWRlbnRpZmllZCBpbiB0aGUgcmlnaHQgTUNBIHRlcnJpdG9yeSBpbnZvbHZpbmcgdGhlIHJpZ2h0IGZyb250YWwgYW5kIHBhcmlldGFsIGxvYmVzLCByaWdodCBiYXNhbCBnYW5nbGlhLCBhbmQgcmlnaHQgaW5zdWxhLiBUaGUgaW52b2x2ZWQgYXJlYSBtZWFzdXJlcyBhcHByb3hpbWF0ZWx5IDg1IG1MIGJ5IEFTUEVDVFMgc2NvcmluZyAoQVNQRUNUUyA0KS4gTm8gaGVtb3JyaGFnaWMgdHJhbnNmb3JtYXRpb24uCgpNUkE6IE9jY2x1c2lvbiBvZiB0aGUgcmlnaHQgbWlkZGxlIGNlcmVicmFsIGFydGVyeSBhdCB0aGUgTTEgc2VnbWVudC4gTm8gZmxvdy1yZWxhdGVkIGVuaGFuY2VtZW50IGRpc3RhbCB0byB0aGUgb2NjbHVzaW9uLgoKSU1QUkVTU0lPTjoKMS4gTGFyZ2UgcmlnaHQgTUNBIHRlcnJpdG9yeSBhY3V0ZSBpc2NoZW1pYyBzdHJva2Ugd2l0aCBNMSBvY2NsdXNpb24uIFBhdGllbnQgaXMgd2l0aGluIHRocm9tYmVjdG9teSB3aW5kb3cg4oCUIGVtZXJnZW50IG5ldXJvdmFzY3VsYXIgaW50ZXJ2ZW50aW9uIHRlYW0gYWN0aXZhdGlvbiByZXF1aXJlZCBpbW1lZGlhdGVseS4KMi4gTm8gaGVtb3JyaGFnaWMgdHJhbnNmb3JtYXRpb24gY3VycmVudGx5Lg==",
+              "title": "MRI Brain with and without contrast \u2014 Radiology Report",
+              "creation": "2026-05-08T10:00:00+00:00"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "urn:uuid:8e75c89e-e039-4575-9c84-5c45a3fc2a67",
+              "display": "Source DiagnosticReport"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "DocumentReference",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-docref-004"
       }
     }
   ]

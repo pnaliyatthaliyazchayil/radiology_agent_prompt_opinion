@@ -3,7 +3,7 @@
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:d672715b-116c-4bfe-b154-6f581123258d",
+      "fullUrl": "urn:uuid:620ed6cd-7413-49a4-9cb5-b681b4d2bfb0",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:8d8f4aa3-6a59-4c59-a6de-a6f2f75db37a",
+      "fullUrl": "urn:uuid:5d3c553a-a2ad-4902-9a4d-f477ba644ba6",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -93,12 +93,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:539c15f2-cd52-4a8a-bb54-206f2bbcd64b",
+      "fullUrl": "urn:uuid:08324114-f12b-4779-b569-e2e08017817a",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:8d8f4aa3-6a59-4c59-a6de-a6f2f75db37a",
+          "reference": "urn:uuid:5d3c553a-a2ad-4902-9a4d-f477ba644ba6",
           "display": "Dr. Marcus Hill"
         },
         "code": [
@@ -131,7 +131,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:16b05db2-afe2-4cbb-98f7-74eaee139b99",
+      "fullUrl": "urn:uuid:034b5fd0-c8f4-45fc-ac93-5c12329a0170",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -174,12 +174,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ecebf650-c9c2-40ac-8b11-5a1dc6abb098",
+      "fullUrl": "urn:uuid:2e14e530-1cd9-451f-b533-a22b84ee3ddc",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:16b05db2-afe2-4cbb-98f7-74eaee139b99",
+          "reference": "urn:uuid:034b5fd0-c8f4-45fc-ac93-5c12329a0170",
           "display": "Dr. James Okafor"
         },
         "code": [
@@ -212,7 +212,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:240e5c00-393b-4400-b5b5-f104d5581db8",
+      "fullUrl": "urn:uuid:ced1fa02-2e3b-4c14-940d-c833b21a5f55",
       "resource": {
         "resourceType": "ServiceRequest",
         "identifier": [
@@ -234,10 +234,10 @@
           "text": "CT Chest with contrast"
         },
         "subject": {
-          "reference": "urn:uuid:d672715b-116c-4bfe-b154-6f581123258d"
+          "reference": "urn:uuid:620ed6cd-7413-49a4-9cb5-b681b4d2bfb0"
         },
         "requester": {
-          "reference": "urn:uuid:8d8f4aa3-6a59-4c59-a6de-a6f2f75db37a",
+          "reference": "urn:uuid:5d3c553a-a2ad-4902-9a4d-f477ba644ba6",
           "display": "Dr. Marcus Hill"
         },
         "reasonCode": [
@@ -254,7 +254,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b7b5e899-2d25-4564-b826-bab0e079c4b0",
+      "fullUrl": "urn:uuid:c81812b7-625a-4efc-bdd2-e01a9910f332",
       "resource": {
         "resourceType": "DiagnosticReport",
         "identifier": [
@@ -263,6 +263,10 @@
             "value": "critcom-dr-006"
           }
         ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre>CLINICAL INDICATION: 70-year-old female with two weeks of progressive exertional dyspnea and right-sided pleuritic chest pain. Recent long-haul flight.\n\nTECHNIQUE: CT pulmonary angiography.\n\nFINDINGS:\nPULMONARY ARTERIES: Filling defects are identified in the right main pulmonary artery extending into the right upper, middle, and lower lobe segmental arteries. Additional filling defects are present in the left lower lobe segmental arteries. No evidence of right heart strain on CT \u2014 the RV/LV ratio is 0.9.\n\nLUNGS: Small right pleural effusion. A wedge-shaped peripheral opacity in the right lower lobe is consistent with pulmonary infarction.\n\nIMPRESSION:\n1. Bilateral pulmonary emboli \u2014 right main pulmonary artery and bilateral segmental branches. Non-massive by RV/LV ratio criteria.\n2. Right lower lobe pulmonary infarction.\n3. Anticoagulation and hematology/pulmonology consultation recommended within 24 hours.</pre></div>"
+        },
         "status": "final",
         "category": [
           {
@@ -286,26 +290,101 @@
           "text": "CT Chest with contrast"
         },
         "subject": {
-          "reference": "urn:uuid:d672715b-116c-4bfe-b154-6f581123258d"
+          "reference": "urn:uuid:620ed6cd-7413-49a4-9cb5-b681b4d2bfb0"
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:240e5c00-393b-4400-b5b5-f104d5581db8"
+            "reference": "urn:uuid:ced1fa02-2e3b-4c14-940d-c833b21a5f55"
           }
         ],
         "performer": [
           {
-            "reference": "urn:uuid:8d8f4aa3-6a59-4c59-a6de-a6f2f75db37a"
+            "reference": "urn:uuid:5d3c553a-a2ad-4902-9a4d-f477ba644ba6"
           }
         ],
         "issued": "2026-05-08T10:00:00+00:00",
         "effectiveDateTime": "2026-05-08T10:00:00+00:00",
-        "conclusion": "CLINICAL INDICATION: 70-year-old female with two weeks of progressive exertional dyspnea and right-sided pleuritic chest pain. Recent long-haul flight.\n\nTECHNIQUE: CT pulmonary angiography.\n\nFINDINGS:\nPULMONARY ARTERIES: Filling defects are identified in the right main pulmonary artery extending into the right upper, middle, and lower lobe segmental arteries. Additional filling defects are present in the left lower lobe segmental arteries. No evidence of right heart strain on CT \u2014 the RV/LV ratio is 0.9.\n\nLUNGS: Small right pleural effusion. A wedge-shaped peripheral opacity in the right lower lobe is consistent with pulmonary infarction.\n\nIMPRESSION:\n1. Bilateral pulmonary emboli \u2014 right main pulmonary artery and bilateral segmental branches. Non-massive by RV/LV ratio criteria.\n2. Right lower lobe pulmonary infarction.\n3. Anticoagulation and hematology/pulmonology consultation recommended within 24 hours."
+        "conclusion": "CLINICAL INDICATION: 70-year-old female with two weeks of progressive exertional dyspnea and right-sided pleuritic chest pain. Recent long-haul flight.\n\nTECHNIQUE: CT pulmonary angiography.\n\nFINDINGS:\nPULMONARY ARTERIES: Filling defects are identified in the right main pulmonary artery extending into the right upper, middle, and lower lobe segmental arteries. Additional filling defects are present in the left lower lobe segmental arteries. No evidence of right heart strain on CT \u2014 the RV/LV ratio is 0.9.\n\nLUNGS: Small right pleural effusion. A wedge-shaped peripheral opacity in the right lower lobe is consistent with pulmonary infarction.\n\nIMPRESSION:\n1. Bilateral pulmonary emboli \u2014 right main pulmonary artery and bilateral segmental branches. Non-massive by RV/LV ratio criteria.\n2. Right lower lobe pulmonary infarction.\n3. Anticoagulation and hematology/pulmonology consultation recommended within 24 hours.",
+        "presentedForm": [
+          {
+            "contentType": "text/plain; charset=utf-8",
+            "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogNzAteWVhci1vbGQgZmVtYWxlIHdpdGggdHdvIHdlZWtzIG9mIHByb2dyZXNzaXZlIGV4ZXJ0aW9uYWwgZHlzcG5lYSBhbmQgcmlnaHQtc2lkZWQgcGxldXJpdGljIGNoZXN0IHBhaW4uIFJlY2VudCBsb25nLWhhdWwgZmxpZ2h0LgoKVEVDSE5JUVVFOiBDVCBwdWxtb25hcnkgYW5naW9ncmFwaHkuCgpGSU5ESU5HUzoKUFVMTU9OQVJZIEFSVEVSSUVTOiBGaWxsaW5nIGRlZmVjdHMgYXJlIGlkZW50aWZpZWQgaW4gdGhlIHJpZ2h0IG1haW4gcHVsbW9uYXJ5IGFydGVyeSBleHRlbmRpbmcgaW50byB0aGUgcmlnaHQgdXBwZXIsIG1pZGRsZSwgYW5kIGxvd2VyIGxvYmUgc2VnbWVudGFsIGFydGVyaWVzLiBBZGRpdGlvbmFsIGZpbGxpbmcgZGVmZWN0cyBhcmUgcHJlc2VudCBpbiB0aGUgbGVmdCBsb3dlciBsb2JlIHNlZ21lbnRhbCBhcnRlcmllcy4gTm8gZXZpZGVuY2Ugb2YgcmlnaHQgaGVhcnQgc3RyYWluIG9uIENUIOKAlCB0aGUgUlYvTFYgcmF0aW8gaXMgMC45LgoKTFVOR1M6IFNtYWxsIHJpZ2h0IHBsZXVyYWwgZWZmdXNpb24uIEEgd2VkZ2Utc2hhcGVkIHBlcmlwaGVyYWwgb3BhY2l0eSBpbiB0aGUgcmlnaHQgbG93ZXIgbG9iZSBpcyBjb25zaXN0ZW50IHdpdGggcHVsbW9uYXJ5IGluZmFyY3Rpb24uCgpJTVBSRVNTSU9OOgoxLiBCaWxhdGVyYWwgcHVsbW9uYXJ5IGVtYm9saSDigJQgcmlnaHQgbWFpbiBwdWxtb25hcnkgYXJ0ZXJ5IGFuZCBiaWxhdGVyYWwgc2VnbWVudGFsIGJyYW5jaGVzLiBOb24tbWFzc2l2ZSBieSBSVi9MViByYXRpbyBjcml0ZXJpYS4KMi4gUmlnaHQgbG93ZXIgbG9iZSBwdWxtb25hcnkgaW5mYXJjdGlvbi4KMy4gQW50aWNvYWd1bGF0aW9uIGFuZCBoZW1hdG9sb2d5L3B1bG1vbm9sb2d5IGNvbnN1bHRhdGlvbiByZWNvbW1lbmRlZCB3aXRoaW4gMjQgaG91cnMu",
+            "title": "CT Chest with contrast \u2014 Radiology Report"
+          }
+        ]
       },
       "request": {
         "method": "POST",
         "url": "DiagnosticReport",
         "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-006"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:d01e1a8e-ca0c-495c-ba98-1397cc488309",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-docref-006"
+          }
+        ],
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18748-4",
+              "display": "Diagnostic imaging study"
+            }
+          ],
+          "text": "CT Chest with contrast \u2014 Radiology Report"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:620ed6cd-7413-49a4-9cb5-b681b4d2bfb0"
+        },
+        "date": "2026-05-08T10:00:00+00:00",
+        "author": [
+          {
+            "reference": "urn:uuid:5d3c553a-a2ad-4902-9a4d-f477ba644ba6"
+          }
+        ],
+        "description": "CT Chest with contrast \u2014 finalized radiology report",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain; charset=utf-8",
+              "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogNzAteWVhci1vbGQgZmVtYWxlIHdpdGggdHdvIHdlZWtzIG9mIHByb2dyZXNzaXZlIGV4ZXJ0aW9uYWwgZHlzcG5lYSBhbmQgcmlnaHQtc2lkZWQgcGxldXJpdGljIGNoZXN0IHBhaW4uIFJlY2VudCBsb25nLWhhdWwgZmxpZ2h0LgoKVEVDSE5JUVVFOiBDVCBwdWxtb25hcnkgYW5naW9ncmFwaHkuCgpGSU5ESU5HUzoKUFVMTU9OQVJZIEFSVEVSSUVTOiBGaWxsaW5nIGRlZmVjdHMgYXJlIGlkZW50aWZpZWQgaW4gdGhlIHJpZ2h0IG1haW4gcHVsbW9uYXJ5IGFydGVyeSBleHRlbmRpbmcgaW50byB0aGUgcmlnaHQgdXBwZXIsIG1pZGRsZSwgYW5kIGxvd2VyIGxvYmUgc2VnbWVudGFsIGFydGVyaWVzLiBBZGRpdGlvbmFsIGZpbGxpbmcgZGVmZWN0cyBhcmUgcHJlc2VudCBpbiB0aGUgbGVmdCBsb3dlciBsb2JlIHNlZ21lbnRhbCBhcnRlcmllcy4gTm8gZXZpZGVuY2Ugb2YgcmlnaHQgaGVhcnQgc3RyYWluIG9uIENUIOKAlCB0aGUgUlYvTFYgcmF0aW8gaXMgMC45LgoKTFVOR1M6IFNtYWxsIHJpZ2h0IHBsZXVyYWwgZWZmdXNpb24uIEEgd2VkZ2Utc2hhcGVkIHBlcmlwaGVyYWwgb3BhY2l0eSBpbiB0aGUgcmlnaHQgbG93ZXIgbG9iZSBpcyBjb25zaXN0ZW50IHdpdGggcHVsbW9uYXJ5IGluZmFyY3Rpb24uCgpJTVBSRVNTSU9OOgoxLiBCaWxhdGVyYWwgcHVsbW9uYXJ5IGVtYm9saSDigJQgcmlnaHQgbWFpbiBwdWxtb25hcnkgYXJ0ZXJ5IGFuZCBiaWxhdGVyYWwgc2VnbWVudGFsIGJyYW5jaGVzLiBOb24tbWFzc2l2ZSBieSBSVi9MViByYXRpbyBjcml0ZXJpYS4KMi4gUmlnaHQgbG93ZXIgbG9iZSBwdWxtb25hcnkgaW5mYXJjdGlvbi4KMy4gQW50aWNvYWd1bGF0aW9uIGFuZCBoZW1hdG9sb2d5L3B1bG1vbm9sb2d5IGNvbnN1bHRhdGlvbiByZWNvbW1lbmRlZCB3aXRoaW4gMjQgaG91cnMu",
+              "title": "CT Chest with contrast \u2014 Radiology Report",
+              "creation": "2026-05-08T10:00:00+00:00"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "urn:uuid:c81812b7-625a-4efc-bdd2-e01a9910f332",
+              "display": "Source DiagnosticReport"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "DocumentReference",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-docref-006"
       }
     }
   ]

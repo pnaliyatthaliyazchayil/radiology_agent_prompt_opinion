@@ -3,7 +3,7 @@
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:5403787e-2f71-41a3-80c8-cecfa6728005",
+      "fullUrl": "urn:uuid:2877ed8a-9b24-4baf-ba20-1d555090d291",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:a7ed6e1c-c3cb-46ea-a074-5cdac77d4e6d",
+      "fullUrl": "urn:uuid:da38a0dc-1f6c-40d9-8e7a-2ca5d6e8b001",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -93,12 +93,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:5fee8d08-d2e3-4cd2-828c-7c408921cb11",
+      "fullUrl": "urn:uuid:837d28f7-a220-4b32-8389-aa8c750d1293",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:a7ed6e1c-c3cb-46ea-a074-5cdac77d4e6d",
+          "reference": "urn:uuid:da38a0dc-1f6c-40d9-8e7a-2ca5d6e8b001",
           "display": "Dr. Linda Morrison"
         },
         "code": [
@@ -131,7 +131,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:d8792e63-a61f-4e51-bc50-660dbc4784bd",
+      "fullUrl": "urn:uuid:38941864-9323-4523-90ba-8705cf8688ff",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -174,12 +174,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:0f0623e1-72eb-4754-8845-99106806fc9f",
+      "fullUrl": "urn:uuid:f9f1a05d-5637-4dc3-a4ef-3a545360304e",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:d8792e63-a61f-4e51-bc50-660dbc4784bd",
+          "reference": "urn:uuid:38941864-9323-4523-90ba-8705cf8688ff",
           "display": "Dr. James Okafor"
         },
         "code": [
@@ -212,7 +212,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:bc963486-4a23-4920-ba4f-8d77dda87906",
+      "fullUrl": "urn:uuid:fd377497-40e3-407c-93ab-1f63730bebf5",
       "resource": {
         "resourceType": "ServiceRequest",
         "identifier": [
@@ -234,10 +234,10 @@
           "text": "CT Chest/Abdomen/Pelvis with contrast"
         },
         "subject": {
-          "reference": "urn:uuid:5403787e-2f71-41a3-80c8-cecfa6728005"
+          "reference": "urn:uuid:2877ed8a-9b24-4baf-ba20-1d555090d291"
         },
         "requester": {
-          "reference": "urn:uuid:a7ed6e1c-c3cb-46ea-a074-5cdac77d4e6d",
+          "reference": "urn:uuid:da38a0dc-1f6c-40d9-8e7a-2ca5d6e8b001",
           "display": "Dr. Linda Morrison"
         },
         "reasonCode": [
@@ -254,7 +254,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:941abfe9-fe9e-44eb-850b-e5bd231044d2",
+      "fullUrl": "urn:uuid:46418a21-8d9d-4c22-9c50-062b70ee1da9",
       "resource": {
         "resourceType": "DiagnosticReport",
         "identifier": [
@@ -263,6 +263,10 @@
             "value": "critcom-dr-003"
           }
         ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre>CLINICAL INDICATION: 80-year-old male with acute onset tearing chest pain radiating to the back, blood pressure differential between arms of 30 mmHg.\n\nTECHNIQUE: CT angiography of the chest, abdomen, and pelvis with IV contrast.\n\nFINDINGS:\nAORTA: An intimal flap is identified originating 1.2 cm above the sinotubular junction, extending inferiorly through the descending thoracic aorta to the level of the renal arteries. The true lumen is compressed. The false lumen demonstrates delayed enhancement. Maximum aortic diameter at the level of the arch is 5.4 cm. The coronary ostia arise from the true lumen. The celiac and superior mesenteric arteries arise from the true lumen.\n\nPERICARDIUM: Small pericardial effusion measuring up to 6 mm. No CT signs of tamponade.\n\nIMPRESSION:\n1. Type A aortic dissection involving the ascending aorta and extending to the renal arteries. This is a surgical emergency requiring emergent cardiothoracic surgical consultation.\n2. Small pericardial effusion \u2014 monitor for evolution to tamponade.</pre></div>"
+        },
         "status": "final",
         "category": [
           {
@@ -286,26 +290,101 @@
           "text": "CT Chest/Abdomen/Pelvis with contrast"
         },
         "subject": {
-          "reference": "urn:uuid:5403787e-2f71-41a3-80c8-cecfa6728005"
+          "reference": "urn:uuid:2877ed8a-9b24-4baf-ba20-1d555090d291"
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:bc963486-4a23-4920-ba4f-8d77dda87906"
+            "reference": "urn:uuid:fd377497-40e3-407c-93ab-1f63730bebf5"
           }
         ],
         "performer": [
           {
-            "reference": "urn:uuid:a7ed6e1c-c3cb-46ea-a074-5cdac77d4e6d"
+            "reference": "urn:uuid:da38a0dc-1f6c-40d9-8e7a-2ca5d6e8b001"
           }
         ],
         "issued": "2026-05-08T10:00:00+00:00",
         "effectiveDateTime": "2026-05-08T10:00:00+00:00",
-        "conclusion": "CLINICAL INDICATION: 80-year-old male with acute onset tearing chest pain radiating to the back, blood pressure differential between arms of 30 mmHg.\n\nTECHNIQUE: CT angiography of the chest, abdomen, and pelvis with IV contrast.\n\nFINDINGS:\nAORTA: An intimal flap is identified originating 1.2 cm above the sinotubular junction, extending inferiorly through the descending thoracic aorta to the level of the renal arteries. The true lumen is compressed. The false lumen demonstrates delayed enhancement. Maximum aortic diameter at the level of the arch is 5.4 cm. The coronary ostia arise from the true lumen. The celiac and superior mesenteric arteries arise from the true lumen.\n\nPERICARDIUM: Small pericardial effusion measuring up to 6 mm. No CT signs of tamponade.\n\nIMPRESSION:\n1. Type A aortic dissection involving the ascending aorta and extending to the renal arteries. This is a surgical emergency requiring emergent cardiothoracic surgical consultation.\n2. Small pericardial effusion \u2014 monitor for evolution to tamponade."
+        "conclusion": "CLINICAL INDICATION: 80-year-old male with acute onset tearing chest pain radiating to the back, blood pressure differential between arms of 30 mmHg.\n\nTECHNIQUE: CT angiography of the chest, abdomen, and pelvis with IV contrast.\n\nFINDINGS:\nAORTA: An intimal flap is identified originating 1.2 cm above the sinotubular junction, extending inferiorly through the descending thoracic aorta to the level of the renal arteries. The true lumen is compressed. The false lumen demonstrates delayed enhancement. Maximum aortic diameter at the level of the arch is 5.4 cm. The coronary ostia arise from the true lumen. The celiac and superior mesenteric arteries arise from the true lumen.\n\nPERICARDIUM: Small pericardial effusion measuring up to 6 mm. No CT signs of tamponade.\n\nIMPRESSION:\n1. Type A aortic dissection involving the ascending aorta and extending to the renal arteries. This is a surgical emergency requiring emergent cardiothoracic surgical consultation.\n2. Small pericardial effusion \u2014 monitor for evolution to tamponade.",
+        "presentedForm": [
+          {
+            "contentType": "text/plain; charset=utf-8",
+            "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogODAteWVhci1vbGQgbWFsZSB3aXRoIGFjdXRlIG9uc2V0IHRlYXJpbmcgY2hlc3QgcGFpbiByYWRpYXRpbmcgdG8gdGhlIGJhY2ssIGJsb29kIHByZXNzdXJlIGRpZmZlcmVudGlhbCBiZXR3ZWVuIGFybXMgb2YgMzAgbW1IZy4KClRFQ0hOSVFVRTogQ1QgYW5naW9ncmFwaHkgb2YgdGhlIGNoZXN0LCBhYmRvbWVuLCBhbmQgcGVsdmlzIHdpdGggSVYgY29udHJhc3QuCgpGSU5ESU5HUzoKQU9SVEE6IEFuIGludGltYWwgZmxhcCBpcyBpZGVudGlmaWVkIG9yaWdpbmF0aW5nIDEuMiBjbSBhYm92ZSB0aGUgc2lub3R1YnVsYXIganVuY3Rpb24sIGV4dGVuZGluZyBpbmZlcmlvcmx5IHRocm91Z2ggdGhlIGRlc2NlbmRpbmcgdGhvcmFjaWMgYW9ydGEgdG8gdGhlIGxldmVsIG9mIHRoZSByZW5hbCBhcnRlcmllcy4gVGhlIHRydWUgbHVtZW4gaXMgY29tcHJlc3NlZC4gVGhlIGZhbHNlIGx1bWVuIGRlbW9uc3RyYXRlcyBkZWxheWVkIGVuaGFuY2VtZW50LiBNYXhpbXVtIGFvcnRpYyBkaWFtZXRlciBhdCB0aGUgbGV2ZWwgb2YgdGhlIGFyY2ggaXMgNS40IGNtLiBUaGUgY29yb25hcnkgb3N0aWEgYXJpc2UgZnJvbSB0aGUgdHJ1ZSBsdW1lbi4gVGhlIGNlbGlhYyBhbmQgc3VwZXJpb3IgbWVzZW50ZXJpYyBhcnRlcmllcyBhcmlzZSBmcm9tIHRoZSB0cnVlIGx1bWVuLgoKUEVSSUNBUkRJVU06IFNtYWxsIHBlcmljYXJkaWFsIGVmZnVzaW9uIG1lYXN1cmluZyB1cCB0byA2IG1tLiBObyBDVCBzaWducyBvZiB0YW1wb25hZGUuCgpJTVBSRVNTSU9OOgoxLiBUeXBlIEEgYW9ydGljIGRpc3NlY3Rpb24gaW52b2x2aW5nIHRoZSBhc2NlbmRpbmcgYW9ydGEgYW5kIGV4dGVuZGluZyB0byB0aGUgcmVuYWwgYXJ0ZXJpZXMuIFRoaXMgaXMgYSBzdXJnaWNhbCBlbWVyZ2VuY3kgcmVxdWlyaW5nIGVtZXJnZW50IGNhcmRpb3Rob3JhY2ljIHN1cmdpY2FsIGNvbnN1bHRhdGlvbi4KMi4gU21hbGwgcGVyaWNhcmRpYWwgZWZmdXNpb24g4oCUIG1vbml0b3IgZm9yIGV2b2x1dGlvbiB0byB0YW1wb25hZGUu",
+            "title": "CT Chest/Abdomen/Pelvis with contrast \u2014 Radiology Report"
+          }
+        ]
       },
       "request": {
         "method": "POST",
         "url": "DiagnosticReport",
         "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-003"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ea0ec721-9408-4790-971a-f52209f24223",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-docref-003"
+          }
+        ],
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18748-4",
+              "display": "Diagnostic imaging study"
+            }
+          ],
+          "text": "CT Chest/Abdomen/Pelvis with contrast \u2014 Radiology Report"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:2877ed8a-9b24-4baf-ba20-1d555090d291"
+        },
+        "date": "2026-05-08T10:00:00+00:00",
+        "author": [
+          {
+            "reference": "urn:uuid:da38a0dc-1f6c-40d9-8e7a-2ca5d6e8b001"
+          }
+        ],
+        "description": "CT Chest/Abdomen/Pelvis with contrast \u2014 finalized radiology report",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain; charset=utf-8",
+              "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogODAteWVhci1vbGQgbWFsZSB3aXRoIGFjdXRlIG9uc2V0IHRlYXJpbmcgY2hlc3QgcGFpbiByYWRpYXRpbmcgdG8gdGhlIGJhY2ssIGJsb29kIHByZXNzdXJlIGRpZmZlcmVudGlhbCBiZXR3ZWVuIGFybXMgb2YgMzAgbW1IZy4KClRFQ0hOSVFVRTogQ1QgYW5naW9ncmFwaHkgb2YgdGhlIGNoZXN0LCBhYmRvbWVuLCBhbmQgcGVsdmlzIHdpdGggSVYgY29udHJhc3QuCgpGSU5ESU5HUzoKQU9SVEE6IEFuIGludGltYWwgZmxhcCBpcyBpZGVudGlmaWVkIG9yaWdpbmF0aW5nIDEuMiBjbSBhYm92ZSB0aGUgc2lub3R1YnVsYXIganVuY3Rpb24sIGV4dGVuZGluZyBpbmZlcmlvcmx5IHRocm91Z2ggdGhlIGRlc2NlbmRpbmcgdGhvcmFjaWMgYW9ydGEgdG8gdGhlIGxldmVsIG9mIHRoZSByZW5hbCBhcnRlcmllcy4gVGhlIHRydWUgbHVtZW4gaXMgY29tcHJlc3NlZC4gVGhlIGZhbHNlIGx1bWVuIGRlbW9uc3RyYXRlcyBkZWxheWVkIGVuaGFuY2VtZW50LiBNYXhpbXVtIGFvcnRpYyBkaWFtZXRlciBhdCB0aGUgbGV2ZWwgb2YgdGhlIGFyY2ggaXMgNS40IGNtLiBUaGUgY29yb25hcnkgb3N0aWEgYXJpc2UgZnJvbSB0aGUgdHJ1ZSBsdW1lbi4gVGhlIGNlbGlhYyBhbmQgc3VwZXJpb3IgbWVzZW50ZXJpYyBhcnRlcmllcyBhcmlzZSBmcm9tIHRoZSB0cnVlIGx1bWVuLgoKUEVSSUNBUkRJVU06IFNtYWxsIHBlcmljYXJkaWFsIGVmZnVzaW9uIG1lYXN1cmluZyB1cCB0byA2IG1tLiBObyBDVCBzaWducyBvZiB0YW1wb25hZGUuCgpJTVBSRVNTSU9OOgoxLiBUeXBlIEEgYW9ydGljIGRpc3NlY3Rpb24gaW52b2x2aW5nIHRoZSBhc2NlbmRpbmcgYW9ydGEgYW5kIGV4dGVuZGluZyB0byB0aGUgcmVuYWwgYXJ0ZXJpZXMuIFRoaXMgaXMgYSBzdXJnaWNhbCBlbWVyZ2VuY3kgcmVxdWlyaW5nIGVtZXJnZW50IGNhcmRpb3Rob3JhY2ljIHN1cmdpY2FsIGNvbnN1bHRhdGlvbi4KMi4gU21hbGwgcGVyaWNhcmRpYWwgZWZmdXNpb24g4oCUIG1vbml0b3IgZm9yIGV2b2x1dGlvbiB0byB0YW1wb25hZGUu",
+              "title": "CT Chest/Abdomen/Pelvis with contrast \u2014 Radiology Report",
+              "creation": "2026-05-08T10:00:00+00:00"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "urn:uuid:46418a21-8d9d-4c22-9c50-062b70ee1da9",
+              "display": "Source DiagnosticReport"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "DocumentReference",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-docref-003"
       }
     }
   ]

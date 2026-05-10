@@ -3,7 +3,7 @@
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:d7c51480-70e1-41d1-90da-f5add6755210",
+      "fullUrl": "urn:uuid:2bb400c1-5514-4619-90a1-060b56333339",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:b3777192-b212-4a67-b67a-a4f567d29ef7",
+      "fullUrl": "urn:uuid:53938157-404b-421d-ac69-c3f5ee9998ab",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -93,12 +93,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:138e46b1-d2aa-445e-9d6c-8c73df284d18",
+      "fullUrl": "urn:uuid:7b625a8c-acf5-4596-bd87-e4b3a0f4b4fd",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:b3777192-b212-4a67-b67a-a4f567d29ef7",
+          "reference": "urn:uuid:53938157-404b-421d-ac69-c3f5ee9998ab",
           "display": "Dr. Thomas Brennan"
         },
         "code": [
@@ -131,7 +131,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:f538016e-753a-418d-b7f5-6bc3fcc4845f",
+      "fullUrl": "urn:uuid:579edbb6-a794-40ca-b85c-31a0a2c453e0",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -174,12 +174,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:03384b7e-344b-48fc-ab58-28795bbc3b6c",
+      "fullUrl": "urn:uuid:d2851cb1-19d3-45c2-a4a6-e97ae108f021",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:f538016e-753a-418d-b7f5-6bc3fcc4845f",
+          "reference": "urn:uuid:579edbb6-a794-40ca-b85c-31a0a2c453e0",
           "display": "Dr. James Okafor"
         },
         "code": [
@@ -212,7 +212,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:a2bf6b45-b212-4487-8969-f1fec277875f",
+      "fullUrl": "urn:uuid:bb03d11f-913d-432d-acb4-bcb7ffc0a205",
       "resource": {
         "resourceType": "ServiceRequest",
         "identifier": [
@@ -234,10 +234,10 @@
           "text": "CT Head without contrast"
         },
         "subject": {
-          "reference": "urn:uuid:d7c51480-70e1-41d1-90da-f5add6755210"
+          "reference": "urn:uuid:2bb400c1-5514-4619-90a1-060b56333339"
         },
         "requester": {
-          "reference": "urn:uuid:b3777192-b212-4a67-b67a-a4f567d29ef7",
+          "reference": "urn:uuid:53938157-404b-421d-ac69-c3f5ee9998ab",
           "display": "Dr. Thomas Brennan"
         },
         "reasonCode": [
@@ -254,7 +254,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:00e98511-8f11-4756-b111-a6408cdf9cfe",
+      "fullUrl": "urn:uuid:96722867-b667-480b-883b-4a75a6c31007",
       "resource": {
         "resourceType": "DiagnosticReport",
         "identifier": [
@@ -263,6 +263,10 @@
             "value": "critcom-dr-002"
           }
         ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre>CLINICAL INDICATION: 54-year-old female presenting with thunderclap headache, neck stiffness, and photophobia. GCS 14.\n\nTECHNIQUE: Non-contrast CT of the brain.\n\nFINDINGS:\nSUBARACHNOID SPACE: Diffuse hyperdensity is identified within the basal cisterns, Sylvian fissures bilaterally, and along the tentorium cerebelli, consistent with acute subarachnoid hemorrhage. The pattern is most prominent in the suprasellar cistern and right Sylvian fissure.\n\nVENTRICLES: Mild hydrocephalus with temporal horn rounding bilaterally. The third ventricle measures 7mm (upper limit of normal).\n\nBRAIN PARENCHYMA: No intraparenchymal hematoma. No midline shift. Gray-white differentiation is preserved.\n\nIMPRESSION:\n1. Acute subarachnoid hemorrhage with diffuse basal cistern involvement. Neurosurgical consultation required immediately.\n2. Early communicating hydrocephalus \u2014 monitor closely.\n3. CTA of the head recommended urgently to evaluate for ruptured aneurysm.</pre></div>"
+        },
         "status": "final",
         "category": [
           {
@@ -286,26 +290,101 @@
           "text": "CT Head without contrast"
         },
         "subject": {
-          "reference": "urn:uuid:d7c51480-70e1-41d1-90da-f5add6755210"
+          "reference": "urn:uuid:2bb400c1-5514-4619-90a1-060b56333339"
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:a2bf6b45-b212-4487-8969-f1fec277875f"
+            "reference": "urn:uuid:bb03d11f-913d-432d-acb4-bcb7ffc0a205"
           }
         ],
         "performer": [
           {
-            "reference": "urn:uuid:b3777192-b212-4a67-b67a-a4f567d29ef7"
+            "reference": "urn:uuid:53938157-404b-421d-ac69-c3f5ee9998ab"
           }
         ],
         "issued": "2026-05-08T10:00:00+00:00",
         "effectiveDateTime": "2026-05-08T10:00:00+00:00",
-        "conclusion": "CLINICAL INDICATION: 54-year-old female presenting with thunderclap headache, neck stiffness, and photophobia. GCS 14.\n\nTECHNIQUE: Non-contrast CT of the brain.\n\nFINDINGS:\nSUBARACHNOID SPACE: Diffuse hyperdensity is identified within the basal cisterns, Sylvian fissures bilaterally, and along the tentorium cerebelli, consistent with acute subarachnoid hemorrhage. The pattern is most prominent in the suprasellar cistern and right Sylvian fissure.\n\nVENTRICLES: Mild hydrocephalus with temporal horn rounding bilaterally. The third ventricle measures 7mm (upper limit of normal).\n\nBRAIN PARENCHYMA: No intraparenchymal hematoma. No midline shift. Gray-white differentiation is preserved.\n\nIMPRESSION:\n1. Acute subarachnoid hemorrhage with diffuse basal cistern involvement. Neurosurgical consultation required immediately.\n2. Early communicating hydrocephalus \u2014 monitor closely.\n3. CTA of the head recommended urgently to evaluate for ruptured aneurysm."
+        "conclusion": "CLINICAL INDICATION: 54-year-old female presenting with thunderclap headache, neck stiffness, and photophobia. GCS 14.\n\nTECHNIQUE: Non-contrast CT of the brain.\n\nFINDINGS:\nSUBARACHNOID SPACE: Diffuse hyperdensity is identified within the basal cisterns, Sylvian fissures bilaterally, and along the tentorium cerebelli, consistent with acute subarachnoid hemorrhage. The pattern is most prominent in the suprasellar cistern and right Sylvian fissure.\n\nVENTRICLES: Mild hydrocephalus with temporal horn rounding bilaterally. The third ventricle measures 7mm (upper limit of normal).\n\nBRAIN PARENCHYMA: No intraparenchymal hematoma. No midline shift. Gray-white differentiation is preserved.\n\nIMPRESSION:\n1. Acute subarachnoid hemorrhage with diffuse basal cistern involvement. Neurosurgical consultation required immediately.\n2. Early communicating hydrocephalus \u2014 monitor closely.\n3. CTA of the head recommended urgently to evaluate for ruptured aneurysm.",
+        "presentedForm": [
+          {
+            "contentType": "text/plain; charset=utf-8",
+            "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogNTQteWVhci1vbGQgZmVtYWxlIHByZXNlbnRpbmcgd2l0aCB0aHVuZGVyY2xhcCBoZWFkYWNoZSwgbmVjayBzdGlmZm5lc3MsIGFuZCBwaG90b3Bob2JpYS4gR0NTIDE0LgoKVEVDSE5JUVVFOiBOb24tY29udHJhc3QgQ1Qgb2YgdGhlIGJyYWluLgoKRklORElOR1M6ClNVQkFSQUNITk9JRCBTUEFDRTogRGlmZnVzZSBoeXBlcmRlbnNpdHkgaXMgaWRlbnRpZmllZCB3aXRoaW4gdGhlIGJhc2FsIGNpc3Rlcm5zLCBTeWx2aWFuIGZpc3N1cmVzIGJpbGF0ZXJhbGx5LCBhbmQgYWxvbmcgdGhlIHRlbnRvcml1bSBjZXJlYmVsbGksIGNvbnNpc3RlbnQgd2l0aCBhY3V0ZSBzdWJhcmFjaG5vaWQgaGVtb3JyaGFnZS4gVGhlIHBhdHRlcm4gaXMgbW9zdCBwcm9taW5lbnQgaW4gdGhlIHN1cHJhc2VsbGFyIGNpc3Rlcm4gYW5kIHJpZ2h0IFN5bHZpYW4gZmlzc3VyZS4KClZFTlRSSUNMRVM6IE1pbGQgaHlkcm9jZXBoYWx1cyB3aXRoIHRlbXBvcmFsIGhvcm4gcm91bmRpbmcgYmlsYXRlcmFsbHkuIFRoZSB0aGlyZCB2ZW50cmljbGUgbWVhc3VyZXMgN21tICh1cHBlciBsaW1pdCBvZiBub3JtYWwpLgoKQlJBSU4gUEFSRU5DSFlNQTogTm8gaW50cmFwYXJlbmNoeW1hbCBoZW1hdG9tYS4gTm8gbWlkbGluZSBzaGlmdC4gR3JheS13aGl0ZSBkaWZmZXJlbnRpYXRpb24gaXMgcHJlc2VydmVkLgoKSU1QUkVTU0lPTjoKMS4gQWN1dGUgc3ViYXJhY2hub2lkIGhlbW9ycmhhZ2Ugd2l0aCBkaWZmdXNlIGJhc2FsIGNpc3Rlcm4gaW52b2x2ZW1lbnQuIE5ldXJvc3VyZ2ljYWwgY29uc3VsdGF0aW9uIHJlcXVpcmVkIGltbWVkaWF0ZWx5LgoyLiBFYXJseSBjb21tdW5pY2F0aW5nIGh5ZHJvY2VwaGFsdXMg4oCUIG1vbml0b3IgY2xvc2VseS4KMy4gQ1RBIG9mIHRoZSBoZWFkIHJlY29tbWVuZGVkIHVyZ2VudGx5IHRvIGV2YWx1YXRlIGZvciBydXB0dXJlZCBhbmV1cnlzbS4=",
+            "title": "CT Head without contrast \u2014 Radiology Report"
+          }
+        ]
       },
       "request": {
         "method": "POST",
         "url": "DiagnosticReport",
         "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-002"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:edcbc7a6-f44e-4106-b6bb-627192179479",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-docref-002"
+          }
+        ],
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18748-4",
+              "display": "Diagnostic imaging study"
+            }
+          ],
+          "text": "CT Head without contrast \u2014 Radiology Report"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:2bb400c1-5514-4619-90a1-060b56333339"
+        },
+        "date": "2026-05-08T10:00:00+00:00",
+        "author": [
+          {
+            "reference": "urn:uuid:53938157-404b-421d-ac69-c3f5ee9998ab"
+          }
+        ],
+        "description": "CT Head without contrast \u2014 finalized radiology report",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain; charset=utf-8",
+              "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogNTQteWVhci1vbGQgZmVtYWxlIHByZXNlbnRpbmcgd2l0aCB0aHVuZGVyY2xhcCBoZWFkYWNoZSwgbmVjayBzdGlmZm5lc3MsIGFuZCBwaG90b3Bob2JpYS4gR0NTIDE0LgoKVEVDSE5JUVVFOiBOb24tY29udHJhc3QgQ1Qgb2YgdGhlIGJyYWluLgoKRklORElOR1M6ClNVQkFSQUNITk9JRCBTUEFDRTogRGlmZnVzZSBoeXBlcmRlbnNpdHkgaXMgaWRlbnRpZmllZCB3aXRoaW4gdGhlIGJhc2FsIGNpc3Rlcm5zLCBTeWx2aWFuIGZpc3N1cmVzIGJpbGF0ZXJhbGx5LCBhbmQgYWxvbmcgdGhlIHRlbnRvcml1bSBjZXJlYmVsbGksIGNvbnNpc3RlbnQgd2l0aCBhY3V0ZSBzdWJhcmFjaG5vaWQgaGVtb3JyaGFnZS4gVGhlIHBhdHRlcm4gaXMgbW9zdCBwcm9taW5lbnQgaW4gdGhlIHN1cHJhc2VsbGFyIGNpc3Rlcm4gYW5kIHJpZ2h0IFN5bHZpYW4gZmlzc3VyZS4KClZFTlRSSUNMRVM6IE1pbGQgaHlkcm9jZXBoYWx1cyB3aXRoIHRlbXBvcmFsIGhvcm4gcm91bmRpbmcgYmlsYXRlcmFsbHkuIFRoZSB0aGlyZCB2ZW50cmljbGUgbWVhc3VyZXMgN21tICh1cHBlciBsaW1pdCBvZiBub3JtYWwpLgoKQlJBSU4gUEFSRU5DSFlNQTogTm8gaW50cmFwYXJlbmNoeW1hbCBoZW1hdG9tYS4gTm8gbWlkbGluZSBzaGlmdC4gR3JheS13aGl0ZSBkaWZmZXJlbnRpYXRpb24gaXMgcHJlc2VydmVkLgoKSU1QUkVTU0lPTjoKMS4gQWN1dGUgc3ViYXJhY2hub2lkIGhlbW9ycmhhZ2Ugd2l0aCBkaWZmdXNlIGJhc2FsIGNpc3Rlcm4gaW52b2x2ZW1lbnQuIE5ldXJvc3VyZ2ljYWwgY29uc3VsdGF0aW9uIHJlcXVpcmVkIGltbWVkaWF0ZWx5LgoyLiBFYXJseSBjb21tdW5pY2F0aW5nIGh5ZHJvY2VwaGFsdXMg4oCUIG1vbml0b3IgY2xvc2VseS4KMy4gQ1RBIG9mIHRoZSBoZWFkIHJlY29tbWVuZGVkIHVyZ2VudGx5IHRvIGV2YWx1YXRlIGZvciBydXB0dXJlZCBhbmV1cnlzbS4=",
+              "title": "CT Head without contrast \u2014 Radiology Report",
+              "creation": "2026-05-08T10:00:00+00:00"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "urn:uuid:96722867-b667-480b-883b-4a75a6c31007",
+              "display": "Source DiagnosticReport"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "DocumentReference",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-docref-002"
       }
     }
   ]

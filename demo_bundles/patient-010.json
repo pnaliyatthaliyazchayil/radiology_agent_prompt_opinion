@@ -3,7 +3,7 @@
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:bfcede46-fb4c-44b8-9bc5-9ee271225071",
+      "fullUrl": "urn:uuid:e22a599c-e21b-4240-a1ee-8118132c3193",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:9e2df52c-582f-4d78-8452-168b30949180",
+      "fullUrl": "urn:uuid:006d8fa1-4d08-4fff-89b4-e390c6c5b7b8",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -93,12 +93,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:dda91544-d7d1-451d-ba4f-2c3595309108",
+      "fullUrl": "urn:uuid:7e1bf6cd-2f1a-4084-9a52-91ae5dadd30e",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:9e2df52c-582f-4d78-8452-168b30949180",
+          "reference": "urn:uuid:006d8fa1-4d08-4fff-89b4-e390c6c5b7b8",
           "display": "Dr. Omar Khalid"
         },
         "code": [
@@ -131,7 +131,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:daf496c8-05fd-46c6-abd7-31dbac2ef0d7",
+      "fullUrl": "urn:uuid:0576cc8a-d789-4b4e-b206-c1fa024133be",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -174,12 +174,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:3975505c-2515-46d1-92b6-7df59aee27ea",
+      "fullUrl": "urn:uuid:7b39effb-5107-4f5d-a3b3-c3569cb539c5",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:daf496c8-05fd-46c6-abd7-31dbac2ef0d7",
+          "reference": "urn:uuid:0576cc8a-d789-4b4e-b206-c1fa024133be",
           "display": "Dr. James Okafor"
         },
         "code": [
@@ -212,7 +212,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:4e9926e9-e470-44c5-97da-c59eb500fa8b",
+      "fullUrl": "urn:uuid:06ed7672-1219-41aa-b3ef-893d0c557f30",
       "resource": {
         "resourceType": "ServiceRequest",
         "identifier": [
@@ -234,10 +234,10 @@
           "text": "Ultrasound Right Upper Quadrant"
         },
         "subject": {
-          "reference": "urn:uuid:bfcede46-fb4c-44b8-9bc5-9ee271225071"
+          "reference": "urn:uuid:e22a599c-e21b-4240-a1ee-8118132c3193"
         },
         "requester": {
-          "reference": "urn:uuid:9e2df52c-582f-4d78-8452-168b30949180",
+          "reference": "urn:uuid:006d8fa1-4d08-4fff-89b4-e390c6c5b7b8",
           "display": "Dr. Omar Khalid"
         },
         "reasonCode": [
@@ -254,7 +254,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:fb53f4e1-36de-4616-880a-f19ac397b89e",
+      "fullUrl": "urn:uuid:b5bf8980-5141-4cd7-8cb6-3e4c5d25e5b8",
       "resource": {
         "resourceType": "DiagnosticReport",
         "identifier": [
@@ -263,6 +263,10 @@
             "value": "critcom-dr-010"
           }
         ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre>CLINICAL INDICATION: 30-year-old female with several months of intermittent right upper quadrant discomfort, worse after fatty meals.\n\nTECHNIQUE: Real-time ultrasound of the right upper quadrant.\n\nFINDINGS:\nGALLBLADDER: The gallbladder is well-visualized and contains multiple echogenic foci with posterior acoustic shadowing consistent with cholelithiasis. The largest calculus measures 8 mm. The gallbladder wall measures 2 mm in thickness. No pericholecystic fluid. Murphy sign negative on imaging.\n\nBILIARY: Common bile duct measures 3 mm in diameter, within normal limits. No intra- or extrahepatic biliary dilatation.\n\nLIVER: Normal size, echogenicity, and contour. No focal lesion.\n\nIMPRESSION:\n1. Cholelithiasis without sonographic evidence of acute cholecystitis.\n2. Symptoms are consistent with biliary colic. Surgery referral for elective cholecystectomy may be considered.\n3. No emergent intervention required.</pre></div>"
+        },
         "status": "final",
         "category": [
           {
@@ -286,26 +290,101 @@
           "text": "Ultrasound Right Upper Quadrant"
         },
         "subject": {
-          "reference": "urn:uuid:bfcede46-fb4c-44b8-9bc5-9ee271225071"
+          "reference": "urn:uuid:e22a599c-e21b-4240-a1ee-8118132c3193"
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:4e9926e9-e470-44c5-97da-c59eb500fa8b"
+            "reference": "urn:uuid:06ed7672-1219-41aa-b3ef-893d0c557f30"
           }
         ],
         "performer": [
           {
-            "reference": "urn:uuid:9e2df52c-582f-4d78-8452-168b30949180"
+            "reference": "urn:uuid:006d8fa1-4d08-4fff-89b4-e390c6c5b7b8"
           }
         ],
         "issued": "2026-05-08T10:00:00+00:00",
         "effectiveDateTime": "2026-05-08T10:00:00+00:00",
-        "conclusion": "CLINICAL INDICATION: 30-year-old female with several months of intermittent right upper quadrant discomfort, worse after fatty meals.\n\nTECHNIQUE: Real-time ultrasound of the right upper quadrant.\n\nFINDINGS:\nGALLBLADDER: The gallbladder is well-visualized and contains multiple echogenic foci with posterior acoustic shadowing consistent with cholelithiasis. The largest calculus measures 8 mm. The gallbladder wall measures 2 mm in thickness. No pericholecystic fluid. Murphy sign negative on imaging.\n\nBILIARY: Common bile duct measures 3 mm in diameter, within normal limits. No intra- or extrahepatic biliary dilatation.\n\nLIVER: Normal size, echogenicity, and contour. No focal lesion.\n\nIMPRESSION:\n1. Cholelithiasis without sonographic evidence of acute cholecystitis.\n2. Symptoms are consistent with biliary colic. Surgery referral for elective cholecystectomy may be considered.\n3. No emergent intervention required."
+        "conclusion": "CLINICAL INDICATION: 30-year-old female with several months of intermittent right upper quadrant discomfort, worse after fatty meals.\n\nTECHNIQUE: Real-time ultrasound of the right upper quadrant.\n\nFINDINGS:\nGALLBLADDER: The gallbladder is well-visualized and contains multiple echogenic foci with posterior acoustic shadowing consistent with cholelithiasis. The largest calculus measures 8 mm. The gallbladder wall measures 2 mm in thickness. No pericholecystic fluid. Murphy sign negative on imaging.\n\nBILIARY: Common bile duct measures 3 mm in diameter, within normal limits. No intra- or extrahepatic biliary dilatation.\n\nLIVER: Normal size, echogenicity, and contour. No focal lesion.\n\nIMPRESSION:\n1. Cholelithiasis without sonographic evidence of acute cholecystitis.\n2. Symptoms are consistent with biliary colic. Surgery referral for elective cholecystectomy may be considered.\n3. No emergent intervention required.",
+        "presentedForm": [
+          {
+            "contentType": "text/plain; charset=utf-8",
+            "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogMzAteWVhci1vbGQgZmVtYWxlIHdpdGggc2V2ZXJhbCBtb250aHMgb2YgaW50ZXJtaXR0ZW50IHJpZ2h0IHVwcGVyIHF1YWRyYW50IGRpc2NvbWZvcnQsIHdvcnNlIGFmdGVyIGZhdHR5IG1lYWxzLgoKVEVDSE5JUVVFOiBSZWFsLXRpbWUgdWx0cmFzb3VuZCBvZiB0aGUgcmlnaHQgdXBwZXIgcXVhZHJhbnQuCgpGSU5ESU5HUzoKR0FMTEJMQURERVI6IFRoZSBnYWxsYmxhZGRlciBpcyB3ZWxsLXZpc3VhbGl6ZWQgYW5kIGNvbnRhaW5zIG11bHRpcGxlIGVjaG9nZW5pYyBmb2NpIHdpdGggcG9zdGVyaW9yIGFjb3VzdGljIHNoYWRvd2luZyBjb25zaXN0ZW50IHdpdGggY2hvbGVsaXRoaWFzaXMuIFRoZSBsYXJnZXN0IGNhbGN1bHVzIG1lYXN1cmVzIDggbW0uIFRoZSBnYWxsYmxhZGRlciB3YWxsIG1lYXN1cmVzIDIgbW0gaW4gdGhpY2tuZXNzLiBObyBwZXJpY2hvbGVjeXN0aWMgZmx1aWQuIE11cnBoeSBzaWduIG5lZ2F0aXZlIG9uIGltYWdpbmcuCgpCSUxJQVJZOiBDb21tb24gYmlsZSBkdWN0IG1lYXN1cmVzIDMgbW0gaW4gZGlhbWV0ZXIsIHdpdGhpbiBub3JtYWwgbGltaXRzLiBObyBpbnRyYS0gb3IgZXh0cmFoZXBhdGljIGJpbGlhcnkgZGlsYXRhdGlvbi4KCkxJVkVSOiBOb3JtYWwgc2l6ZSwgZWNob2dlbmljaXR5LCBhbmQgY29udG91ci4gTm8gZm9jYWwgbGVzaW9uLgoKSU1QUkVTU0lPTjoKMS4gQ2hvbGVsaXRoaWFzaXMgd2l0aG91dCBzb25vZ3JhcGhpYyBldmlkZW5jZSBvZiBhY3V0ZSBjaG9sZWN5c3RpdGlzLgoyLiBTeW1wdG9tcyBhcmUgY29uc2lzdGVudCB3aXRoIGJpbGlhcnkgY29saWMuIFN1cmdlcnkgcmVmZXJyYWwgZm9yIGVsZWN0aXZlIGNob2xlY3lzdGVjdG9teSBtYXkgYmUgY29uc2lkZXJlZC4KMy4gTm8gZW1lcmdlbnQgaW50ZXJ2ZW50aW9uIHJlcXVpcmVkLg==",
+            "title": "Ultrasound Right Upper Quadrant \u2014 Radiology Report"
+          }
+        ]
       },
       "request": {
         "method": "POST",
         "url": "DiagnosticReport",
         "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-010"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:2df10f4a-81cc-4392-b5d3-3b0b5b71afdb",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-docref-010"
+          }
+        ],
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18748-4",
+              "display": "Diagnostic imaging study"
+            }
+          ],
+          "text": "Ultrasound Right Upper Quadrant \u2014 Radiology Report"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:e22a599c-e21b-4240-a1ee-8118132c3193"
+        },
+        "date": "2026-05-08T10:00:00+00:00",
+        "author": [
+          {
+            "reference": "urn:uuid:006d8fa1-4d08-4fff-89b4-e390c6c5b7b8"
+          }
+        ],
+        "description": "Ultrasound Right Upper Quadrant \u2014 finalized radiology report",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain; charset=utf-8",
+              "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogMzAteWVhci1vbGQgZmVtYWxlIHdpdGggc2V2ZXJhbCBtb250aHMgb2YgaW50ZXJtaXR0ZW50IHJpZ2h0IHVwcGVyIHF1YWRyYW50IGRpc2NvbWZvcnQsIHdvcnNlIGFmdGVyIGZhdHR5IG1lYWxzLgoKVEVDSE5JUVVFOiBSZWFsLXRpbWUgdWx0cmFzb3VuZCBvZiB0aGUgcmlnaHQgdXBwZXIgcXVhZHJhbnQuCgpGSU5ESU5HUzoKR0FMTEJMQURERVI6IFRoZSBnYWxsYmxhZGRlciBpcyB3ZWxsLXZpc3VhbGl6ZWQgYW5kIGNvbnRhaW5zIG11bHRpcGxlIGVjaG9nZW5pYyBmb2NpIHdpdGggcG9zdGVyaW9yIGFjb3VzdGljIHNoYWRvd2luZyBjb25zaXN0ZW50IHdpdGggY2hvbGVsaXRoaWFzaXMuIFRoZSBsYXJnZXN0IGNhbGN1bHVzIG1lYXN1cmVzIDggbW0uIFRoZSBnYWxsYmxhZGRlciB3YWxsIG1lYXN1cmVzIDIgbW0gaW4gdGhpY2tuZXNzLiBObyBwZXJpY2hvbGVjeXN0aWMgZmx1aWQuIE11cnBoeSBzaWduIG5lZ2F0aXZlIG9uIGltYWdpbmcuCgpCSUxJQVJZOiBDb21tb24gYmlsZSBkdWN0IG1lYXN1cmVzIDMgbW0gaW4gZGlhbWV0ZXIsIHdpdGhpbiBub3JtYWwgbGltaXRzLiBObyBpbnRyYS0gb3IgZXh0cmFoZXBhdGljIGJpbGlhcnkgZGlsYXRhdGlvbi4KCkxJVkVSOiBOb3JtYWwgc2l6ZSwgZWNob2dlbmljaXR5LCBhbmQgY29udG91ci4gTm8gZm9jYWwgbGVzaW9uLgoKSU1QUkVTU0lPTjoKMS4gQ2hvbGVsaXRoaWFzaXMgd2l0aG91dCBzb25vZ3JhcGhpYyBldmlkZW5jZSBvZiBhY3V0ZSBjaG9sZWN5c3RpdGlzLgoyLiBTeW1wdG9tcyBhcmUgY29uc2lzdGVudCB3aXRoIGJpbGlhcnkgY29saWMuIFN1cmdlcnkgcmVmZXJyYWwgZm9yIGVsZWN0aXZlIGNob2xlY3lzdGVjdG9teSBtYXkgYmUgY29uc2lkZXJlZC4KMy4gTm8gZW1lcmdlbnQgaW50ZXJ2ZW50aW9uIHJlcXVpcmVkLg==",
+              "title": "Ultrasound Right Upper Quadrant \u2014 Radiology Report",
+              "creation": "2026-05-08T10:00:00+00:00"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "urn:uuid:b5bf8980-5141-4cd7-8cb6-3e4c5d25e5b8",
+              "display": "Source DiagnosticReport"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "DocumentReference",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-docref-010"
       }
     }
   ]

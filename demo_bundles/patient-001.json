@@ -3,7 +3,7 @@
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:0560735e-7e3e-40d0-8640-75e453ed8568",
+      "fullUrl": "urn:uuid:26d69714-72b7-42ef-811c-8b2ce3b6cc73",
       "resource": {
         "resourceType": "Patient",
         "identifier": [
@@ -38,7 +38,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:607ebaca-5b43-4a52-9edf-15ec1bca3047",
+      "fullUrl": "urn:uuid:0c60e5ba-8bc0-4242-9e31-8bb9c2bcee87",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -93,12 +93,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:e313bf08-5f71-4672-b7ca-c9ff6f2df50e",
+      "fullUrl": "urn:uuid:243549f7-1468-4960-aa80-debb3d8065a0",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:607ebaca-5b43-4a52-9edf-15ec1bca3047",
+          "reference": "urn:uuid:0c60e5ba-8bc0-4242-9e31-8bb9c2bcee87",
           "display": "Dr. Sarah Patel"
         },
         "code": [
@@ -131,7 +131,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:a5608bec-8640-4f45-9c09-f151262f9faa",
+      "fullUrl": "urn:uuid:f7856225-342c-4303-a9d4-c5c4964b423c",
       "resource": {
         "resourceType": "Practitioner",
         "identifier": [
@@ -174,12 +174,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:9b87f822-5488-46c4-a70d-302312549086",
+      "fullUrl": "urn:uuid:4e5bde67-3d3f-46e5-a31e-f2fe41d9a3a7",
       "resource": {
         "resourceType": "PractitionerRole",
         "active": true,
         "practitioner": {
-          "reference": "urn:uuid:a5608bec-8640-4f45-9c09-f151262f9faa",
+          "reference": "urn:uuid:f7856225-342c-4303-a9d4-c5c4964b423c",
           "display": "Dr. James Okafor"
         },
         "code": [
@@ -212,7 +212,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:05a9f024-b3c7-41d3-ab66-35cffcdbeffc",
+      "fullUrl": "urn:uuid:0ddd88d0-ebe4-4412-9911-ba9242b8ecf4",
       "resource": {
         "resourceType": "ServiceRequest",
         "identifier": [
@@ -234,10 +234,10 @@
           "text": "CT Chest without contrast"
         },
         "subject": {
-          "reference": "urn:uuid:0560735e-7e3e-40d0-8640-75e453ed8568"
+          "reference": "urn:uuid:26d69714-72b7-42ef-811c-8b2ce3b6cc73"
         },
         "requester": {
-          "reference": "urn:uuid:607ebaca-5b43-4a52-9edf-15ec1bca3047",
+          "reference": "urn:uuid:0c60e5ba-8bc0-4242-9e31-8bb9c2bcee87",
           "display": "Dr. Sarah Patel"
         },
         "reasonCode": [
@@ -254,7 +254,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ced2e881-c20b-4edd-9102-23f8a3f67540",
+      "fullUrl": "urn:uuid:9ff024cf-507d-4d35-9ad4-5791f89d944e",
       "resource": {
         "resourceType": "DiagnosticReport",
         "identifier": [
@@ -263,6 +263,10 @@
             "value": "critcom-dr-001"
           }
         ],
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><pre>CLINICAL INDICATION: 67-year-old male with sudden onset severe dyspnea, oxygen saturation 82% on room air, tracheal deviation noted on exam.\n\nTECHNIQUE: CT of the chest without intravenous contrast.\n\nFINDINGS:\nPLEURAL SPACE: There is a large right-sided pneumothorax occupying approximately 65% of the right hemithorax. The right lung is collapsed to the hilum. The mediastinum is shifted significantly to the left. The trachea deviates leftward at the level of the carina. The right hemidiaphragm is depressed. There is no left-sided pleural effusion or pneumothorax.\n\nHEART: The cardiac silhouette appears compressed. The superior vena cava is narrow, consistent with decreased venous return.\n\nLUNGS: Left lung is hyperinflated and clear. No consolidation.\n\nIMPRESSION:\n1. Large right-sided tension pneumothorax with mediastinal shift and tracheal deviation. Immediate chest tube decompression is required.\n2. Left lung clear.</pre></div>"
+        },
         "status": "final",
         "category": [
           {
@@ -286,26 +290,101 @@
           "text": "CT Chest without contrast"
         },
         "subject": {
-          "reference": "urn:uuid:0560735e-7e3e-40d0-8640-75e453ed8568"
+          "reference": "urn:uuid:26d69714-72b7-42ef-811c-8b2ce3b6cc73"
         },
         "basedOn": [
           {
-            "reference": "urn:uuid:05a9f024-b3c7-41d3-ab66-35cffcdbeffc"
+            "reference": "urn:uuid:0ddd88d0-ebe4-4412-9911-ba9242b8ecf4"
           }
         ],
         "performer": [
           {
-            "reference": "urn:uuid:607ebaca-5b43-4a52-9edf-15ec1bca3047"
+            "reference": "urn:uuid:0c60e5ba-8bc0-4242-9e31-8bb9c2bcee87"
           }
         ],
         "issued": "2026-05-08T10:00:00+00:00",
         "effectiveDateTime": "2026-05-08T10:00:00+00:00",
-        "conclusion": "CLINICAL INDICATION: 67-year-old male with sudden onset severe dyspnea, oxygen saturation 82% on room air, tracheal deviation noted on exam.\n\nTECHNIQUE: CT of the chest without intravenous contrast.\n\nFINDINGS:\nPLEURAL SPACE: There is a large right-sided pneumothorax occupying approximately 65% of the right hemithorax. The right lung is collapsed to the hilum. The mediastinum is shifted significantly to the left. The trachea deviates leftward at the level of the carina. The right hemidiaphragm is depressed. There is no left-sided pleural effusion or pneumothorax.\n\nHEART: The cardiac silhouette appears compressed. The superior vena cava is narrow, consistent with decreased venous return.\n\nLUNGS: Left lung is hyperinflated and clear. No consolidation.\n\nIMPRESSION:\n1. Large right-sided tension pneumothorax with mediastinal shift and tracheal deviation. Immediate chest tube decompression is required.\n2. Left lung clear."
+        "conclusion": "CLINICAL INDICATION: 67-year-old male with sudden onset severe dyspnea, oxygen saturation 82% on room air, tracheal deviation noted on exam.\n\nTECHNIQUE: CT of the chest without intravenous contrast.\n\nFINDINGS:\nPLEURAL SPACE: There is a large right-sided pneumothorax occupying approximately 65% of the right hemithorax. The right lung is collapsed to the hilum. The mediastinum is shifted significantly to the left. The trachea deviates leftward at the level of the carina. The right hemidiaphragm is depressed. There is no left-sided pleural effusion or pneumothorax.\n\nHEART: The cardiac silhouette appears compressed. The superior vena cava is narrow, consistent with decreased venous return.\n\nLUNGS: Left lung is hyperinflated and clear. No consolidation.\n\nIMPRESSION:\n1. Large right-sided tension pneumothorax with mediastinal shift and tracheal deviation. Immediate chest tube decompression is required.\n2. Left lung clear.",
+        "presentedForm": [
+          {
+            "contentType": "text/plain; charset=utf-8",
+            "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogNjcteWVhci1vbGQgbWFsZSB3aXRoIHN1ZGRlbiBvbnNldCBzZXZlcmUgZHlzcG5lYSwgb3h5Z2VuIHNhdHVyYXRpb24gODIlIG9uIHJvb20gYWlyLCB0cmFjaGVhbCBkZXZpYXRpb24gbm90ZWQgb24gZXhhbS4KClRFQ0hOSVFVRTogQ1Qgb2YgdGhlIGNoZXN0IHdpdGhvdXQgaW50cmF2ZW5vdXMgY29udHJhc3QuCgpGSU5ESU5HUzoKUExFVVJBTCBTUEFDRTogVGhlcmUgaXMgYSBsYXJnZSByaWdodC1zaWRlZCBwbmV1bW90aG9yYXggb2NjdXB5aW5nIGFwcHJveGltYXRlbHkgNjUlIG9mIHRoZSByaWdodCBoZW1pdGhvcmF4LiBUaGUgcmlnaHQgbHVuZyBpcyBjb2xsYXBzZWQgdG8gdGhlIGhpbHVtLiBUaGUgbWVkaWFzdGludW0gaXMgc2hpZnRlZCBzaWduaWZpY2FudGx5IHRvIHRoZSBsZWZ0LiBUaGUgdHJhY2hlYSBkZXZpYXRlcyBsZWZ0d2FyZCBhdCB0aGUgbGV2ZWwgb2YgdGhlIGNhcmluYS4gVGhlIHJpZ2h0IGhlbWlkaWFwaHJhZ20gaXMgZGVwcmVzc2VkLiBUaGVyZSBpcyBubyBsZWZ0LXNpZGVkIHBsZXVyYWwgZWZmdXNpb24gb3IgcG5ldW1vdGhvcmF4LgoKSEVBUlQ6IFRoZSBjYXJkaWFjIHNpbGhvdWV0dGUgYXBwZWFycyBjb21wcmVzc2VkLiBUaGUgc3VwZXJpb3IgdmVuYSBjYXZhIGlzIG5hcnJvdywgY29uc2lzdGVudCB3aXRoIGRlY3JlYXNlZCB2ZW5vdXMgcmV0dXJuLgoKTFVOR1M6IExlZnQgbHVuZyBpcyBoeXBlcmluZmxhdGVkIGFuZCBjbGVhci4gTm8gY29uc29saWRhdGlvbi4KCklNUFJFU1NJT046CjEuIExhcmdlIHJpZ2h0LXNpZGVkIHRlbnNpb24gcG5ldW1vdGhvcmF4IHdpdGggbWVkaWFzdGluYWwgc2hpZnQgYW5kIHRyYWNoZWFsIGRldmlhdGlvbi4gSW1tZWRpYXRlIGNoZXN0IHR1YmUgZGVjb21wcmVzc2lvbiBpcyByZXF1aXJlZC4KMi4gTGVmdCBsdW5nIGNsZWFyLg==",
+            "title": "CT Chest without contrast \u2014 Radiology Report"
+          }
+        ]
       },
       "request": {
         "method": "POST",
         "url": "DiagnosticReport",
         "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-dr-001"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:77bf84e8-2993-45c7-9e24-f71a387ef57b",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "identifier": [
+          {
+            "system": "https://promptopinion.ai/critcom/demo",
+            "value": "critcom-docref-001"
+          }
+        ],
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "18748-4",
+              "display": "Diagnostic imaging study"
+            }
+          ],
+          "text": "CT Chest without contrast \u2014 Radiology Report"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:26d69714-72b7-42ef-811c-8b2ce3b6cc73"
+        },
+        "date": "2026-05-08T10:00:00+00:00",
+        "author": [
+          {
+            "reference": "urn:uuid:0c60e5ba-8bc0-4242-9e31-8bb9c2bcee87"
+          }
+        ],
+        "description": "CT Chest without contrast \u2014 finalized radiology report",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain; charset=utf-8",
+              "data": "Q0xJTklDQUwgSU5ESUNBVElPTjogNjcteWVhci1vbGQgbWFsZSB3aXRoIHN1ZGRlbiBvbnNldCBzZXZlcmUgZHlzcG5lYSwgb3h5Z2VuIHNhdHVyYXRpb24gODIlIG9uIHJvb20gYWlyLCB0cmFjaGVhbCBkZXZpYXRpb24gbm90ZWQgb24gZXhhbS4KClRFQ0hOSVFVRTogQ1Qgb2YgdGhlIGNoZXN0IHdpdGhvdXQgaW50cmF2ZW5vdXMgY29udHJhc3QuCgpGSU5ESU5HUzoKUExFVVJBTCBTUEFDRTogVGhlcmUgaXMgYSBsYXJnZSByaWdodC1zaWRlZCBwbmV1bW90aG9yYXggb2NjdXB5aW5nIGFwcHJveGltYXRlbHkgNjUlIG9mIHRoZSByaWdodCBoZW1pdGhvcmF4LiBUaGUgcmlnaHQgbHVuZyBpcyBjb2xsYXBzZWQgdG8gdGhlIGhpbHVtLiBUaGUgbWVkaWFzdGludW0gaXMgc2hpZnRlZCBzaWduaWZpY2FudGx5IHRvIHRoZSBsZWZ0LiBUaGUgdHJhY2hlYSBkZXZpYXRlcyBsZWZ0d2FyZCBhdCB0aGUgbGV2ZWwgb2YgdGhlIGNhcmluYS4gVGhlIHJpZ2h0IGhlbWlkaWFwaHJhZ20gaXMgZGVwcmVzc2VkLiBUaGVyZSBpcyBubyBsZWZ0LXNpZGVkIHBsZXVyYWwgZWZmdXNpb24gb3IgcG5ldW1vdGhvcmF4LgoKSEVBUlQ6IFRoZSBjYXJkaWFjIHNpbGhvdWV0dGUgYXBwZWFycyBjb21wcmVzc2VkLiBUaGUgc3VwZXJpb3IgdmVuYSBjYXZhIGlzIG5hcnJvdywgY29uc2lzdGVudCB3aXRoIGRlY3JlYXNlZCB2ZW5vdXMgcmV0dXJuLgoKTFVOR1M6IExlZnQgbHVuZyBpcyBoeXBlcmluZmxhdGVkIGFuZCBjbGVhci4gTm8gY29uc29saWRhdGlvbi4KCklNUFJFU1NJT046CjEuIExhcmdlIHJpZ2h0LXNpZGVkIHRlbnNpb24gcG5ldW1vdGhvcmF4IHdpdGggbWVkaWFzdGluYWwgc2hpZnQgYW5kIHRyYWNoZWFsIGRldmlhdGlvbi4gSW1tZWRpYXRlIGNoZXN0IHR1YmUgZGVjb21wcmVzc2lvbiBpcyByZXF1aXJlZC4KMi4gTGVmdCBsdW5nIGNsZWFyLg==",
+              "title": "CT Chest without contrast \u2014 Radiology Report",
+              "creation": "2026-05-08T10:00:00+00:00"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "urn:uuid:9ff024cf-507d-4d35-9ad4-5791f89d944e",
+              "display": "Source DiagnosticReport"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "POST",
+        "url": "DocumentReference",
+        "ifNoneExist": "identifier=https://promptopinion.ai/critcom/demo|critcom-docref-001"
       }
     }
   ]
